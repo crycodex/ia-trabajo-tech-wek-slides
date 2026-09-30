@@ -125,8 +125,8 @@ ${src(o.src)}`, { notes: o.n });
 function annotated(k, title, img, boxes, items, o = {}) {
   add(`${kick(k)}
 ${ttl(title)}
-<div class="annw">
-<Annotated ${img ? `src="${img}"` : ""} :boxes='${JSON.stringify(boxes)}' ${o.label ? `label="${o.label}"` : ""} />
+<div class="annw" ${o.grid ? `style="grid-template-columns:${o.grid}"` : ""}>
+<Annotated ${img ? `src="${img}"` : ""} :boxes='${JSON.stringify(boxes)}' ${o.label ? `label="${o.label}"` : ""} ${o.ratio ? `ratio="${o.ratio}"` : ""} />
 <ol class="alist">${items.map((it, i) => `<li class="${it.tone || "fix"}" v-click><b>${it.n ?? i + 1}</b><div><strong>${it.h}</strong><span>${it.p}</span></div></li>`).join("")}</ol>
 </div>
 ${src(o.src)}`, { notes: o.n });
@@ -340,6 +340,19 @@ bars("CV en la era de la IA", "Personalizar rinde el doble", [
 bars("CV en la era de la IA · Huntr T1 2026", "Menos solicitudes, mejor adaptadas", [
   { label: "Entre 11 y 20 solicitudes", val: "9,25%", pct: 9.25 }, { label: "100 o más solicitudes", val: "2,58%", pct: 2.58, color: "var(--warm)" },
 ], { src: "Huntr T1 2026 (vía The Interview Guys) · % de conversión a entrevista", n: "Menos, pero mejor." });
+cards("ATS en un minuto", "Es un buscador, no un verdugo", [
+  { n: 1, h: "Título exacto del puesto", p: "10,6x más invitaciones a entrevista" }, { n: 2, h: "Palabras de la oferta", p: "Las mismas, si son verdad" }, { n: 3, h: "Una columna, PDF con texto", p: "Sin tablas, íconos ni texto en imágenes" },
+  { n: 4, h: "Secciones estándar", p: "Resumen, Experiencia, Educación, Habilidades" }, { n: 5, h: "Nada de “etc.”", p: "Cada habilidad con su nombre" }, { n: 6, h: "Cero errores", p: "Una palabra mal escrita no aparece en la búsqueda" },
+], { cols: 3, src: "Jobscan: 99,7% de reclutadores filtra por palabras clave en su ATS", n: "Un minuto. El ATS guarda tu CV y el reclutador lo busca con palabras; si tu CV no tiene esas palabras, no aparece. Por eso importa el título exacto y la ortografía." });
+annotated("Mi CV real · bajo la lupa del ATS", "Lo que ve un ATS, y lo que ve una persona", "/img/cv-pagina1.png", [{"x": 4.5, "y": 5.6, "w": 69, "h": 2.1, "n": 1}, {"x": 4.5, "y": 7.5, "w": 58, "h": 1.9, "n": 2, "tone": "good"}, {"x": 4.2, "y": 18.9, "w": 91.5, "h": 9.6, "n": 3}, {"x": 75.3, "y": 46.1, "w": 16, "h": 2.1, "n": 4}, {"x": 8.3, "y": 50, "w": 60, "h": 1.9, "n": 4}, {"x": 8.3, "y": 55.7, "w": 62, "h": 1.9, "n": 4}, {"x": 8, "y": 94.6, "w": 71, "h": 3.8, "n": 5}, {"x": 45, "y": 42.2, "w": 9.8, "h": 2, "n": 6, "tone": "good"}], [
+  { h: "Titular", p: "Falta lo que me diferencia: AWS Community Builder · IA" },
+  { tone: "good", h: "Portafolio y LinkedIn", p: "Enlazados y visibles arriba" },
+  { h: "Resumen", p: "Empieza por el cargo, no por el resultado" },
+  { h: "Ortografía", p: "“Presecial”, “Planifique”, “capaz”: el ATS busca palabras exactas" },
+  { h: "Viñeta repetida", p: "Y tareas sin un solo número" },
+  { tone: "good", h: "Formato ATS", p: "Una columna, texto seleccionable, secciones estándar" },
+], { grid: "300px 1fr", ratio: "1275 / 1483", n: "Autocrítica con mi propio CV: más creíble que un ejemplo inventado. El contacto está oculto a propósito." });
+prompt("CV · prompt ATS", "Que la IA lea tu CV como un ATS", "\"Revisa mi CV como lo leería un ATS para esta oferta: palabras clave que faltan, secciones que no reconocería, errores de ortografía y datos que no coinciden con mi LinkedIn. No inventes nada.\"", { tips: ["Pega la oferta completa", "Pega también tu LinkedIn", "Corrige y vuelve a pedirlo"], n: "Con este prompt encontré los errores de mi propio CV." });
 statement("CV en la era de la IA", ["La IA ", { hl: "adapta y pule." }, " Los hechos los pones ", { hl: "tú." }], { ph: "Imagen: persona escribiendo su CV junto a un asistente de IA", n: "La regla de oro del CV." });
 add(`${kick("Contraejemplo (1 min)")}
 ${ttl("¿Lo contratarías?")}
@@ -424,18 +437,20 @@ cards("LinkedIn · tips que casi nadie usa", "Seis ajustes de cinco minutos", [
   { n: 1, h: "URL personalizada", p: "linkedin.com/in/tunombre, no la de números" }, { n: 2, h: "Perfil en inglés", p: "Agrega un segundo idioma al perfil" }, { n: 3, h: "Open to Work con 'remoto'", p: "Elige también el tipo de lugar de trabajo" },
   { n: 4, h: "Alertas de empleo", p: "Por rol + remoto, llegan cada día" }, { n: 5, h: "Recomendaciones concretas", p: "Pide 2–3 que mencionen un logro" }, { n: 6, h: "Comenta antes de publicar", p: "Un buen comentario también es visibilidad" },
 ], { cols: 3, n: "Todos se hacen hoy, desde el celular." });
-annotated("Tu perfil · Acerca de", "Espacio para tu captura: Acerca de", "", [], [
-  { tone: "tip", h: "Primeras dos líneas", p: "Qué haces y para quién" },
-  { tone: "tip", h: "Un logro con número", p: "El que más te enorgullece" },
-  { tone: "tip", h: "Qué buscas ahora", p: "Rol, modalidad, remoto" },
-  { tone: "tip", h: "Palabras de tus ofertas", p: "Las que te encuentra la IA" },
-], { label: "Pega tu sección Acerca de y marca las 4 zonas", n: "Reemplaza el espacio con tu captura: gen.js › annotated('Tu perfil · Acerca de'…), pon la imagen en public/img y las coordenadas de los recuadros en %." });
-annotated("Tu perfil · Destacados y experiencia", "Espacio para tu captura: Destacados", "", [], [
-  { tone: "tip", h: "Destacados", p: "3 proyectos con enlace y resultado" },
-  { tone: "tip", h: "Experiencia", p: "Verbo + acción + número" },
-  { tone: "tip", h: "Habilidades", p: "Las 5 que más piden tus ofertas" },
-  { tone: "tip", h: "Recomendaciones", p: "Que mencionen un logro concreto" },
-], { label: "Pega tus Destacados o tu Experiencia", n: "Mismo proceso que la diapositiva anterior." });
+add(`${kick("Acerca de · con mi CV real")}
+${ttl("Mismos hechos. Otro orden.")}
+<div class="mocks">
+<div class="bubble bad" v-click><small>ANTES · MI RESUMEN ACTUAL</small><p>Ingeniero de Software Full Stack con más de 5 años de experiencia, especializado en el desarrollo móvil con Flutter y web con react y VueJs. He diseñado, desarrollado y desplegado exitosamente…</p></div>
+<div class="bubble good" v-click><small>DESPUÉS · CON CLAUDE, SOLO HECHOS DEL CV</small><p>Llevo apps móviles de la idea a la tienda: 10+ publicadas en Google Play y App Store con Flutter. Fui el desarrollador full stack remoto de NeaterNotes (Boston). Hoy enseño Flutter y soy AWS Community Builder en IA.</p></div>
+</div>
+<p class="reveal" v-click>Las dos primeras líneas son lo único que se ve antes de “ver más”.</p>`, { notes: "Nada inventado: todo sale del CV. Solo se reordenó para abrir con el resultado. Se hizo con el prompt 3 (Acerca de)." });
+add(`${kick("Experiencia · con mi CV real")}
+${ttl("De tarea a logro")}
+<div class="mocks">
+<div class="bubble bad" v-click><small>ANTES · NEATERNOTES</small><p>Desarrollé una aplicación móvil centrada en el usuario utilizando Flutter, aplicando principios de diseño escalable y mantenible.</p></div>
+<div class="bubble good" v-click><small>DESPUÉS</small><p>Lancé la app de NeaterNotes en Google Play y App Store con Flutter y Firebase, con suscripciones premium en RevenueCat y Stripe: <b class="hl">[N usuarios · N% conversión]</b>.</p></div>
+</div>
+<p class="reveal" v-click>Los corchetes los llenas tú con tu dato real. Si no lo tienes, no lo inventes.</p>`, { notes: "El 'después' usa solo hechos del CV. El número falta a propósito: es el que tengo que buscar yo. Ese es el mensaje." });
 add(`${kick("LinkedIn en 2026 · dónde postular")}
 <div class="two"><div><Num v="6,87%" class="num" style="font-size:120px" /><div class="lab">conversión a entrevista en la web de la empresa</div></div>
 <div class="doors">
@@ -610,6 +625,7 @@ ${ttl("Imágenes")}
 <p style="color:var(--soft);margin-top:18px;max-width:760px">El código QR abre linkedin.com/in/isnotcristhianr.</p>`, { notes: "Ya no se usan las fotos de stock. No hace falta atribución CC." });
 // Diapositivas ocultas para la versión de 45 min (hide: true). Borra una línea para volver a mostrarla.
 const HIDE = [
+  "Los hechos los pones <span class=\"hl\">tú.</span>",
   "IDEA PARA LLEVARTE · BLOQUE 1",
   "IDEA PARA LLEVARTE · BLOQUE 2",
   "IDEA PARA LLEVARTE · BLOQUE 3",

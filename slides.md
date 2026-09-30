@@ -954,6 +954,55 @@ Menos, pero mejor.
 layout: anim
 ---
 
+<div class="kick">ATS EN UN MINUTO</div>
+<div class="tt">Es un buscador, no un verdugo</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="n">1</div><div class="h">Título exacto del puesto</div><div class="p">10,6x más invitaciones a entrevista</div></div>
+<div class="card " v-click><div class="n">2</div><div class="h">Palabras de la oferta</div><div class="p">Las mismas, si son verdad</div></div>
+<div class="card " v-click><div class="n">3</div><div class="h">Una columna, PDF con texto</div><div class="p">Sin tablas, íconos ni texto en imágenes</div></div>
+<div class="card " v-click><div class="n">4</div><div class="h">Secciones estándar</div><div class="p">Resumen, Experiencia, Educación, Habilidades</div></div>
+<div class="card " v-click><div class="n">5</div><div class="h">Nada de “etc.”</div><div class="p">Cada habilidad con su nombre</div></div>
+<div class="card " v-click><div class="n">6</div><div class="h">Cero errores</div><div class="p">Una palabra mal escrita no aparece en la búsqueda</div></div>
+</div>
+<div class="src">Jobscan: 99,7% de reclutadores filtra por palabras clave en su ATS</div>
+
+<!--
+Un minuto. El ATS guarda tu CV y el reclutador lo busca con palabras; si tu CV no tiene esas palabras, no aparece. Por eso importa el título exacto y la ortografía.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">MI CV REAL · BAJO LA LUPA DEL ATS</div>
+<div class="tt">Lo que ve un ATS, y lo que ve una persona</div>
+<div class="annw" style="grid-template-columns:300px 1fr">
+<Annotated src="/img/cv-pagina1.png" :boxes='[{"x":4.5,"y":5.6,"w":69,"h":2.1,"n":1},{"x":4.5,"y":7.5,"w":58,"h":1.9,"n":2,"tone":"good"},{"x":4.2,"y":18.9,"w":91.5,"h":9.6,"n":3},{"x":75.3,"y":46.1,"w":16,"h":2.1,"n":4},{"x":8.3,"y":50,"w":60,"h":1.9,"n":4},{"x":8.3,"y":55.7,"w":62,"h":1.9,"n":4},{"x":8,"y":94.6,"w":71,"h":3.8,"n":5},{"x":45,"y":42.2,"w":9.8,"h":2,"n":6,"tone":"good"}]'  ratio="1275 / 1483" />
+<ol class="alist"><li class="fix" v-click><b>1</b><div><strong>Titular</strong><span>Falta lo que me diferencia: AWS Community Builder · IA</span></div></li><li class="good" v-click><b>2</b><div><strong>Portafolio y LinkedIn</strong><span>Enlazados y visibles arriba</span></div></li><li class="fix" v-click><b>3</b><div><strong>Resumen</strong><span>Empieza por el cargo, no por el resultado</span></div></li><li class="fix" v-click><b>4</b><div><strong>Ortografía</strong><span>“Presecial”, “Planifique”, “capaz”: el ATS busca palabras exactas</span></div></li><li class="fix" v-click><b>5</b><div><strong>Viñeta repetida</strong><span>Y tareas sin un solo número</span></div></li><li class="good" v-click><b>6</b><div><strong>Formato ATS</strong><span>Una columna, texto seleccionable, secciones estándar</span></div></li></ol>
+</div>
+
+<!--
+Autocrítica con mi propio CV: más creíble que un ejemplo inventado. El contacto está oculto a propósito.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">CV · PROMPT ATS</div>
+<div class="tt">Que la IA lea tu CV como un ATS</div>
+<div class="pwrap"><div class="prompt">"Revisa mi CV como lo leería un ATS para esta oferta: palabras clave que faltan, secciones que no reconocería, errores de ortografía y datos que no coinciden con mi LinkedIn. No inventes nada."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Pega la oferta completa</div></div><div class="card" v-click><div class="p" style="margin:0">Pega también tu LinkedIn</div></div><div class="card" v-click><div class="p" style="margin:0">Corrige y vuelve a pedirlo</div></div></div>
+
+<!--
+Con este prompt encontré los errores de mi propio CV.
+-->
+
+---
+layout: anim
+hide: true
+---
+
 <div class="kick">CV EN LA ERA DE LA IA</div>
 <div class="two"><div class="st" >La IA <span class="hl">adapta y pule.</span> Los hechos los pones <span class="hl">tú.</span></div><div class="pic "><img src="/img/cv-ai.jpg" alt="persona escribiendo su CV junto a un asistente de IA"></div></div>
 
@@ -1140,8 +1189,8 @@ layout: anim
 
 <div class="kick">MI PERFIL REAL · LO QUE YA FUNCIONA</div>
 <div class="tt">Un perfil que se entiende en 5 segundos</div>
-<div class="annw">
-<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":5,"y":3,"w":92,"h":39,"n":1,"tone":"good"},{"x":7,"y":23,"w":19.5,"h":32,"n":2,"tone":"good"},{"x":7,"y":62,"w":39.5,"h":6.2,"n":3,"tone":"good"},{"x":65.5,"y":61,"w":23.5,"h":17.5,"n":4,"tone":"good"}]'  />
+<div class="annw" >
+<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":5,"y":3,"w":92,"h":39,"n":1,"tone":"good"},{"x":7,"y":23,"w":19.5,"h":32,"n":2,"tone":"good"},{"x":7,"y":62,"w":39.5,"h":6.2,"n":3,"tone":"good"},{"x":65.5,"y":61,"w":23.5,"h":17.5,"n":4,"tone":"good"}]'   />
 <ol class="alist"><li class="good" v-click><b>1</b><div><strong>Banner con propuesta</strong><span>Dice qué haces y dónde encontrarte</span></div></li><li class="good" v-click><b>2</b><div><strong>Foto con rostro claro</strong><span>Cercana, bien iluminada, sin filtros</span></div></li><li class="good" v-click><b>3</b><div><strong>Nombre con marca</strong><span>(cry.code) hace que te encuentren</span></div></li><li class="good" v-click><b>4</b><div><strong>Empresa y universidad</strong><span>Contexto inmediato para el reclutador</span></div></li></ol>
 </div>
 
@@ -1155,8 +1204,8 @@ layout: anim
 
 <div class="kick">MI PERFIL REAL · LO QUE MEJORARÍA</div>
 <div class="tt">Cuatro arreglos de cinco minutos</div>
-<div class="annw">
-<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":7,"y":68.6,"w":56,"h":8.8,"n":1},{"x":7,"y":77.4,"w":41.5,"h":4.8,"n":2},{"x":7,"y":82.6,"w":33.5,"h":4.8,"n":3},{"x":7,"y":89,"w":18.2,"h":7.4,"n":4}]'  />
+<div class="annw" >
+<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":7,"y":68.6,"w":56,"h":8.8,"n":1},{"x":7,"y":77.4,"w":41.5,"h":4.8,"n":2},{"x":7,"y":82.6,"w":33.5,"h":4.8,"n":3},{"x":7,"y":89,"w":18.2,"h":7.4,"n":4}]'   />
 <ol class="alist"><li class="fix" v-click><b>1</b><div><strong>Titular</strong><span>“Comunity” → “Community”. Abre con el rol que buscas y suma una prueba: 20+ apps</span></div></li><li class="fix" v-click><b>2</b><div><strong>Ubicación</strong><span>Ibarra está bien. Suma “remoto” como tipo de trabajo en Open to Work</span></div></li><li class="fix" v-click><b>3</b><div><strong>Visibilidad</strong><span>1.362 seguidores: publica una vez por semana lo que construyes</span></div></li><li class="fix" v-click><b>4</b><div><strong>“Tengo interés en…”</strong><span>Activa Open to Work visible solo para reclutadores</span></div></li></ol>
 </div>
 
@@ -1320,30 +1369,32 @@ Todos se hacen hoy, desde el celular.
 layout: anim
 ---
 
-<div class="kick">TU PERFIL · ACERCA DE</div>
-<div class="tt">Espacio para tu captura: Acerca de</div>
-<div class="annw">
-<Annotated  :boxes='[]' label="Pega tu sección Acerca de y marca las 4 zonas" />
-<ol class="alist"><li class="tip" v-click><b>1</b><div><strong>Primeras dos líneas</strong><span>Qué haces y para quién</span></div></li><li class="tip" v-click><b>2</b><div><strong>Un logro con número</strong><span>El que más te enorgullece</span></div></li><li class="tip" v-click><b>3</b><div><strong>Qué buscas ahora</strong><span>Rol, modalidad, remoto</span></div></li><li class="tip" v-click><b>4</b><div><strong>Palabras de tus ofertas</strong><span>Las que te encuentra la IA</span></div></li></ol>
+<div class="kick">ACERCA DE · CON MI CV REAL</div>
+<div class="tt">Mismos hechos. Otro orden.</div>
+<div class="mocks">
+<div class="bubble bad" v-click><small>ANTES · MI RESUMEN ACTUAL</small><p>Ingeniero de Software Full Stack con más de 5 años de experiencia, especializado en el desarrollo móvil con Flutter y web con react y VueJs. He diseñado, desarrollado y desplegado exitosamente…</p></div>
+<div class="bubble good" v-click><small>DESPUÉS · CON CLAUDE, SOLO HECHOS DEL CV</small><p>Llevo apps móviles de la idea a la tienda: 10+ publicadas en Google Play y App Store con Flutter. Fui el desarrollador full stack remoto de NeaterNotes (Boston). Hoy enseño Flutter y soy AWS Community Builder en IA.</p></div>
 </div>
+<p class="reveal" v-click>Las dos primeras líneas son lo único que se ve antes de “ver más”.</p>
 
 <!--
-Reemplaza el espacio con tu captura: gen.js › annotated('Tu perfil · Acerca de'…), pon la imagen en public/img y las coordenadas de los recuadros en %.
+Nada inventado: todo sale del CV. Solo se reordenó para abrir con el resultado. Se hizo con el prompt 3 (Acerca de).
 -->
 
 ---
 layout: anim
 ---
 
-<div class="kick">TU PERFIL · DESTACADOS Y EXPERIENCIA</div>
-<div class="tt">Espacio para tu captura: Destacados</div>
-<div class="annw">
-<Annotated  :boxes='[]' label="Pega tus Destacados o tu Experiencia" />
-<ol class="alist"><li class="tip" v-click><b>1</b><div><strong>Destacados</strong><span>3 proyectos con enlace y resultado</span></div></li><li class="tip" v-click><b>2</b><div><strong>Experiencia</strong><span>Verbo + acción + número</span></div></li><li class="tip" v-click><b>3</b><div><strong>Habilidades</strong><span>Las 5 que más piden tus ofertas</span></div></li><li class="tip" v-click><b>4</b><div><strong>Recomendaciones</strong><span>Que mencionen un logro concreto</span></div></li></ol>
+<div class="kick">EXPERIENCIA · CON MI CV REAL</div>
+<div class="tt">De tarea a logro</div>
+<div class="mocks">
+<div class="bubble bad" v-click><small>ANTES · NEATERNOTES</small><p>Desarrollé una aplicación móvil centrada en el usuario utilizando Flutter, aplicando principios de diseño escalable y mantenible.</p></div>
+<div class="bubble good" v-click><small>DESPUÉS</small><p>Lancé la app de NeaterNotes en Google Play y App Store con Flutter y Firebase, con suscripciones premium en RevenueCat y Stripe: <b class="hl">[N usuarios · N% conversión]</b>.</p></div>
 </div>
+<p class="reveal" v-click>Los corchetes los llenas tú con tu dato real. Si no lo tienes, no lo inventes.</p>
 
 <!--
-Mismo proceso que la diapositiva anterior.
+El 'después' usa solo hechos del CV. El número falta a propósito: es el que tengo que buscar yo. Ese es el mensaje.
 -->
 
 ---
