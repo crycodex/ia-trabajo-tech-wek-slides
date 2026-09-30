@@ -125,11 +125,21 @@ ${ph("Imagen de portada / collage tech")}
 
 add(`${kick("Antes de empezar")}
 ${ttl("¿Quién les habla?")}
-<div class="two" style="grid-template-columns:260px 1fr;align-items:start">
-<img src="/foto.jpg" style="width:260px;height:340px;object-fit:cover;border-radius:14px">
-<div class="grid" style="gap:16px">
-${[["20+", "apps móviles publicadas"], ["AWS", "Community Builder"], ["Global", "startups y empresas"]].map(([b, l]) => `<div class="card" v-click style="display:flex;align-items:center;gap:26px"><div class="bn" style="margin:0;min-width:130px">${b}</div><div class="h" style="font-weight:400;font-size:20px">${l}</div></div>`).join("")}
-</div></div>`, { notes: "Presentación breve (1 min). Máximo 3 datos." });
+<div class="who">
+<img src="/foto.jpg" alt="Cristhian Recalde">
+<div>
+<p class="who-k">Cristhian Recalde · @cry.code</p>
+<p class="who-line">Desarrollador de software web y móvil, también IsnotCristhian. Creo contenido para crecer en esta industria y para reducir la brecha digital en Ecuador.</p>
+<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+${[
+  ["2023", "Mención de honor, TuApp · startup SwapMe"],
+  ["Quito", "comunidad de desarrolladores de Google"],
+  ["Video", "YouTube · Software & Development"],
+  ["20+", "apps publicadas · AWS Community Builder"],
+].map(([b, l]) => `<div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">${b}</div><div class="h" style="font-weight:500;font-size:15px">${l}</div></div>`).join("")}
+</div>
+</div>
+</div>`, { notes: "Presentación (1 min). Bio del portafolio: IsnotCristhian, desarrollador web/móvil, contenido para crecer y reducir la brecha en Ecuador. Mención de honor TuApp 2023 con SwapMe. Comunidad de desarrolladores de Google Quito. YouTube Software & Development. Cerrar con 20+ apps y AWS Community Builder." });
 
 add(`${kick("Pregunta a la sala")}
 <div class="two"><div><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div><p style="color:var(--muted);margin-top:26px">Cuenta las manos. Al final volvemos a preguntar.</p></div>${ph("Público levantando la mano")}</div>`, { notes: "Cuenta las manos. Al final de la charla volvemos a preguntar (2 min)." });
@@ -207,7 +217,7 @@ statpair("Ecuador · la oportunidad", "Talento en IA: hay más demanda que ofert
   { big: "7 de 10", h: "empresas no encuentran talento en IA", cls: "hi", src: "CITEC · Primicias" }, { big: "19,5%", h: "de la PEA ya adopta IA", cls: "hi", src: "Mentinno · El Diario · T1 2026" },
 ], { n: "La escasez es la oportunidad." });
 split("Ecuador · oportunidad remota", "Misma hora que EE. UU. y usamos dólar", ["UTC-5: casi la misma hora que la costa este", "Dólar: sin fricción de pagos", "Tendencia, no cifra"], "Mapa: Ecuador ↔ EE. UU. (husos horarios)", { src: "Fuentes: blogs de agencias de contratación; úsalo como tendencia.", n: "No dar cifras: las fuentes son blogs." });
-split("Historia local", "Francisco Arias, ingeniero en marketing", ["Se sintió obsoleto", "Fue escéptico", "Adoptó la IA para potenciar sus ideas"], "Foto / captura de la nota de Primicias", { left: true, n: "Personalizar con una historia ecuatoriana." });
+split("Historia local", "Francisco Arias, ingeniero en marketing", ["Se sintió obsoleto", "Fue escéptico", "Adoptó la IA para potenciar sus ideas"], "Foto / captura de la nota de Primicias", { left: true, src: "Primicias · ilustración de la charla, no es la foto de la nota", n: "Personalizar con una historia ecuatoriana. La imagen ilustra el arco, no reemplaza la nota." });
 statement("Idea para llevarte · bloque 2", ["El puesto junior cambió,", { hl: "no desapareció." }], { ph: "Imagen: persona subiendo por una escalera nueva", n: "Cierre del bloque." });
 
 // =====================================================================
@@ -254,8 +264,11 @@ bars("CV en la era de la IA · Huntr T1 2026", "Menos solicitudes, mejor adaptad
 statement("CV en la era de la IA", ["La IA ", { hl: "adapta y pule." }, " Los hechos los pones ", { hl: "tú." }], { ph: "Imagen: persona escribiendo su CV junto a un asistente de IA", n: "La regla de oro del CV." });
 add(`${kick("Contraejemplo (1 min)")}
 ${ttl("¿Lo contratarías?")}
-${ph("Captura de un CV / mensaje de LinkedIn 100% genérico hecho con IA", "wide")}
-${src("Resume Now: 62% de empleadores rechaza CV con IA no personalizados.")}`, { notes: "Mostrar un CV o mensaje 100% genérico hecho con IA. Suele provocar risas." });
+<div class="mocks">
+<div class="bubble bad" v-click><small>MENSAJE GENÉRICO</small><p>Estimado reclutador, soy un profesional altamente motivado, proactivo y orientado a resultados, con pasión por los desafíos y excelente trabajo en equipo. Quedo atento a sus comentarios.</p></div>
+<div class="bubble good" v-click><small>LO QUE SÍ SE LEE</small><p>Aumenté 40% el alcance de Instagram en 6 meses con un calendario de contenido. Busco el equipo donde pueda repetir ese número.</p></div>
+</div>
+${src("Ejemplo de la charla · Resume Now: 62% de empleadores rechaza CV con IA no personalizados.")}`, { notes: "Leer el genérico en voz alta: suele provocar risas. El segundo es el mismo ejemplo del bloque. No presentarlo como un caso real con nombre." });
 statpair("Lo genérico se castiga", "Reclutadores y gerentes lo detectan", [
   { big: "62%", h: "de empleadores rechaza CV hechos con IA sin personalizar", cls: "bad" }, { big: "49%", h: "de gerentes descarta los que identifica como generados por IA", cls: "bad" },
 ], { src: "Resume Now · Resume.io (vía KraftCV)", n: "Fuentes secundarias: citarlas como tal." });
@@ -265,17 +278,44 @@ cards("CV en la era de la IA", "Siete reglas para tu CV", [
 ], { cols: 4, n: "Repasar rápido; los prompts vienen en las demos." });
 versus("CV en la era de la IA", "De responsabilidad a logro", { h: "Antes", big: "\"Encargado de redes sociales.\"", fs: 28 }, { h: "Después", big: "\"Aumenté 40% el alcance de Instagram en 6 meses con un calendario de contenido.\"", fs: 24 }, { n: "Usar el ejemplo real que vas a mostrar en la demo." });
 prompt("Demo 1 · CV contra la oferta", "Pega una oferta real y tu CV base", "\"Compara mi CV con esta oferta. Dime qué falta, qué sobra y qué palabras clave debo usar. No inventes nada.\"", { tips: ["Usa una oferta real de un portal ecuatoriano", "Muestra el antes y después de un logro", "Si falla el internet: capturas de respaldo"], n: "3–4 minutos." });
-demoScreen("Demo 1 · captura de respaldo", "Captura: CV + oferta + respuesta de la IA", "Pega aquí la captura por si falla la conexión.");
+add(`${kick("Demo 1 · si falla el internet")}
+${ttl("La IA compara. Tú pones el número.")}
+<div class="mocks">
+<div class="bubble bad"><small>OFERTA · ANTES</small><p>Analista de marketing digital.<br>En el CV: “Encargado de redes sociales.”</p></div>
+<div class="bubble good"><small>RESPUESTA DE LA IA</small><p>Falta el resultado. No lo invento. Pregúntale al candidato: ¿cuánto creció, en cuánto tiempo, con qué?</p></div>
+</div>`, { notes: "Respaldo de la demo 1. Mismo ejemplo de Instagram: +40% en 6 meses." });
 prompt("Demo 2 · La IA te entrevista", "Para encontrar tus logros medibles", "\"Hazme preguntas, una a la vez, sobre mi último trabajo hasta encontrar 3 logros medibles. No inventes nada.\"", { tips: ["Un voluntario del público responde", "Los logros salen de su experiencia real", "Nunca dejes que invente"], n: "3–4 minutos con voluntario." });
-demoScreen("Demo 2 · captura de respaldo", "Captura: conversación con logros encontrados", "Respaldo de la demo 2.");
+add(`${kick("Demo 2 · si falla el internet")}
+${ttl("Una pregunta a la vez")}
+<div class="chat">
+<div class="bubble ai" v-click><small>IA</small><p>¿Qué cambió gracias a tu trabajo, en un número?</p></div>
+<div class="bubble me" v-click><small>TÚ</small><p>El alcance de Instagram. No sé el porcentaje exacto.</p></div>
+<div class="bubble ai" v-click><small>IA</small><p>No lo invento. ¿Tienes el dato de seguidores o de alcance, y en cuántos meses?</p></div>
+<div class="bubble me goodline" v-click><small>LOGRO</small><p>+40% de alcance en 6 meses. Ahora sí se puede escribir.</p></div>
+</div>`, { notes: "Respaldo de la demo 2. El número sale de la persona, no del modelo." });
 statement("LinkedIn en 2026", ["Tu perfil es un documento que ", { hl: "primero lee una máquina." }], { ph: "Imagen: perfil de LinkedIn con lupa", n: "Recordar el agente reclutador y la búsqueda semántica." });
-split("LinkedIn en 2026 · Titular", "Rol + especialidad + prueba de valor", ["\"Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas\"", "Es lo que aparece en los resultados"], "Captura de un buen titular en LinkedIn", { n: "El titular es lo más importante." });
-demoScreen("Demo 3 · Tres titulares, tú votas", "Tres versiones del titular generadas por la IA (que el público vote)", "3–4 minutos. Mismo perfil, tres versiones. Votación levantando la mano.");
+add(`${kick("LinkedIn en 2026 · Titular")}
+<div class="two"><div class="side"><div class="tt">Rol + especialidad + prueba de valor</div><ul class="lst"><li v-click>Es lo primero que aparece en la búsqueda</li><li v-click>Sin prueba, el titular es un adjetivo</li></ul></div>
+<div class="pcard"><div class="av"></div><div><div class="nm">Cristhian Recalde</div><div class="hd">Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas</div><div class="meta">Ibarra, Ecuador · @cry.code</div></div></div></div>`, { notes: "El titular es lo más importante. Este es el ejemplo real del speaker." });
+add(`${kick("Demo 3 · la sala vota")}
+${ttl("Mismo perfil. Tres titulares. ¿Cuál abrirías?")}
+<div class="votes">
+<div class="opt" v-click><b>A</b><span>Desarrollador</span></div>
+<div class="opt" v-click><b>B</b><span>Apasionado por la tecnología y el trabajo en equipo</span></div>
+<div class="opt" v-click><b>C</b><span>Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas</span></div>
+</div>
+<p class="reveal" v-click>C gana: tiene rol, especialidad y una prueba.</p>`, { notes: "3–4 minutos. Votación levantando la mano. El clic final revela por qué C gana. No lo adelantes." });
 cards("LinkedIn en 2026", "Tu perfil en seis partes", [
   { n: 1, h: "Foto y banner", p: "Muchas más visitas y mensajes" }, { n: 2, h: "Habilidades", p: "5 o más: hasta 17x más visitas" }, { n: 3, h: "Acerca de", p: "Lo mejor en las primeras líneas" },
   { n: 4, h: "Destacados", p: "Tu portafolio dentro de LinkedIn" }, { n: 5, h: "Experiencia", p: "Con logros medibles" }, { n: 6, h: "Open to Work", p: "Visible solo para reclutadores" },
 ], { cols: 3, n: "Foto: las cifras (14x–21x) son inconsistentes entre fuentes; presentar como principio, sin número." });
-stat("LinkedIn en 2026 · dónde postular", "6,87%", "conversión a entrevista al postular en la web de la empresa (vs 1,95% en LinkedIn)", { src: "Huntr · 1,24 millones de postulaciones (vía Lumyhired)", ph: "Captura: botón 'Solicitud sencilla'", n: "Usa LinkedIn para descubrir y conectar, no solo para 'Solicitud sencilla'." });
+add(`${kick("LinkedIn en 2026 · dónde postular")}
+<div class="two"><div><Num v="6,87%" class="num" style="font-size:120px" /><div class="lab">conversión a entrevista en la web de la empresa</div></div>
+<div class="doors">
+<div class="door bad" v-click><div class="bn" style="color:var(--warm)">1,95%</div><div class="h">Solicitud sencilla</div><div class="p">LinkedIn te descubre. El botón fácil te entierra.</div></div>
+<div class="door hi" v-click><div class="bn">6,87%</div><div class="h">Web de la empresa</div><div class="p">Menos gente. Más señal.</div></div>
+</div></div>
+${src("Huntr · 1,24 millones de postulaciones (vía Lumyhired)")}`, { notes: "Usa LinkedIn para descubrir y conectar, no solo para 'Solicitud sencilla'." });
 cards("Entrevistas en 2026", "Prepararte con IA: sí. Que responda por ti: no.", [
   { h: "Sí: úsala para prepararte", p: "Preguntas probables · simulación por voz · historias STAR", hi: true }, { h: "No: que piense por ti en vivo", p: "Es fraude y cada vez más empresas lo detectan", bad: true },
 ], { n: "Línea ética clara." });
@@ -286,7 +326,15 @@ flow("Entrevistas en 2026", "Cómo prepararte con IA", [
   { h: "Pega la oferta", p: "Pide las 10 preguntas más probables" }, { h: "Simula por voz", p: "Que te pregunte y repregunte" }, { h: "Historias STAR", p: "5 o 6 reales, practicadas" },
   { h: "Investiga la empresa", p: "Productos, noticias, problemas" }, { h: "Ensaya sobre IA", p: "¿Cómo la usas? Con ejemplo" },
 ], { n: "Sexto paso, de viva voz: prepara preguntas inteligentes para el entrevistador." });
-demoScreen("Demo 4 · Simulación de entrevista por voz", "Captura: la IA entrevista y califica con STAR", "3–4 minutos. Usa la oferta de la demo 1.");
+add(`${kick("Demo 4 · si falla el internet")}
+${ttl("La IA te entrevista. Tú respondes en STAR.")}
+<div class="star">
+<div class="card" v-click><div class="n">S</div><div class="h">Situación</div><div class="p">El alcance de la cuenta estaba plano.</div></div>
+<div class="card" v-click><div class="n">T</div><div class="h">Tarea</div><div class="p">Ordenar qué se publicaba y cuándo.</div></div>
+<div class="card" v-click><div class="n">A</div><div class="h">Acción</div><div class="p">Armé un calendario y medí cada pieza.</div></div>
+<div class="card hi" v-click><div class="n">R</div><div class="h">Resultado</div><div class="p">+40% de alcance en 6 meses.</div></div>
+</div>
+<p class="reveal">Si falta la R, la historia no cierra.</p>`, { notes: "3–4 minutos en vivo con voz. Esta diapositiva es el respaldo, con el mismo ejemplo de la charla." });
 statement("Entrevistas en 2026", ["Si la IA piensa por ti en la entrevista, ", { hl: "el día uno en el trabajo se va a notar." }], { fs: 44, n: "Frase para la charla." });
 statement("Idea para llevarte · bloque 4", ["La IA adapta y pule;", { hl: "los hechos los pones tú." }], { ph: "Imagen: manos humanas y robóticas escribiendo juntas", n: "Cierre del bloque de demos." });
 
@@ -306,7 +354,12 @@ cards("Marca personal práctica", "No hace falta ser influencer", [
   { n: 4, h: "Comunidades", p: "Meetups, hackathons, eventos" }, { n: 5, h: "Mensajes con motivo", p: "Menciona algo específico de la persona" }, { n: 6, h: "Coherencia", p: "CV, LinkedIn y portafolio: la misma historia" },
 ], { cols: 3, n: "Cada fila es una acción concreta." });
 split("Marca personal", "Un proyecto pequeño con IA que resuelva un problema local", ["Problema", "Solución", "Resultado"], "Captura de un portafolio o repo", { n: "Estructura de cada proyecto." });
-split("Networking", "Un mensaje con motivo concreto vale más que 100 genéricos", ["Menciona algo que publicó o hizo", "Nada de mensajes de IA sin revisar"], "Ejemplo: mensaje genérico vs personalizado", { left: true, n: "Se nota cuando lo escribió una IA." });
+add(`${kick("Networking")}
+${ttl("Un motivo concreto vale más que 100 genéricos")}
+<div class="mocks">
+<div class="bubble bad" v-click><small>GENÉRICO</small><p>Hola, vi tu perfil y me encantaría conectar. Soy un desarrollador apasionado en busca de nuevas oportunidades. Quedo atento.</p></div>
+<div class="bubble good" v-click><small>CON MOTIVO</small><p>Hola Ana. Tu nota sobre contratar juniors en Quito me dejó pensando. Publiqué una app de rutas para el transporte de Ibarra. ¿Te la resumo en tres líneas?</p></div>
+</div>`, { notes: "Se nota cuando lo escribió una IA. El segundo menciona algo concreto de la otra persona. Ejemplo, no un mensaje enviado." });
 cards("Tu plan", "30 días · 10 horas por semana", [
   { n: "Sem 1", h: "Base" }, { n: "Sem 2", h: "CV y LinkedIn" }, { n: "Sem 3", h: "Prueba pública" }, { n: "Sem 4", h: "Red y postulaciones" },
 ], { n: "Ver las cuatro semanas una por una." });
@@ -330,7 +383,7 @@ cards("Preguntas difíciles · Q&A", "Respuestas preparadas", [
   { h: "Soy de humanidades, ¿me sirve?", p: "Las habilidades humanas crecen al ritmo de las técnicas. Aprende a usar las herramientas en tu campo; no hace falta programar." },
 ], { n: "No mostrar hasta que pregunten. Sirve de respaldo." });
 add(`${kick("Gracias")}
-<div class="two"><div><div class="st" style="font-size:56px">¿Preguntas? Hablemos.</div><div class="hl" style="font-size:34px;font-weight:700;margin-top:26px">@cry.code</div><p style="color:var(--soft);margin-top:24px;max-width:420px">Escanea y llévate los prompts, el plan de 30 días y las fuentes.</p></div>${ph("QR a la versión web")}</div>`, { notes: "Preguntas y contacto." });
+<div class="two"><div><div class="st" style="font-size:52px">¿Preguntas? Hablemos.</div><div class="hl" style="font-size:32px;font-weight:700;margin-top:22px">@cry.code</div><p style="color:var(--soft);margin-top:18px;max-width:460px">Escanea y escríbeme. Por ahí te paso los prompts, el plan de 30 días y las fuentes.</p><p style="color:var(--muted);margin-top:14px;font-size:15px">linkedin.com/in/isnotcristhianr</p></div><div class="qrbox"><img src="/img/qr.png" alt="Código QR al LinkedIn de Cristhian Recalde"></div></div>`, { notes: "El QR abre el LinkedIn. Los prompts se envían por ese contacto: todavía no hay una página pública con el paquete." });
 add(`${kick("Anexo")}
 ${ttl("Fuentes")}
 <div class="two" style="align-items:start;grid-template-columns:1fr 1fr">
@@ -340,9 +393,9 @@ ${ttl("Fuentes")}
 
 
 add(`${kick("Anexo")}
-${ttl("Créditos de imágenes")}
-<ul class="lst" style="font-size:12px;columns:2;column-gap:40px;margin-top:0">${Object.values(IMG).sort((a, b) => a.slide - b.slide).map(i => `<li style="break-inside:avoid">Diap. ${i.slide}: ${i.title || "Sin título"} — ${i.by || "Autor desconocido"} (${i.lic.toUpperCase()})</li>`).join("")}</ul>
-${src("Fuentes: Openverse / Flickr / Wikimedia. CC0 y dominio público no requieren atribución; CC BY sí (aparece también en cada foto).")}`, { notes: "Créditos de las imágenes." });
+${ttl("Imágenes")}
+<p style="font-size:22px;max-width:760px;line-height:1.4">Ilustraciones originales de esta charla, hechas para el relato. La foto de la presentación es de Cristhian Recalde.</p>
+<p style="color:var(--soft);margin-top:18px;max-width:760px">El código QR abre linkedin.com/in/isnotcristhianr.</p>`, { notes: "Ya no se usan las fotos de stock. No hace falta atribución CC." });
 // =====================================================================
 const head = `theme: default
 title: La IA no te quitará el trabajo, pero sí te lo puede conseguir

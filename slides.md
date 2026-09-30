@@ -25,7 +25,7 @@ layout: anim
 <p style="font-size:17px;color:var(--soft);margin-top:26px;max-width:560px">Datos reales, nuevas reglas de contratación y cómo usar la IA para conseguir empleo.</p>
 <p style="font-size:16px;font-weight:700;margin-top:30px">Cristhian Recalde · @cry.code</p>
 </div>
-<div class="pic "><img src="/img/1.jpg" alt="Imagen de portada / collage tech"></div>
+<div class="pic "><img src="/img/cover.jpg" alt="Imagen de portada / collage tech"></div>
 </div>
 
 <!--
@@ -38,14 +38,19 @@ layout: anim
 
 <div class="kick">ANTES DE EMPEZAR</div>
 <div class="tt">¿Quién les habla?</div>
-<div class="two" style="grid-template-columns:260px 1fr;align-items:start">
-<img src="/foto.jpg" style="width:260px;height:340px;object-fit:cover;border-radius:14px">
-<div class="grid" style="gap:16px">
-<div class="card" v-click style="display:flex;align-items:center;gap:26px"><div class="bn" style="margin:0;min-width:130px">20+</div><div class="h" style="font-weight:400;font-size:20px">apps móviles publicadas</div></div><div class="card" v-click style="display:flex;align-items:center;gap:26px"><div class="bn" style="margin:0;min-width:130px">AWS</div><div class="h" style="font-weight:400;font-size:20px">Community Builder</div></div><div class="card" v-click style="display:flex;align-items:center;gap:26px"><div class="bn" style="margin:0;min-width:130px">Global</div><div class="h" style="font-weight:400;font-size:20px">startups y empresas</div></div>
-</div></div>
+<div class="who">
+<img src="/foto.jpg" alt="Cristhian Recalde">
+<div>
+<p class="who-k">Cristhian Recalde · @cry.code</p>
+<p class="who-line">Desarrollador de software web y móvil, también IsnotCristhian. Creo contenido para crecer en esta industria y para reducir la brecha digital en Ecuador.</p>
+<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+<div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">2023</div><div class="h" style="font-weight:500;font-size:15px">Mención de honor, TuApp · startup SwapMe</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">Quito</div><div class="h" style="font-weight:500;font-size:15px">comunidad de desarrolladores de Google</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">Video</div><div class="h" style="font-weight:500;font-size:15px">YouTube · Software & Development</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">20+</div><div class="h" style="font-weight:500;font-size:15px">apps publicadas · AWS Community Builder</div></div>
+</div>
+</div>
+</div>
 
 <!--
-Presentación breve (1 min). Máximo 3 datos.
+Presentación (1 min). Bio del portafolio: IsnotCristhian, desarrollador web/móvil, contenido para crecer y reducir la brecha en Ecuador. Mención de honor TuApp 2023 con SwapMe. Comunidad de desarrolladores de Google Quito. YouTube Software & Development. Cerrar con 20+ apps y AWS Community Builder.
 -->
 
 ---
@@ -53,7 +58,7 @@ layout: anim
 ---
 
 <div class="kick">PREGUNTA A LA SALA</div>
-<div class="two"><div><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div><p style="color:var(--muted);margin-top:26px">Cuenta las manos. Al final volvemos a preguntar.</p></div><div class="pic "><img src="/img/3.jpg" alt="Público levantando la mano"><span class="cap">Foto: Grey World · CC BY</span></div></div>
+<div class="two"><div><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div><p style="color:var(--muted);margin-top:26px">Cuenta las manos. Al final volvemos a preguntar.</p></div><div class="pic "><img src="/img/hands.jpg" alt="Público levantando la mano"></div></div>
 
 <!--
 Cuenta las manos. Al final de la charla volvemos a preguntar (2 min).
@@ -65,7 +70,7 @@ layout: anim
 
 <div class="kick">PREGUNTA A LA SALA</div>
 <div class="st wide" style="margin:20px 0 30px">¿Quién está buscando trabajo, o lo buscará este año?</div>
-<div class="pic wide"><img src="/img/4.jpg" alt="foto de sala o emoji gigante"><span class="cap">Foto: Phillie Casablanca · CC BY</span></div>
+<div class="pic wide"><img src="/img/audience.jpg" alt="foto de sala o emoji gigante"></div>
 
 <!--
 Segunda mano: ¿quién busca trabajo o lo buscará pronto? (1 min)
@@ -109,7 +114,7 @@ layout: anim
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS</div>
-<div class="two "><div class="side"><div class="tt">Cada revolución tecnológica dio miedo</div><ul class="lst"><li v-click>Cajeros automáticos</li><li v-click>Excel</li><li v-click>Internet</li></ul></div><div class="pic "><img src="/img/7.jpg" alt="oficina antes de Excel / ATM"></div></div>
+<div class="two "><div class="side"><div class="tt">Cada revolución tecnológica dio miedo</div><ul class="lst"><li v-click>Cajeros automáticos</li><li v-click>Excel</li><li v-click>Internet</li></ul></div><div class="pic "><img src="/img/old-tech.jpg" alt="oficina antes de Excel / ATM"></div></div>
 
 <!--
 Contexto (1 min): el miedo no es nuevo. Cambia el trabajo, no desaparece.
@@ -137,7 +142,7 @@ layout: anim
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS</div>
-<div class="two"><div><Num v="39%" class="num " style="font-size:150px" /><div class="lab">de las habilidades clave van a cambiar</div></div><div class="pic "><img src="/img/9.jpg" alt="cambio de habilidades"></div></div>
+<div class="two"><div><Num v="39%" class="num " style="font-size:150px" /><div class="lab">de las habilidades clave van a cambiar</div></div><div class="pic "><img src="/img/skills.jpg" alt="cambio de habilidades"></div></div>
 <div class="src">WEF Future of Jobs 2025</div>
 
 <!--
@@ -165,7 +170,7 @@ layout: anim
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS · LATINOAMÉRICA</div>
-<div class="two"><div><Num v="26–38%" class="num " style="font-size:100px" /><div class="lab">de los empleos en la región están expuestos a IA generativa</div></div><div class="pic "><img src="/img/11.jpg" alt="Mapa de Latinoamérica"><span class="cap">Foto: thejourney1972 (South America addicted) · CC BY</span></div></div>
+<div class="two"><div><Num v="26–38%" class="num " style="font-size:100px" /><div class="lab">de los empleos en la región están expuestos a IA generativa</div></div><div class="pic "><img src="/img/latam.jpg" alt="Mapa de Latinoamérica"></div></div>
 <div class="src">OIT y Banco Mundial</div>
 
 <!--
@@ -203,7 +208,7 @@ layout: anim
 ---
 
 <div class="kick">RESPUESTA: C</div>
-<div class="two"><div><Num v="+62%" class="num " style="font-size:125px" /><div class="lab">prima salarial promedio de los empleos que piden IA</div></div><div class="pic "><img src="/img/14.jpg" alt="billete / gráfico ascendente"><span class="cap">Foto: Cooperweb · CC BY</span></div></div>
+<div class="two"><div><Num v="+62%" class="num " style="font-size:125px" /><div class="lab">prima salarial promedio de los empleos que piden IA</div></div><div class="pic "><img src="/img/salary.jpg" alt="billete / gráfico ascendente"></div></div>
 <div class="src">PwC · Global AI Jobs Barometer 2026 (57% el año anterior)</div>
 
 <!--
@@ -261,7 +266,7 @@ layout: anim
 ---
 
 <div class="kick">MICROSOFT · WORK TREND INDEX 2026</div>
-<div class="two"><div><Num v="86%" class="num " style="font-size:150px" /><div class="lab">de usuarios de IA trata su resultado como punto de partida</div></div><div class="pic "><img src="/img/18.jpg" alt="persona revisando una respuesta de IA"><span class="cap">Foto: Rawpixel Ltd · CC BY</span></div></div>
+<div class="two"><div><Num v="86%" class="num " style="font-size:150px" /><div class="lab">de usuarios de IA trata su resultado como punto de partida</div></div><div class="pic "><img src="/img/review-ai.jpg" alt="persona revisando una respuesta de IA"></div></div>
 <div class="src">Microsoft (vende herramientas de IA; dato direccionalmente correcto)</div>
 
 <!--
@@ -288,7 +293,7 @@ layout: anim
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 1</div>
-<div class="two"><div class="st" >No es el fin del empleo. <span class="hl">Es un cambio de reglas.</span></div><div class="pic "><img src="/img/20.jpg" alt="tablero de juego / reglas nuevas"><span class="cap">Foto: Felipe Skroski · CC BY</span></div></div>
+<div class="two"><div class="st" >No es el fin del empleo. <span class="hl">Es un cambio de reglas.</span></div><div class="pic "><img src="/img/rules.jpg" alt="tablero de juego / reglas nuevas"></div></div>
 
 <!--
 Idea que se llevan. Repetirla.
@@ -314,7 +319,7 @@ layout: anim
 ---
 
 <div class="kick">LA VERDAD INCÓMODA</div>
-<div class="two"><div class="st" >El primer peldaño de la escalera <span class="hl">sí se está rompiendo</span></div><div class="pic "><img src="/img/22.jpg" alt="escalera con el primer escalón roto"><span class="cap">Foto: shankar s. · CC BY</span></div></div>
+<div class="two"><div class="st" >El primer peldaño de la escalera <span class="hl">sí se está rompiendo</span></div><div class="pic "><img src="/img/broken-stair.jpg" alt="escalera con el primer escalón roto"></div></div>
 
 <!--
 Credibilidad: reconocer el riesgo real. (1 min)
@@ -325,7 +330,7 @@ layout: anim
 ---
 
 <div class="kick">LA VERDAD INCÓMODA · STANFORD</div>
-<div class="two"><div><Num v="−19%" class="num warm" style="font-size:125px" /><div class="lab">de empleo en jóvenes de 22 a 25 años en ocupaciones muy expuestas a IA</div></div><div class="pic "><img src="/img/23.jpg" alt="canario en la mina (metáfora)"><span class="cap">Foto: Majd Mohabek · CC BY</span></div></div>
+<div class="two"><div><Num v="−19%" class="num warm" style="font-size:125px" /><div class="lab">de empleo en jóvenes de 22 a 25 años en ocupaciones muy expuestas a IA</div></div><div class="pic "><img src="/img/canary.jpg" alt="canario en la mina (metáfora)"></div></div>
 <div class="src">Stanford Digital Economy Lab · 'Canaries in the Coal Mine' · revisión agosto 2026</div>
 
 <!--
@@ -352,7 +357,7 @@ layout: anim
 ---
 
 <div class="kick">LA VERDAD INCÓMODA · CASOS</div>
-<div class="two"><div><Num v="−20%" class="num warm" style="font-size:125px" /><div class="lab">desarrolladores de software de 22 a 25 años desde el pico de fines de 2022 (también atención al cliente)</div></div><div class="pic "><img src="/img/25.jpg" alt="pantalla con código"></div></div>
+<div class="two"><div><Num v="−20%" class="num warm" style="font-size:125px" /><div class="lab">desarrolladores de software de 22 a 25 años desde el pico de fines de 2022 (también atención al cliente)</div></div><div class="pic "><img src="/img/code.jpg" alt="pantalla con código"></div></div>
 <div class="src">Stanford Digital Economy Lab</div>
 
 <!--
@@ -424,7 +429,7 @@ layout: anim
 ---
 
 <div class="kick">ECUADOR · EMPLEO JUVENIL</div>
-<div class="two"><div><Num v="7,7%" class="num warm" style="font-size:125px" /><div class="lab">desempleo de jóvenes de 15 a 24 años (vs 3,1% nacional)</div></div><div class="pic "><img src="/img/30.jpg" alt="jóvenes en una feria de empleo"><span class="cap">Foto: COD Newsroom · CC BY</span></div></div>
+<div class="two"><div><Num v="7,7%" class="num warm" style="font-size:125px" /><div class="lab">desempleo de jóvenes de 15 a 24 años (vs 3,1% nacional)</div></div><div class="pic "><img src="/img/jobfair.jpg" alt="jóvenes en una feria de empleo"></div></div>
 <div class="src">INEC · mayo 2026 (citado por El Diario)</div>
 
 <!--
@@ -452,7 +457,7 @@ layout: anim
 ---
 
 <div class="kick">ECUADOR · JÓVENES</div>
-<div class="two"><div><Num v="581.046" class="num warm" style="font-size:100px" /><div class="lab">jóvenes de 15 a 24 años no estudian ni trabajan (18,25%)</div></div><div class="pic "><img src="/img/32.jpg" alt="joven con celular / sin rumbo"></div></div>
+<div class="two"><div><Num v="581.046" class="num warm" style="font-size:100px" /><div class="lab">jóvenes de 15 a 24 años no estudian ni trabajan (18,25%)</div></div><div class="pic "><img src="/img/youth.jpg" alt="joven con celular / sin rumbo"></div></div>
 <div class="src">Microdatos ENEMDU procesados por Expreso · mayo 2026</div>
 
 <!--
@@ -479,7 +484,7 @@ layout: anim
 ---
 
 <div class="kick">ECUADOR · OPORTUNIDAD REMOTA</div>
-<div class="two "><div class="side"><div class="tt">Misma hora que EE. UU. y usamos dólar</div><ul class="lst"><li v-click>UTC-5: casi la misma hora que la costa este</li><li v-click>Dólar: sin fricción de pagos</li><li v-click>Tendencia, no cifra</li></ul></div><div class="pic "><img src="/img/34.jpg" alt="Ecuador ↔ EE. UU. (husos horarios)"></div></div>
+<div class="two "><div class="side"><div class="tt">Misma hora que EE. UU. y usamos dólar</div><ul class="lst"><li v-click>UTC-5: casi la misma hora que la costa este</li><li v-click>Dólar: sin fricción de pagos</li><li v-click>Tendencia, no cifra</li></ul></div><div class="pic "><img src="/img/timezone.jpg" alt="Ecuador ↔ EE. UU. (husos horarios)"></div></div>
 <div class="src">Fuentes: blogs de agencias de contratación; úsalo como tendencia.</div>
 
 <!--
@@ -491,10 +496,11 @@ layout: anim
 ---
 
 <div class="kick">HISTORIA LOCAL</div>
-<div class="two rev"><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Foto / captura de la nota de Primicias</div></div><div class="side"><div class="tt">Francisco Arias, ingeniero en marketing</div><ul class="lst"><li v-click>Se sintió obsoleto</li><li v-click>Fue escéptico</li><li v-click>Adoptó la IA para potenciar sus ideas</li></ul></div></div>
+<div class="two rev"><div class="pic "><img src="/img/story.jpg" alt="Foto / captura de la nota de Primicias"></div><div class="side"><div class="tt">Francisco Arias, ingeniero en marketing</div><ul class="lst"><li v-click>Se sintió obsoleto</li><li v-click>Fue escéptico</li><li v-click>Adoptó la IA para potenciar sus ideas</li></ul></div></div>
+<div class="src">Primicias · ilustración de la charla, no es la foto de la nota</div>
 
 <!--
-Personalizar con una historia ecuatoriana.
+Personalizar con una historia ecuatoriana. La imagen ilustra el arco, no reemplaza la nota.
 -->
 
 ---
@@ -502,7 +508,7 @@ layout: anim
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 2</div>
-<div class="two"><div class="st" >El puesto junior cambió, <span class="hl">no desapareció.</span></div><div class="pic "><img src="/img/36.jpg" alt="persona subiendo por una escalera nueva"><span class="cap">Foto: Felipe Brandalise · CC BY</span></div></div>
+<div class="two"><div class="st" >El puesto junior cambió, <span class="hl">no desapareció.</span></div><div class="pic "><img src="/img/new-stair.jpg" alt="persona subiendo por una escalera nueva"></div></div>
 
 <!--
 Cierre del bloque.
@@ -581,7 +587,7 @@ layout: anim
 ---
 
 <div class="kick">LAS NUEVAS REGLAS · LINKEDIN</div>
-<div class="two "><div class="side"><div class="tt">El reclutador ya tiene un agente de IA</div><ul class="lst"><li v-click>LinkedIn Hiring Assistant (desde sep. 2025)</li><li v-click>Arma búsquedas y recomienda candidatos</li><li v-click>Entrevistas de filtro con IA (Hiring Pro)</li></ul></div><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Captura de LinkedIn Hiring Assistant</div></div></div>
+<div class="two "><div class="side"><div class="tt">El reclutador ya tiene un agente de IA</div><ul class="lst"><li v-click>LinkedIn Hiring Assistant (desde sep. 2025)</li><li v-click>Arma búsquedas y recomienda candidatos</li><li v-click>Entrevistas de filtro con IA (Hiring Pro)</li></ul></div><div class="pic "><img src="/img/agent.jpg" alt="Captura de LinkedIn Hiring Assistant"></div></div>
 <div class="src">Noon · HeroHunt</div>
 
 <!--
@@ -593,7 +599,7 @@ layout: anim
 ---
 
 <div class="kick">LAS NUEVAS REGLAS</div>
-<div class="two"><div class="st" >Primero te lee una <span class="hl">máquina.</span> Después, te ve una <span class="hl">persona.</span></div><div class="pic "><img src="/img/43.jpg" alt="robot leyendo un perfil"><span class="cap">Foto: dullhunk · CC BY</span></div></div>
+<div class="two"><div class="st" >Primero te lee una <span class="hl">máquina.</span> Después, te ve una <span class="hl">persona.</span></div><div class="pic "><img src="/img/robot-profile.jpg" alt="robot leyendo un perfil"></div></div>
 
 <!--
 Búsqueda semántica: entiende sinónimos y conceptos relacionados.
@@ -604,7 +610,7 @@ layout: anim
 ---
 
 <div class="kick">LAS NUEVAS REGLAS · PRESENCIAL</div>
-<div class="two"><div><Num v="72,4%" class="num " style="font-size:125px" /><div class="lab">de líderes de reclutamiento entrevista en persona para combatir fraude</div></div><div class="pic "><img src="/img/44.jpg" alt="entrevista cara a cara"><span class="cap">Foto: OregonDOT · CC BY</span></div></div>
+<div class="two"><div><Num v="72,4%" class="num " style="font-size:125px" /><div class="lab">de líderes de reclutamiento entrevista en persona para combatir fraude</div></div><div class="pic "><img src="/img/interview.jpg" alt="entrevista cara a cara"></div></div>
 <div class="src">Gartner (vía Computerworld) · Google, Cisco y McKinsey reinstalaron rondas presenciales</div>
 
 <!--
@@ -720,7 +726,7 @@ layout: anim
 ---
 
 <div class="kick">CV EN LA ERA DE LA IA</div>
-<div class="two"><div class="st" >La IA <span class="hl">adapta y pule.</span> Los hechos los pones <span class="hl">tú.</span></div><div class="pic "><img src="/img/52.jpg" alt="persona escribiendo su CV junto a un asistente de IA"></div></div>
+<div class="two"><div class="st" >La IA <span class="hl">adapta y pule.</span> Los hechos los pones <span class="hl">tú.</span></div><div class="pic "><img src="/img/cv-ai.jpg" alt="persona escribiendo su CV junto a un asistente de IA"></div></div>
 
 <!--
 La regla de oro del CV.
@@ -732,11 +738,14 @@ layout: anim
 
 <div class="kick">CONTRAEJEMPLO (1 MIN)</div>
 <div class="tt">¿Lo contratarías?</div>
-<div class="ph wide"><div><small>ESPACIO PARA IMAGEN</small><br>Captura de un CV / mensaje de LinkedIn 100% genérico hecho con IA</div></div>
-<div class="src">Resume Now: 62% de empleadores rechaza CV con IA no personalizados.</div>
+<div class="mocks">
+<div class="bubble bad" v-click><small>MENSAJE GENÉRICO</small><p>Estimado reclutador, soy un profesional altamente motivado, proactivo y orientado a resultados, con pasión por los desafíos y excelente trabajo en equipo. Quedo atento a sus comentarios.</p></div>
+<div class="bubble good" v-click><small>LO QUE SÍ SE LEE</small><p>Aumenté 40% el alcance de Instagram en 6 meses con un calendario de contenido. Busco el equipo donde pueda repetir ese número.</p></div>
+</div>
+<div class="src">Ejemplo de la charla · Resume Now: 62% de empleadores rechaza CV con IA no personalizados.</div>
 
 <!--
-Mostrar un CV o mensaje 100% genérico hecho con IA. Suele provocar risas.
+Leer el genérico en voz alta: suele provocar risas. El segundo es el mismo ejemplo del bloque. No presentarlo como un caso real con nombre.
 -->
 
 ---
@@ -807,12 +816,15 @@ layout: anim
 layout: anim
 ---
 
-<div class="kick">DEMO EN VIVO</div>
-<div class="tt">Demo 1 · captura de respaldo</div>
-<div class="ph wide"><div><small>ESPACIO PARA IMAGEN</small><br>Captura: CV + oferta + respuesta de la IA</div></div>
+<div class="kick">DEMO 1 · SI FALLA EL INTERNET</div>
+<div class="tt">La IA compara. Tú pones el número.</div>
+<div class="mocks">
+<div class="bubble bad"><small>OFERTA · ANTES</small><p>Analista de marketing digital.<br>En el CV: “Encargado de redes sociales.”</p></div>
+<div class="bubble good"><small>RESPUESTA DE LA IA</small><p>Falta el resultado. No lo invento. Pregúntale al candidato: ¿cuánto creció, en cuánto tiempo, con qué?</p></div>
+</div>
 
 <!--
-Pega aquí la captura por si falla la conexión.
+Respaldo de la demo 1. Mismo ejemplo de Instagram: +40% en 6 meses.
 -->
 
 ---
@@ -832,12 +844,17 @@ layout: anim
 layout: anim
 ---
 
-<div class="kick">DEMO EN VIVO</div>
-<div class="tt">Demo 2 · captura de respaldo</div>
-<div class="ph wide"><div><small>ESPACIO PARA IMAGEN</small><br>Captura: conversación con logros encontrados</div></div>
+<div class="kick">DEMO 2 · SI FALLA EL INTERNET</div>
+<div class="tt">Una pregunta a la vez</div>
+<div class="chat">
+<div class="bubble ai" v-click><small>IA</small><p>¿Qué cambió gracias a tu trabajo, en un número?</p></div>
+<div class="bubble me" v-click><small>TÚ</small><p>El alcance de Instagram. No sé el porcentaje exacto.</p></div>
+<div class="bubble ai" v-click><small>IA</small><p>No lo invento. ¿Tienes el dato de seguidores o de alcance, y en cuántos meses?</p></div>
+<div class="bubble me goodline" v-click><small>LOGRO</small><p>+40% de alcance en 6 meses. Ahora sí se puede escribir.</p></div>
+</div>
 
 <!--
-Respaldo de la demo 2.
+Respaldo de la demo 2. El número sale de la persona, no del modelo.
 -->
 
 ---
@@ -845,7 +862,7 @@ layout: anim
 ---
 
 <div class="kick">LINKEDIN EN 2026</div>
-<div class="two"><div class="st" >Tu perfil es un documento que <span class="hl">primero lee una máquina.</span></div><div class="pic "><img src="/img/61.jpg" alt="perfil de LinkedIn con lupa"><span class="cap">Foto: Visual Content · CC BY</span></div></div>
+<div class="two"><div class="st" >Tu perfil es un documento que <span class="hl">primero lee una máquina.</span></div><div class="pic "><img src="/img/profile-lens.jpg" alt="perfil de LinkedIn con lupa"></div></div>
 
 <!--
 Recordar el agente reclutador y la búsqueda semántica.
@@ -856,22 +873,28 @@ layout: anim
 ---
 
 <div class="kick">LINKEDIN EN 2026 · TITULAR</div>
-<div class="two "><div class="side"><div class="tt">Rol + especialidad + prueba de valor</div><ul class="lst"><li v-click>"Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas"</li><li v-click>Es lo que aparece en los resultados</li></ul></div><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Captura de un buen titular en LinkedIn</div></div></div>
+<div class="two"><div class="side"><div class="tt">Rol + especialidad + prueba de valor</div><ul class="lst"><li v-click>Es lo primero que aparece en la búsqueda</li><li v-click>Sin prueba, el titular es un adjetivo</li></ul></div>
+<div class="pcard"><div class="av"></div><div><div class="nm">Cristhian Recalde</div><div class="hd">Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas</div><div class="meta">Ibarra, Ecuador · @cry.code</div></div></div></div>
 
 <!--
-El titular es lo más importante.
+El titular es lo más importante. Este es el ejemplo real del speaker.
 -->
 
 ---
 layout: anim
 ---
 
-<div class="kick">DEMO EN VIVO</div>
-<div class="tt">Demo 3 · Tres titulares, tú votas</div>
-<div class="ph wide"><div><small>ESPACIO PARA IMAGEN</small><br>Tres versiones del titular generadas por la IA (que el público vote)</div></div>
+<div class="kick">DEMO 3 · LA SALA VOTA</div>
+<div class="tt">Mismo perfil. Tres titulares. ¿Cuál abrirías?</div>
+<div class="votes">
+<div class="opt" v-click><b>A</b><span>Desarrollador</span></div>
+<div class="opt" v-click><b>B</b><span>Apasionado por la tecnología y el trabajo en equipo</span></div>
+<div class="opt" v-click><b>C</b><span>Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas</span></div>
+</div>
+<p class="reveal" v-click>C gana: tiene rol, especialidad y una prueba.</p>
 
 <!--
-3–4 minutos. Mismo perfil, tres versiones. Votación levantando la mano.
+3–4 minutos. Votación levantando la mano. El clic final revela por qué C gana. No lo adelantes.
 -->
 
 ---
@@ -898,7 +921,11 @@ layout: anim
 ---
 
 <div class="kick">LINKEDIN EN 2026 · DÓNDE POSTULAR</div>
-<div class="two"><div><Num v="6,87%" class="num " style="font-size:125px" /><div class="lab">conversión a entrevista al postular en la web de la empresa (vs 1,95% en LinkedIn)</div></div><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Captura: botón 'Solicitud sencilla'</div></div></div>
+<div class="two"><div><Num v="6,87%" class="num" style="font-size:120px" /><div class="lab">conversión a entrevista en la web de la empresa</div></div>
+<div class="doors">
+<div class="door bad" v-click><div class="bn" style="color:var(--warm)">1,95%</div><div class="h">Solicitud sencilla</div><div class="p">LinkedIn te descubre. El botón fácil te entierra.</div></div>
+<div class="door hi" v-click><div class="bn">6,87%</div><div class="h">Web de la empresa</div><div class="p">Menos gente. Más señal.</div></div>
+</div></div>
 <div class="src">Huntr · 1,24 millones de postulaciones (vía Lumyhired)</div>
 
 <!--
@@ -957,12 +984,18 @@ Sexto paso, de viva voz: prepara preguntas inteligentes para el entrevistador.
 layout: anim
 ---
 
-<div class="kick">DEMO EN VIVO</div>
-<div class="tt">Demo 4 · Simulación de entrevista por voz</div>
-<div class="ph wide"><div><small>ESPACIO PARA IMAGEN</small><br>Captura: la IA entrevista y califica con STAR</div></div>
+<div class="kick">DEMO 4 · SI FALLA EL INTERNET</div>
+<div class="tt">La IA te entrevista. Tú respondes en STAR.</div>
+<div class="star">
+<div class="card" v-click><div class="n">S</div><div class="h">Situación</div><div class="p">El alcance de la cuenta estaba plano.</div></div>
+<div class="card" v-click><div class="n">T</div><div class="h">Tarea</div><div class="p">Ordenar qué se publicaba y cuándo.</div></div>
+<div class="card" v-click><div class="n">A</div><div class="h">Acción</div><div class="p">Armé un calendario y medí cada pieza.</div></div>
+<div class="card hi" v-click><div class="n">R</div><div class="h">Resultado</div><div class="p">+40% de alcance en 6 meses.</div></div>
+</div>
+<p class="reveal">Si falta la R, la historia no cierra.</p>
 
 <!--
-3–4 minutos. Usa la oferta de la demo 1.
+3–4 minutos en vivo con voz. Esta diapositiva es el respaldo, con el mismo ejemplo de la charla.
 -->
 
 ---
@@ -981,7 +1014,7 @@ layout: anim
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 4</div>
-<div class="two"><div class="st" >La IA adapta y pule; <span class="hl">los hechos los pones tú.</span></div><div class="pic "><img src="/img/71.jpg" alt="manos humanas y robóticas escribiendo juntas"><span class="cap">Foto: oakridgelabnews · CC BY</span></div></div>
+<div class="two"><div class="st" >La IA adapta y pule; <span class="hl">los hechos los pones tú.</span></div><div class="pic "><img src="/img/cowrite.jpg" alt="manos humanas y robóticas escribiendo juntas"></div></div>
 
 <!--
 Cierre del bloque de demos.
@@ -1007,7 +1040,7 @@ layout: anim
 ---
 
 <div class="kick">MARCA PERSONAL Y NETWORKING</div>
-<div class="two"><div><Num v="11x" class="num " style="font-size:150px" /><div class="lab">más tasa de contratación para candidatos referidos frente a postular en frío</div></div><div class="pic "><img src="/img/73.jpg" alt="dos personas dándose la mano"><span class="cap">Foto: ccnull.de Bilddatenbank · CC BY</span></div></div>
+<div class="two"><div><Num v="11x" class="num " style="font-size:150px" /><div class="lab">más tasa de contratación para candidatos referidos frente a postular en frío</div></div><div class="pic "><img src="/img/handshake.jpg" alt="dos personas dándose la mano"></div></div>
 <div class="src">Gem · más de 165 millones de postulaciones (vía Lumyhired)</div>
 
 <!--
@@ -1070,7 +1103,7 @@ layout: anim
 ---
 
 <div class="kick">MARCA PERSONAL</div>
-<div class="two "><div class="side"><div class="tt">Un proyecto pequeño con IA que resuelva un problema local</div><ul class="lst"><li v-click>Problema</li><li v-click>Solución</li><li v-click>Resultado</li></ul></div><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Captura de un portafolio o repo</div></div></div>
+<div class="two "><div class="side"><div class="tt">Un proyecto pequeño con IA que resuelva un problema local</div><ul class="lst"><li v-click>Problema</li><li v-click>Solución</li><li v-click>Resultado</li></ul></div><div class="pic "><img src="/img/portfolio.jpg" alt="Captura de un portafolio o repo"></div></div>
 
 <!--
 Estructura de cada proyecto.
@@ -1081,10 +1114,14 @@ layout: anim
 ---
 
 <div class="kick">NETWORKING</div>
-<div class="two rev"><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>Ejemplo: mensaje genérico vs personalizado</div></div><div class="side"><div class="tt">Un mensaje con motivo concreto vale más que 100 genéricos</div><ul class="lst"><li v-click>Menciona algo que publicó o hizo</li><li v-click>Nada de mensajes de IA sin revisar</li></ul></div></div>
+<div class="tt">Un motivo concreto vale más que 100 genéricos</div>
+<div class="mocks">
+<div class="bubble bad" v-click><small>GENÉRICO</small><p>Hola, vi tu perfil y me encantaría conectar. Soy un desarrollador apasionado en busca de nuevas oportunidades. Quedo atento.</p></div>
+<div class="bubble good" v-click><small>CON MOTIVO</small><p>Hola Ana. Tu nota sobre contratar juniors en Quito me dejó pensando. Publiqué una app de rutas para el transporte de Ibarra. ¿Te la resumo en tres líneas?</p></div>
+</div>
 
 <!--
-Se nota cuando lo escribió una IA.
+Se nota cuando lo escribió una IA. El segundo menciona algo concreto de la otra persona. Ejemplo, no un mensaje enviado.
 -->
 
 ---
@@ -1179,7 +1216,7 @@ layout: anim
 ---
 
 <div class="kick">CIERRE</div>
-<div class="two"><div><Num v="+62%" class="num " style="font-size:125px" /><div class="lab">prima salarial para quien sabe usar IA con criterio</div></div><div class="pic "><img src="/img/86.jpg" alt="persona con laptop sonriendo"><span class="cap">Foto: mislav-m · CC BY</span></div></div>
+<div class="two"><div><Num v="+62%" class="num " style="font-size:125px" /><div class="lab">prima salarial para quien sabe usar IA con criterio</div></div><div class="pic "><img src="/img/ready.jpg" alt="persona con laptop sonriendo"></div></div>
 <div class="src">PwC · AI Jobs Barometer 2026</div>
 
 <!--
@@ -1219,10 +1256,10 @@ layout: anim
 ---
 
 <div class="kick">GRACIAS</div>
-<div class="two"><div><div class="st" style="font-size:56px">¿Preguntas? Hablemos.</div><div class="hl" style="font-size:34px;font-weight:700;margin-top:26px">@cry.code</div><p style="color:var(--soft);margin-top:24px;max-width:420px">Escanea y llévate los prompts, el plan de 30 días y las fuentes.</p></div><div class="ph "><div><small>ESPACIO PARA IMAGEN</small><br>QR a la versión web</div></div></div>
+<div class="two"><div><div class="st" style="font-size:52px">¿Preguntas? Hablemos.</div><div class="hl" style="font-size:32px;font-weight:700;margin-top:22px">@cry.code</div><p style="color:var(--soft);margin-top:18px;max-width:460px">Escanea y escríbeme. Por ahí te paso los prompts, el plan de 30 días y las fuentes.</p><p style="color:var(--muted);margin-top:14px;font-size:15px">linkedin.com/in/isnotcristhianr</p></div><div class="qrbox"><img src="/img/qr.png" alt="Código QR al LinkedIn de Cristhian Recalde"></div></div>
 
 <!--
-Preguntas y contacto.
+El QR abre el LinkedIn. Los prompts se envían por ese contacto: todavía no hay una página pública con el paquete.
 -->
 
 ---
@@ -1245,10 +1282,10 @@ layout: anim
 ---
 
 <div class="kick">ANEXO</div>
-<div class="tt">Créditos de imágenes</div>
-<ul class="lst" style="font-size:12px;columns:2;column-gap:40px;margin-top:0"><li style="break-inside:avoid">Diap. 1: White digital robot, futuristic technology — Autor desconocido (CC0)</li><li style="break-inside:avoid">Diap. 3: hands up for the band — Grey World (BY)</li><li style="break-inside:avoid">Diap. 4: Conference hall @ Le Web — Phillie Casablanca (BY)</li><li style="break-inside:avoid">Diap. 7: Bank of America cash machine, multi-check deposit, lit panels, sign-in screen, keypad, make deposits has never been easier, University Village, Seattle, Washington, USA — Wonderlane (CC0)</li><li style="break-inside:avoid">Diap. 9: Man and woman using electronic device free image — Rawpixel Ltd (CC0)</li><li style="break-inside:avoid">Diap. 11: Mapa antiguo de América del Sur; mapa antigo da América do Sul; old South America map. — thejourney1972 (South America addicted) (BY)</li><li style="break-inside:avoid">Diap. 14: Money — Cooperweb (BY)</li><li style="break-inside:avoid">Diap. 18: Business people working on laptops during a meeting — Rawpixel Ltd (BY)</li><li style="break-inside:avoid">Diap. 20: Chess Glass — Felipe Skroski (BY)</li><li style="break-inside:avoid">Diap. 22: VIP Entrance to the amphitheatre — shankar s. (BY)</li><li style="break-inside:avoid">Diap. 23: SDC10671_1024x768 — Majd Mohabek (BY)</li><li style="break-inside:avoid">Diap. 25: HTML PHP Javascript Source Code — markus spiske (CC0)</li><li style="break-inside:avoid">Diap. 30: Career Fair at College of DuPage 2014 11 — COD Newsroom (BY)</li><li style="break-inside:avoid">Diap. 32: A young man waiting for a train on the platform of a metro station. Several other passengers can be seen in the background, out of focus. — Midhun P (CC0)</li><li style="break-inside:avoid">Diap. 34: Laptop Work — Matt Moloney (CC0)</li><li style="break-inside:avoid">Diap. 36: climbing stairs — Felipe Brandalise (BY)</li><li style="break-inside:avoid">Diap. 43: Nao Social Humanoid Robot from Aldebaran Robotics at Animation 2012 — dullhunk (BY)</li><li style="break-inside:avoid">Diap. 44: Oregon DMV — OregonDOT (BY)</li><li style="break-inside:avoid">Diap. 52: Analytics Charts — Negative Space (CC0)</li><li style="break-inside:avoid">Diap. 61: Engaging LinkedIn Profile — Visual Content (BY)</li><li style="break-inside:avoid">Diap. 71: Robotic hand — oakridgelabnews (BY)</li><li style="break-inside:avoid">Diap. 73: Business Handshake — ccnull.de Bilddatenbank (BY)</li><li style="break-inside:avoid">Diap. 86: Ready — mislav-m (BY)</li></ul>
-<div class="src">Fuentes: Openverse / Flickr / Wikimedia. CC0 y dominio público no requieren atribución; CC BY sí (aparece también en cada foto).</div>
+<div class="tt">Imágenes</div>
+<p style="font-size:22px;max-width:760px;line-height:1.4">Ilustraciones originales de esta charla, hechas para el relato. La foto de la presentación es de Cristhian Recalde.</p>
+<p style="color:var(--soft);margin-top:18px;max-width:760px">El código QR abre linkedin.com/in/isnotcristhianr.</p>
 
 <!--
-Créditos de las imágenes.
+Ya no se usan las fotos de stock. No hace falta atribución CC.
 -->

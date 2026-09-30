@@ -4,7 +4,7 @@ Presentación en [Slidev](https://sli.dev) (~90 diapositivas, 50–60 min).
 
 - `gen.js` genera `slides.md` a partir del contenido. Edita ahí o directamente en `slides.md`.
 - `npm run gen` regenera · `npm run dev` presenta (modo presentador: tecla `p`, con notas) · `npm run export` exporta a PDF.
-- Los recuadros punteados "ESPACIO PARA IMAGEN" (clase `ph`): reemplázalos por `<img src="/archivo.png">` con la imagen en `public/`.
+- Las ilustraciones viven en `public/img/` y se referencian desde `images.json`. La foto del speaker es `public/foto.jpg`. El QR abre el LinkedIn.
 - Ojo: `npm run gen` sobreescribe `slides.md`.
 
 ## Animaciones
