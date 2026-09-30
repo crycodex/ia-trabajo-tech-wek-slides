@@ -18,14 +18,14 @@ drawings:
 layout: anim
 ---
 
-<div class="two" style="grid-template-columns:1.4fr 1fr">
+<div class="two" style="grid-template-columns:1.35fr 1fr">
 <div>
 <div class="kick">PONENCIA · EMPLEO E IA 2026</div>
 <div class="st" style="font-size:50px">La IA no te quitará el trabajo, <span class="hl">pero sí te lo puede conseguir</span></div>
-<p style="font-size:17px;color:var(--soft);margin-top:26px;max-width:560px">Datos reales, nuevas reglas de contratación y cómo usar la IA para conseguir empleo.</p>
-<p style="font-size:16px;font-weight:700;margin-top:30px">Cristhian Recalde · @cry.code</p>
+<p style="font-size:18px;color:var(--soft);margin-top:22px;max-width:540px">Datos reales y un roadmap para pasar de estudiante a tu primer empleo, con IA.</p>
+<div class="byline"><img src="/foto.jpg" alt="Cristhian Recalde"><div><b>Cristhian Recalde · @cry.code</b><span>AWS Community Builder · IA</span></div></div>
 </div>
-<div class="pic "><img src="/img/cover.jpg" alt="Imagen de portada / collage tech"></div>
+<ClaudeTiles img="/img/cover.jpg" />
 </div>
 
 <!--
@@ -37,20 +37,20 @@ layout: anim
 ---
 
 <div class="kick">ANTES DE EMPEZAR</div>
-<div class="tt">¿Quién les habla?</div>
 <div class="who">
-<img src="/foto.jpg" alt="Cristhian Recalde">
+<img src="/foto.jpg" alt="Cristhian Recalde frente al logo de AWS">
 <div>
 <p class="who-k">Cristhian Recalde · @cry.code</p>
-<p class="who-line">Desarrollador de software web y móvil, también IsnotCristhian. Creo contenido para crecer en esta industria y para reducir la brecha digital en Ecuador.</p>
-<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
-<div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">2023</div><div class="h" style="font-weight:500;font-size:15px">Mención de honor, TuApp · startup SwapMe</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">Quito</div><div class="h" style="font-weight:500;font-size:15px">comunidad de desarrolladores de Google</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">Video</div><div class="h" style="font-weight:500;font-size:15px">YouTube · Software & Development</div></div><div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">20+</div><div class="h" style="font-weight:500;font-size:15px">apps publicadas · AWS Community Builder</div></div>
+<div class="aws-hero" v-click><Logo n="aws" :size="58" /><div><small>MI COMUNIDAD PRINCIPAL</small><b>AWS Community Builder</b><span>Área: Inteligencia Artificial</span></div></div>
+<div class="grid who-grid">
+<div class="card" v-click><div class="bn">20+</div><div class="h">apps publicadas · Full Stack Flutter</div></div><div class="card" v-click><div class="bn">Docente</div><div class="h">ITSI · maestrante en IA (UEES)</div></div><div class="card" v-click><div class="bn">IONOS HUB</div><div class="h">cofundador · software y automatización</div></div><div class="card" v-click><div class="bn">Cry Code</div><div class="h">contenido tech en español</div></div>
 </div>
+<p class="who-also" v-click>También: comunidad GDG Quito · Mención de honor TuApp 2023 (SwapMe) · YouTube Software & Development</p>
 </div>
 </div>
 
 <!--
-Presentación (1 min). Bio del portafolio: IsnotCristhian, desarrollador web/móvil, contenido para crecer y reducir la brecha en Ecuador. Mención de honor TuApp 2023 con SwapMe. Comunidad de desarrolladores de Google Quito. YouTube Software & Development. Cerrar con 20+ apps y AWS Community Builder.
+Presentación (1 min). Empieza por AWS Community Builder en el área de IA: es la credencial principal. Luego 20+ apps, docencia y maestría en IA, IONOS HUB y Cry Code. GDG Quito y TuApp solo como mención.
 -->
 
 ---
@@ -58,14 +58,15 @@ layout: anim
 ---
 
 <div class="kick">PREGUNTA A LA SALA</div>
-<div class="two"><div><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div><p style="color:var(--muted);margin-top:26px">Cuenta las manos. Al final volvemos a preguntar.</p></div><div class="pic "><img src="/img/hands.jpg" alt="Público levantando la mano"></div></div>
+<div class="ask"><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div></div>
 
 <!--
-Cuenta las manos. Al final de la charla volvemos a preguntar (2 min).
+Pregunta a mano alzada, sin contar. Solo mira la sala y comenta. Al final volvemos a preguntar (1 min).
 -->
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">PREGUNTA A LA SALA</div>
@@ -81,17 +82,20 @@ layout: anim
 ---
 
 <div class="kick">EL RECORRIDO</div>
-<div class="tt">Del miedo al plan de acción</div>
-<div class="grid" style="grid-template-columns:repeat(5,1fr)">
-<div class="card " v-click><div class="n">01</div><div class="h">El miedo vs los datos</div></div>
-<div class="card " v-click><div class="n">02</div><div class="h">La verdad incómoda</div></div>
-<div class="card " v-click><div class="n">03</div><div class="h">Las nuevas reglas</div></div>
-<div class="card " v-click><div class="n">04</div><div class="h">La IA como aliada</div></div>
-<div class="card " v-click><div class="n">05</div><div class="h">Marca personal y plan</div></div>
+<div class="tt">Primero el contexto. Después, tu roadmap.</div>
+<div class="agenda2">
+<div class="ctx"><small>PARTE 1 · EL CONTEXTO · 12 MIN</small>
+<div class="card" v-click><div class="n">01</div><div class="h">El miedo vs los datos</div></div>
+<div class="card" v-click><div class="n">02</div><div class="h">La verdad incómoda</div></div>
+<div class="card" v-click><div class="n">03</div><div class="h">Las nuevas reglas</div></div>
+</div>
+<div class="card hi rmlist" v-click><small>PARTE 2 · TU ROADMAP · 30 MIN</small>
+<ol><li>Habilidades</li><li>Aprende con IA</li><li>Tu perfil con Claude</li><li>Comunidad y visibilidad</li><li>Busca trabajo con IA</li><li>Entrevista</li></ol>
+</div>
 </div>
 
 <!--
-Agenda (1 min). Un bloque = una idea que se llevan.
+Agenda (1 min). Doce minutos de contexto con datos y treinta de roadmap práctico: de estudiante a tu primer empleo.
 -->
 
 ---
@@ -99,18 +103,19 @@ layout: animgrad
 transition: fade
 ---
 
-<div class="mins">~9 min</div>
-<div class="kick">BLOQUE</div>
+<div class="mins">~4 min</div>
+<div class="kick">PARTE 1 · EL CONTEXTO</div>
 <div class="sec-n">01</div>
 <div class="sec-t">El miedo vs los datos</div>
 <div class="sec-s">¿La IA viene por tu trabajo? Veamos qué dicen los números.</div>
 
 <!--
-Bloque 1. Tiempo estimado: 9 min.
+Bloque 1. Tiempo estimado: 4 min.
 -->
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS</div>
@@ -139,6 +144,7 @@ WEF Future of Jobs 2025. Abrir rompiendo el miedo: el saldo es positivo (1 min).
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS</div>
@@ -167,6 +173,7 @@ layout: anim
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS · LATINOAMÉRICA</div>
@@ -179,6 +186,7 @@ Expuestos no es lo mismo que reemplazados.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL MIEDO VS LOS DATOS · LATINOAMÉRICA</div>
@@ -197,10 +205,10 @@ transition: fade
 
 <div class="kick">ADIVINA EL DATO · PREGUNTA AL PÚBLICO</div>
 <div class="quiz-q">¿Cuánto más ganan, en promedio, los empleos que piden habilidades de IA?</div>
-<div class="opts" style="grid-template-columns:repeat(3,1fr)"><div class="opt">A) 12% más</div><div class="opt">B) 35% más</div><div class="opt">C) 62% más</div></div>
+<Quiz :opts='["A) 12% más","B) 35% más","C) 62% más"]' :answer="2" />
 
 <!--
-Pedir votos levantando la mano. Dar 20 segundos.
+Pedir votos levantando la mano. Dar 20 segundos. Luego haz clic en la opción que eligió la mayoría.
 -->
 
 ---
@@ -217,6 +225,7 @@ El dato más fuerte de la charla. Saber IA paga.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">PWC · AI JOBS BAROMETER 2026</div>
@@ -233,6 +242,7 @@ Crecimiento de demanda.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">PWC · MERCADO DE DOS VÍAS</div>
@@ -248,6 +258,7 @@ La IA amplifica al que ya sabe. Por eso hay que aprender el oficio Y la herramie
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LINKEDIN · SKILLS ON THE RISE 2026</div>
@@ -263,6 +274,7 @@ Si eres de humanidades: sirve igual. No hace falta programar.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">MICROSOFT · WORK TREND INDEX 2026</div>
@@ -275,6 +287,7 @@ Mencionar el interés comercial si hay público crítico.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">MICROSOFT · HABILIDADES QUE MÁS GANAN VALOR</div>
@@ -290,6 +303,7 @@ La habilidad no es usar IA, es verificarla.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 1</div>
@@ -304,14 +318,14 @@ layout: animgrad
 transition: fade
 ---
 
-<div class="mins">~11 min</div>
-<div class="kick">BLOQUE</div>
+<div class="mins">~4 min</div>
+<div class="kick">PARTE 1 · EL CONTEXTO</div>
 <div class="sec-n">02</div>
 <div class="sec-t">La verdad incómoda</div>
 <div class="sec-s">Dónde sí hay riesgo, y por qué no es el fin del camino.</div>
 
 <!--
-Bloque 2. Tiempo estimado: 11 min.
+Bloque 2. Tiempo estimado: 4 min.
 -->
 
 ---
@@ -334,11 +348,12 @@ layout: anim
 <div class="src">Stanford Digital Economy Lab · 'Canaries in the Coal Mine' · revisión agosto 2026</div>
 
 <!--
-Comparado con dónde estaría sin la IA. Datos de nómina ADP, EE. UU.
+Comparado con dónde estaría sin la IA. Datos de nómina ADP, EE. UU. Decirlo en voz: son datos de EE. UU., descriptivos, no causales. Y la caída se concentra donde la IA automatiza, no donde aumenta el trabajo.
 -->
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LA VERDAD INCÓMODA · STANFORD</div>
@@ -354,6 +369,7 @@ Mismo grupo etario, distinta exposición.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LA VERDAD INCÓMODA · CASOS</div>
@@ -366,6 +382,7 @@ Soy desarrollador: me toca de cerca. Ser honesto.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL MATIZ CLAVE</div>
@@ -393,6 +410,7 @@ Frase clave del bloque.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LA VERDAD INCÓMODA · PWC</div>
@@ -410,6 +428,7 @@ Puestos junior más expuestos a IA (datos EE. UU.)
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LIMITACIÓN HONESTA</div>
@@ -426,6 +445,7 @@ Declarar límites da credibilidad.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">ECUADOR · EMPLEO JUVENIL</div>
@@ -438,6 +458,7 @@ El problema en Ecuador es el mercado, no la IA.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">ECUADOR · MERCADO LABORAL</div>
@@ -454,6 +475,7 @@ INEC mayo 2026.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">ECUADOR · JÓVENES</div>
@@ -481,6 +503,7 @@ La escasez es la oportunidad.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">ECUADOR · OPORTUNIDAD REMOTA</div>
@@ -493,6 +516,7 @@ No dar cifras: las fuentes son blogs.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">HISTORIA LOCAL</div>
@@ -505,6 +529,7 @@ Personalizar con una historia ecuatoriana. La imagen ilustra el arco, no reempla
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 2</div>
@@ -519,18 +544,19 @@ layout: animgrad
 transition: fade
 ---
 
-<div class="mins">~8 min</div>
-<div class="kick">BLOQUE</div>
+<div class="mins">~4 min</div>
+<div class="kick">PARTE 1 · EL CONTEXTO</div>
 <div class="sec-n">03</div>
 <div class="sec-t">Las nuevas reglas de contratación</div>
 <div class="sec-s">La búsqueda de empleo en 2026 es IA contra IA.</div>
 
 <!--
-Bloque 3. Tiempo estimado: 8 min.
+Bloque 3. Tiempo estimado: 4 min.
 -->
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LAS NUEVAS REGLAS</div>
@@ -560,6 +586,7 @@ Explicar el embudo. Lo escaso ahora es la señal de autenticidad.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LAS NUEVAS REGLAS</div>
@@ -572,6 +599,7 @@ Matiz: la contratación sigue siendo humana.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LAS NUEVAS REGLAS</div>
@@ -584,6 +612,7 @@ layout: anim
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LAS NUEVAS REGLAS · LINKEDIN</div>
@@ -607,6 +636,7 @@ Búsqueda semántica: entiende sinónimos y conceptos relacionados.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LAS NUEVAS REGLAS · PRESENCIAL</div>
@@ -619,6 +649,7 @@ Vuelven las entrevistas presenciales.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">DOS PREGUNTAS DE LÍDERES</div>
@@ -640,10 +671,10 @@ transition: fade
 
 <div class="kick">¿MITO O REALIDAD? · VOTA</div>
 <div class="quiz-q">"El ATS rechaza tu CV automáticamente si el formato no le gusta."</div>
-<div class="opts" style="grid-template-columns:repeat(2,1fr)"><div class="opt">MITO</div><div class="opt">REALIDAD</div></div>
+<Quiz :opts='["MITO","REALIDAD"]' :answer="0" />
 
 <!--
-Votar levantando la mano.
+Votar levantando la mano. Haz clic en lo que votó la mayoría.
 -->
 
 ---
@@ -665,6 +696,7 @@ Jobscan: el ATS guarda y permite buscar por palabras clave, no rechaza. Lo que h
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">IDEA PARA LLEVARTE · BLOQUE 3</div>
@@ -675,18 +707,214 @@ La ventaja es la señal, no el volumen.
 -->
 
 ---
+layout: anim
+---
+
+<div class="kick">PARTE 2 · TU ROADMAP</div>
+<div class="tt">De estudiante a tu primer empleo, en 6 etapas</div>
+<div class="one"><Roadmap /></div>
+
+<!--
+Puente entre el contexto y la práctica. Recorre las 6 etapas en 30 segundos; cada una tiene su portada.
+-->
+
+---
 layout: animgrad
 transition: fade
 ---
 
-<div class="mins">~16 min</div>
-<div class="kick">BLOQUE</div>
-<div class="sec-n">04</div>
-<div class="sec-t">La IA como tu aliada</div>
-<div class="sec-s">CV, LinkedIn y entrevistas. En vivo, sin ediciones.</div>
+<div class="mins">~3 min</div>
+<div class="kick">PARTE 2 · ETAPA 1 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Habilidades</div>
+<div class="sec-s">Qué aprender: técnicas y blandas.</div>
+<div class="stage-rm"><Roadmap :active="1" mini /></div>
 
 <!--
-Bloque 4. Tiempo estimado: 16 min.
+Etapa 1 del roadmap. Tiempo estimado: 3 min.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">HABILIDADES PARA 2026</div>
+<div class="one"><div class="st wide" style="font-size:46px">La IA cambia el <span class="hl">cómo</span> se trabaja. Tus habilidades deciden el <span class="hl">qué</span> te encargan.</div></div>
+
+<!--
+Recordar el 39% de habilidades que cambian (WEF).
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">HABILIDADES TÉCNICAS</div>
+<div class="tt">Lo que crece más rápido</div>
+<div class="grid tools" style="grid-template-columns:repeat(3,1fr)">
+<div class="card tool " v-click><div class="thead"><span class="tag ">Para todos</span></div><div class="h">Usar IA con criterio</div><div class="p">Pedir bien, revisar siempre, citar la fuente</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag ">Para todos</span></div><div class="h">Alfabetización tecnológica</div><div class="p">Hojas de cálculo, datos básicos, automatizar tareas</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag ">Para todos</span></div><div class="h">Inglés funcional</div><div class="p">Leer documentación y escribir un correo claro</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag dev">Tecnología</span></div><div class="h">IA y datos</div><div class="p">APIs de modelos, RAG, agentes, evaluación</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag dev">Tecnología</span></div><div class="h">Redes y ciberseguridad</div><div class="p">Entre las de mayor crecimiento según el WEF</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag dev">Tecnología</span></div><div class="h">Automatización</div><div class="p">Flujos sin código y scripts pequeños</div></div>
+</div>
+<div class="src">WEF Future of Jobs 2025 · LinkedIn Skills on the Rise 2026</div>
+
+<!--
+La fila de arriba es para cualquier carrera. La de abajo, para perfiles técnicos.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">HABILIDADES BLANDAS</div>
+<div class="tt">Las que la IA no puede hacer por ti</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="n">1</div><div class="h">Pensamiento crítico</div><div class="p">Detectar cuándo la IA se equivoca</div></div>
+<div class="card " v-click><div class="n">2</div><div class="h">Comunicación escrita</div><div class="p">Clave en equipos remotos y asíncronos</div></div>
+<div class="card " v-click><div class="n">3</div><div class="h">Adaptabilidad</div><div class="p">Cambiar de herramienta sin drama</div></div>
+<div class="card " v-click><div class="n">4</div><div class="h">Curiosidad</div><div class="p">Aprender algo nuevo cada mes</div></div>
+<div class="card " v-click><div class="n">5</div><div class="h">Colaboración y liderazgo</div><div class="p">Coordinar personas, no solo prompts</div></div>
+<div class="card " v-click><div class="n">6</div><div class="h">Criterio ético</div><div class="p">No inventar, no exagerar, citar</div></div>
+</div>
+<div class="src">WEF Future of Jobs 2025 · LinkedIn Skills on the Rise 2026 · Microsoft Work Trend Index 2026</div>
+
+<!--
+Enlazar con Microsoft: control de calidad 50%, pensamiento crítico 46%.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">RECUERDA LA PREGUNTA DE LA CEO DE ACCENTURE</div>
+<div class="one"><div class="st wide" style="font-size:46px">¿Qué aprendiste en los <span class="hl">últimos seis meses?</span> Ten una respuesta con un proyecto.</div></div>
+
+<!--
+Callback a Julie Sweet del bloque 3.
+-->
+
+---
+layout: animgrad
+transition: fade
+---
+
+<div class="mins">~3 min</div>
+<div class="kick">PARTE 2 · ETAPA 2 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Aprende con IA</div>
+<div class="sec-s">Que la IA sea tu tutor, no tu atajo.</div>
+<div class="stage-rm"><Roadmap :active="2" mini /></div>
+
+<!--
+Etapa 2 del roadmap. Tiempo estimado: 3 min.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">APRENDER CON IA · EL MÉTODO</div>
+<div class="tt">Que la IA sea tu tutor, no tu atajo</div>
+<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr">
+<div class="card" v-click><div class="n">1</div><div class="h">Diagnóstico</div><div class="p">Que te haga 5 preguntas de nivel</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">2</div><div class="h">Plan</div><div class="p">4 semanas que terminan en un proyecto</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">3</div><div class="h">Práctica</div><div class="p">Ejercicios cortos con corrección</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">4</div><div class="h">Explícalo tú</div><div class="p">Enséñale el tema; que busque tus errores</div></div>
+</div>
+
+<!--
+Explicar con tus palabras es la prueba de que aprendiste.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">APRENDER CON IA · PROMPT 1</div>
+<div class="tt">Un plan que termina en algo que mostrar</div>
+<div class="pwrap"><div class="prompt">"Quiero aprender [tema] en 4 semanas, 5 horas por semana. Primero hazme 5 preguntas para saber mi nivel. Luego arma un plan semanal que termine en un proyecto que pueda poner en mi portafolio."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">El proyecto final va a Destacados</div></div><div class="card" v-click><div class="p" style="margin:0">Pide recursos gratuitos</div></div><div class="card" v-click><div class="p" style="margin:0">Revisa el plan cada domingo</div></div></div>
+
+<!--
+Conecta con la semana 3 del plan de 30 días.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">APRENDER CON IA · PROMPT 2</div>
+<div class="tt">Modo tutor</div>
+<div class="pwrap"><div class="prompt">"Explícame [concepto] con un ejemplo de mi trabajo. Después hazme 3 preguntas. No me des la respuesta hasta que lo intente, y corrígeme."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">'No me des la respuesta' es la clave</div></div><div class="card" v-click><div class="p" style="margin:0">Pide el ejemplo de tu área</div></div><div class="card" v-click><div class="p" style="margin:0">Guarda las preguntas que fallaste</div></div></div>
+
+<!--
+Mostrar en vivo si hay tiempo.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">APRENDER CON IA</div>
+<div class="tt">La diferencia está en quién piensa</div>
+<div class="grid" style="grid-template-columns:repeat(2,1fr)">
+<div class="card bad" v-click><div class="kick" style="color:var(--warm)">ASÍ NO</div><div class="bn" style="font-size:28px;color:#fff">Que la IA haga la tarea</div><div class="p">Aprendes a copiar.</div></div>
+<div class="card hi" v-click><div class="kick">ASÍ SÍ</div><div class="bn" style="font-size:28px;color:#fff">Que la IA te haga preguntas</div><div class="p">Aprendes a pensar.</div></div>
+</div>
+
+<!--
+Cierra la parte de aprendizaje.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">DÓNDE APRENDER GRATIS</div>
+<div class="tt">Sin pagar un curso</div>
+<div class="grid tools" style="grid-template-columns:repeat(2,1fr)">
+<div class="card tool " v-click><div class="thead"><span class="tag ">Curso</span></div><div class="h">Anthropic Academy</div><div class="p">Cursos gratuitos de fluidez en IA</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag ">Comunidad</span></div><div class="h">GDG, AWS User Groups, meetups</div><div class="p">Aprendes y conoces a quien te recomienda</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag ">Fuente</span></div><div class="h">Documentación oficial</div><div class="p">La fuente, no el resumen de un resumen</div></div>
+<div class="card tool " v-click><div class="thead"><span class="tag ">Práctica</span></div><div class="h">Un problema real</div><div class="p">El mejor curso es resolver algo de tu ciudad</div></div>
+</div>
+
+<!--
+Mencionar las comunidades de las que formas parte.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">IDEA PARA LLEVARTE · BLOQUE 5</div>
+<div class="one"><div class="st wide" style="font-size:52px">Aprende con la IA, <span class="hl">no a través de ella.</span></div></div>
+
+<!--
+Cierre del bloque 5.
+-->
+
+---
+layout: animgrad
+transition: fade
+---
+
+<div class="mins">~10 min</div>
+<div class="kick">PARTE 2 · ETAPA 3 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Tu perfil con Claude</div>
+<div class="sec-s">CV y LinkedIn que una IA encuentra y una persona cree.</div>
+<div class="stage-rm"><Roadmap :active="3" mini /></div>
+
+<!--
+Etapa 3 del roadmap. Tiempo estimado: 10 min.
 -->
 
 ---
@@ -707,6 +935,7 @@ Personalizar duplica las probabilidades.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">CV EN LA ERA DE LA IA · HUNTR T1 2026</div>
@@ -750,6 +979,7 @@ Leer el genérico en voz alta: suele provocar risas. El segundo es el mismo ejem
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LO GENÉRICO SE CASTIGA</div>
@@ -766,6 +996,7 @@ Fuentes secundarias: citarlas como tal.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">CV EN LA ERA DE LA IA</div>
@@ -786,6 +1017,7 @@ Repasar rápido; los prompts vienen en las demos.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">CV EN LA ERA DE LA IA</div>
@@ -805,7 +1037,7 @@ layout: anim
 
 <div class="kick">DEMO 1 · CV CONTRA LA OFERTA</div>
 <div class="tt">Pega una oferta real y tu CV base</div>
-<div class="prompt">"Compara mi CV con esta oferta. Dime qué falta, qué sobra y qué palabras clave debo usar. No inventes nada."</div>
+<div class="pwrap"><div class="prompt">"Compara mi CV con esta oferta. Dime qué falta, qué sobra y qué palabras clave debo usar. No inventes nada."</div><CopyBtn /></div>
 <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Usa una oferta real de un portal ecuatoriano</div></div><div class="card" v-click><div class="p" style="margin:0">Muestra el antes y después de un logro</div></div><div class="card" v-click><div class="p" style="margin:0">Si falla el internet: capturas de respaldo</div></div></div>
 
 <!--
@@ -814,6 +1046,7 @@ layout: anim
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">DEMO 1 · SI FALLA EL INTERNET</div>
@@ -829,11 +1062,12 @@ Respaldo de la demo 1. Mismo ejemplo de Instagram: +40% en 6 meses.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">DEMO 2 · LA IA TE ENTREVISTA</div>
 <div class="tt">Para encontrar tus logros medibles</div>
-<div class="prompt">"Hazme preguntas, una a la vez, sobre mi último trabajo hasta encontrar 3 logros medibles. No inventes nada."</div>
+<div class="pwrap"><div class="prompt">"Hazme preguntas, una a la vez, sobre mi último trabajo hasta encontrar 3 logros medibles. No inventes nada."</div><CopyBtn /></div>
 <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Un voluntario del público responde</div></div><div class="card" v-click><div class="p" style="margin:0">Los logros salen de su experiencia real</div></div><div class="card" v-click><div class="p" style="margin:0">Nunca dejes que invente</div></div></div>
 
 <!--
@@ -842,6 +1076,7 @@ layout: anim
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">DEMO 2 · SI FALLA EL INTERNET</div>
@@ -859,6 +1094,7 @@ Respaldo de la demo 2. El número sale de la persona, no del modelo.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LINKEDIN EN 2026</div>
@@ -870,6 +1106,7 @@ Recordar el agente reclutador y la búsqueda semántica.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">LINKEDIN EN 2026 · TITULAR</div>
@@ -901,6 +1138,49 @@ layout: anim
 layout: anim
 ---
 
+<div class="kick">MI PERFIL REAL · LO QUE YA FUNCIONA</div>
+<div class="tt">Un perfil que se entiende en 5 segundos</div>
+<div class="annw">
+<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":5,"y":3,"w":92,"h":39,"n":1,"tone":"good"},{"x":7,"y":23,"w":19.5,"h":32,"n":2,"tone":"good"},{"x":7,"y":62,"w":39.5,"h":6.2,"n":3,"tone":"good"},{"x":65.5,"y":61,"w":23.5,"h":17.5,"n":4,"tone":"good"}]'  />
+<ol class="alist"><li class="good" v-click><b>1</b><div><strong>Banner con propuesta</strong><span>Dice qué haces y dónde encontrarte</span></div></li><li class="good" v-click><b>2</b><div><strong>Foto con rostro claro</strong><span>Cercana, bien iluminada, sin filtros</span></div></li><li class="good" v-click><b>3</b><div><strong>Nombre con marca</strong><span>(cry.code) hace que te encuentren</span></div></li><li class="good" v-click><b>4</b><div><strong>Empresa y universidad</strong><span>Contexto inmediato para el reclutador</span></div></li></ol>
+</div>
+
+<!--
+Mostrar el perfil propio es más creíble que un ejemplo. Recorre los recuadros verdes en orden.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">MI PERFIL REAL · LO QUE MEJORARÍA</div>
+<div class="tt">Cuatro arreglos de cinco minutos</div>
+<div class="annw">
+<Annotated src="/img/linkedin-perfil.webp" :boxes='[{"x":7,"y":68.6,"w":56,"h":8.8,"n":1},{"x":7,"y":77.4,"w":41.5,"h":4.8,"n":2},{"x":7,"y":82.6,"w":33.5,"h":4.8,"n":3},{"x":7,"y":89,"w":18.2,"h":7.4,"n":4}]'  />
+<ol class="alist"><li class="fix" v-click><b>1</b><div><strong>Titular</strong><span>“Comunity” → “Community”. Abre con el rol que buscas y suma una prueba: 20+ apps</span></div></li><li class="fix" v-click><b>2</b><div><strong>Ubicación</strong><span>Ibarra está bien. Suma “remoto” como tipo de trabajo en Open to Work</span></div></li><li class="fix" v-click><b>3</b><div><strong>Visibilidad</strong><span>1.362 seguidores: publica una vez por semana lo que construyes</span></div></li><li class="fix" v-click><b>4</b><div><strong>“Tengo interés en…”</strong><span>Activa Open to Work visible solo para reclutadores</span></div></li></ol>
+</div>
+
+<!--
+Autocrítica en vivo: da credibilidad. Después, arma el titular corregido en la siguiente diapositiva.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">LINKEDIN · PRUÉBALO EN VIVO</div>
+<div class="tt">Arma tu titular para que una IA te encuentre</div>
+<HeadlineBuilder />
+
+<!--
+Arma el titular de un voluntario en vivo, o corrige el tuyo. Límite de LinkedIn: 220 caracteres.
+-->
+
+---
+layout: anim
+hide: true
+---
+
 <div class="kick">LINKEDIN EN 2026</div>
 <div class="tt">Tu perfil en seis partes</div>
 <div class="grid" style="grid-template-columns:repeat(3,1fr)">
@@ -920,6 +1200,157 @@ Foto: las cifras (14x–21x) son inconsistentes entre fuentes; presentar como pr
 layout: anim
 ---
 
+<div class="kick">CLAUDE PARA TU PERFIL</div>
+<div class="two"><div class="st" style="font-size:42px">Claude no escribe tu perfil por ti. <span class="hl">Te entrevista, te compara y te corrige.</span></div><ClaudeTiles small /></div>
+
+<!--
+Transición a la parte práctica con Claude. La idea: editor exigente, no ghostwriter.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">CLAUDE PARA TU PERFIL · EL FLUJO</div>
+<div class="tt">Cuatro pasos, una tarde</div>
+<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr">
+<div class="card" v-click><div class="n">1</div><div class="h">Crea un Proyecto</div><div class="p">Sube tu CV, 10 ofertas y la exportación de LinkedIn</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">2</div><div class="h">Diagnóstico</div><div class="p">Que lea tu perfil como un reclutador</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">3</div><div class="h">Reescribe por partes</div><div class="p">Titular, Acerca de, experiencia</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">4</div><div class="h">Verifica</div><div class="p">Léelo en voz alta. Corrige cada dato</div></div>
+</div>
+<div class="src">Exportación: LinkedIn › Configuración › Privacidad de datos › Obtener una copia de tus datos</div>
+
+<!--
+Proyectos de Claude: el contexto (CV, ofertas, perfil) queda guardado y no lo repites en cada chat.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">CLAUDE · PROMPT 1 · DIAGNÓSTICO</div>
+<div class="tt"><img class="spark-ic" src="/img/claude-spark.png" alt="">Que te lea un reclutador en 30 segundos</div>
+<div class="pwrap"><div class="prompt">"Lee mi perfil como un reclutador de [rol] con 30 segundos. ¿Qué entiendes que hago? ¿Qué te falta para llamarme? ¿Qué sobra?"</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Pega el perfil o súbelo en PDF</div></div><div class="card" v-click><div class="p" style="margin:0">Pide la respuesta en viñetas</div></div><div class="card" v-click><div class="p" style="margin:0">Repite después de cada cambio</div></div></div>
+
+<!--
+Primero diagnóstico, después reescritura.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">CLAUDE · PROMPT 2 · TITULAR</div>
+<div class="tt"><img class="spark-ic" src="/img/claude-spark.png" alt="">Cinco titulares para elegir</div>
+<div class="pwrap"><div class="prompt">"Con mi CV, propón 5 titulares de LinkedIn de máximo 220 caracteres: rol + especialidad + una prueba. Sin adjetivos como 'apasionado' o 'proactivo'."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">220 caracteres es el límite de LinkedIn</div></div><div class="card" v-click><div class="p" style="margin:0">Elige uno y ajústalo a tu voz</div></div><div class="card" v-click><div class="p" style="margin:0">La prueba es un número o un logro</div></div></div>
+
+<!--
+Conecta con la votación de titulares de la demo 3.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">CLAUDE · PROMPT 3 · ACERCA DE</div>
+<div class="tt"><img class="spark-ic" src="/img/claude-spark.png" alt="">Las dos primeras líneas mandan</div>
+<div class="pwrap"><div class="prompt">"Escribe mi 'Acerca de' en primera persona, 3 párrafos cortos. Las 2 primeras líneas dicen qué hago y para quién. Usa solo hechos de mi CV. Si falta un dato, pregúntame antes de escribir."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Solo se ven 2–3 líneas antes de 'ver más'</div></div><div class="card" v-click><div class="p" style="margin:0">'Pregúntame' evita que invente</div></div><div class="card" v-click><div class="p" style="margin:0">Termina con qué buscas</div></div></div>
+
+<!--
+La frase clave es 'si falta un dato, pregúntame'.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">CLAUDE · PROMPT 4 · PALABRAS CLAVE</div>
+<div class="tt"><img class="spark-ic" src="/img/claude-spark.png" alt="">Habla el idioma de las ofertas</div>
+<div class="pwrap"><div class="prompt">"Te paso 10 ofertas del rol que busco. Lista las 15 habilidades que más se repiten y marca cuáles faltan en mi perfil y cuáles tengo pero no menciono."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Así te encuentra la búsqueda semántica</div></div><div class="card" v-click><div class="p" style="margin:0">Solo agrega lo que puedes demostrar</div></div><div class="card" v-click><div class="p" style="margin:0">Las mismas palabras van en tu CV</div></div></div>
+
+<!--
+Es el entregable de la semana 1 del plan.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">CLAUDE PARA TU PERFIL · ASÍ SE VE</div>
+<div class="tt">Bien usado, Claude pregunta antes de escribir</div>
+<div class="chat">
+<div class="bubble me" v-click><small>TÚ</small><p>Mejora mi Acerca de.</p></div>
+<div class="bubble ai" v-click><small>CLAUDE</small><p>Antes de escribir: ¿qué problema resuelves y para quién? ¿Tienes un resultado con número de tu último proyecto?</p></div>
+<div class="bubble me" v-click><small>TÚ</small><p>Apps móviles para pymes. La última bajó a la mitad los pedidos por WhatsApp.</p></div>
+<div class="bubble goodline" v-click><small>PRIMERA LÍNEA</small><p>Hago apps móviles para pymes. La última redujo a la mitad los pedidos manuales por WhatsApp.</p></div>
+</div>
+
+<!--
+Ejemplo ilustrativo, no un caso real. Mostrar que el dato sale de la persona.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">LINKEDIN · TIPS QUE CASI NADIE USA</div>
+<div class="tt">Seis ajustes de cinco minutos</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="n">1</div><div class="h">URL personalizada</div><div class="p">linkedin.com/in/tunombre, no la de números</div></div>
+<div class="card " v-click><div class="n">2</div><div class="h">Perfil en inglés</div><div class="p">Agrega un segundo idioma al perfil</div></div>
+<div class="card " v-click><div class="n">3</div><div class="h">Open to Work con 'remoto'</div><div class="p">Elige también el tipo de lugar de trabajo</div></div>
+<div class="card " v-click><div class="n">4</div><div class="h">Alertas de empleo</div><div class="p">Por rol + remoto, llegan cada día</div></div>
+<div class="card " v-click><div class="n">5</div><div class="h">Recomendaciones concretas</div><div class="p">Pide 2–3 que mencionen un logro</div></div>
+<div class="card " v-click><div class="n">6</div><div class="h">Comenta antes de publicar</div><div class="p">Un buen comentario también es visibilidad</div></div>
+</div>
+
+<!--
+Todos se hacen hoy, desde el celular.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TU PERFIL · ACERCA DE</div>
+<div class="tt">Espacio para tu captura: Acerca de</div>
+<div class="annw">
+<Annotated  :boxes='[]' label="Pega tu sección Acerca de y marca las 4 zonas" />
+<ol class="alist"><li class="tip" v-click><b>1</b><div><strong>Primeras dos líneas</strong><span>Qué haces y para quién</span></div></li><li class="tip" v-click><b>2</b><div><strong>Un logro con número</strong><span>El que más te enorgullece</span></div></li><li class="tip" v-click><b>3</b><div><strong>Qué buscas ahora</strong><span>Rol, modalidad, remoto</span></div></li><li class="tip" v-click><b>4</b><div><strong>Palabras de tus ofertas</strong><span>Las que te encuentra la IA</span></div></li></ol>
+</div>
+
+<!--
+Reemplaza el espacio con tu captura: gen.js › annotated('Tu perfil · Acerca de'…), pon la imagen en public/img y las coordenadas de los recuadros en %.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TU PERFIL · DESTACADOS Y EXPERIENCIA</div>
+<div class="tt">Espacio para tu captura: Destacados</div>
+<div class="annw">
+<Annotated  :boxes='[]' label="Pega tus Destacados o tu Experiencia" />
+<ol class="alist"><li class="tip" v-click><b>1</b><div><strong>Destacados</strong><span>3 proyectos con enlace y resultado</span></div></li><li class="tip" v-click><b>2</b><div><strong>Experiencia</strong><span>Verbo + acción + número</span></div></li><li class="tip" v-click><b>3</b><div><strong>Habilidades</strong><span>Las 5 que más piden tus ofertas</span></div></li><li class="tip" v-click><b>4</b><div><strong>Recomendaciones</strong><span>Que mencionen un logro concreto</span></div></li></ol>
+</div>
+
+<!--
+Mismo proceso que la diapositiva anterior.
+-->
+
+---
+layout: anim
+hide: true
+---
+
 <div class="kick">LINKEDIN EN 2026 · DÓNDE POSTULAR</div>
 <div class="two"><div><Num v="6,87%" class="num" style="font-size:120px" /><div class="lab">conversión a entrevista en la web de la empresa</div></div>
 <div class="doors">
@@ -933,110 +1364,110 @@ Usa LinkedIn para descubrir y conectar, no solo para 'Solicitud sencilla'.
 -->
 
 ---
-layout: anim
----
-
-<div class="kick">ENTREVISTAS EN 2026</div>
-<div class="tt">Prepararte con IA: sí. Que responda por ti: no.</div>
-<div class="grid" style="grid-template-columns:repeat(2,1fr)">
-<div class="card hi" v-click><div class="h">Sí: úsala para prepararte</div><div class="p">Preguntas probables · simulación por voz · historias STAR</div></div>
-<div class="card bad" v-click><div class="h">No: que piense por ti en vivo</div><div class="p">Es fraude y cada vez más empresas lo detectan</div></div>
-</div>
-
-<!--
-Línea ética clara.
--->
-
----
-layout: anim
----
-
-<div class="kick">ENTREVISTAS EN 2026 · EL CONTEXTO</div>
-<div class="tt">El fraude en entrevistas</div>
-<div class="grid" style="grid-template-columns:repeat(2,1fr)">
-<div class="card " v-click><Num v="6%" class="bn" /><div class="h">de buscadores admitió fraude</div><div class="p">Gartner (unos 3.000 encuestados)</div></div>
-<div class="card " v-click><Num v="1 de 4" class="bn" /><div class="h">perfiles falsos en 2028</div><div class="p">Gartner: es una proyección, no una medición</div></div>
-</div>
-
-<!--
-Citar como proyección.
--->
-
----
-layout: anim
----
-
-<div class="kick">ENTREVISTAS EN 2026</div>
-<div class="tt">Cómo prepararte con IA</div>
-<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr">
-<div class="card" v-click><div class="n">1</div><div class="h">Pega la oferta</div><div class="p">Pide las 10 preguntas más probables</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-<div class="card" v-click><div class="n">2</div><div class="h">Simula por voz</div><div class="p">Que te pregunte y repregunte</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-<div class="card" v-click><div class="n">3</div><div class="h">Historias STAR</div><div class="p">5 o 6 reales, practicadas</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-<div class="card" v-click><div class="n">4</div><div class="h">Investiga la empresa</div><div class="p">Productos, noticias, problemas</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-<div class="card" v-click><div class="n">5</div><div class="h">Ensaya sobre IA</div><div class="p">¿Cómo la usas? Con ejemplo</div></div>
-</div>
-
-<!--
-Sexto paso, de viva voz: prepara preguntas inteligentes para el entrevistador.
--->
-
----
-layout: anim
----
-
-<div class="kick">DEMO 4 · SI FALLA EL INTERNET</div>
-<div class="tt">La IA te entrevista. Tú respondes en STAR.</div>
-<div class="star">
-<div class="card" v-click><div class="n">S</div><div class="h">Situación</div><div class="p">El alcance de la cuenta estaba plano.</div></div>
-<div class="card" v-click><div class="n">T</div><div class="h">Tarea</div><div class="p">Ordenar qué se publicaba y cuándo.</div></div>
-<div class="card" v-click><div class="n">A</div><div class="h">Acción</div><div class="p">Armé un calendario y medí cada pieza.</div></div>
-<div class="card hi" v-click><div class="n">R</div><div class="h">Resultado</div><div class="p">+40% de alcance en 6 meses.</div></div>
-</div>
-<p class="reveal">Si falta la R, la historia no cierra.</p>
-
-<!--
-3–4 minutos en vivo con voz. Esta diapositiva es el respaldo, con el mismo ejemplo de la charla.
--->
-
----
-layout: anim
----
-
-<div class="kick">ENTREVISTAS EN 2026</div>
-<div class="one"><div class="st wide" style="font-size:44px">Si la IA piensa por ti en la entrevista, <span class="hl">el día uno en el trabajo se va a notar.</span></div></div>
-
-<!--
-Frase para la charla.
--->
-
----
-layout: anim
----
-
-<div class="kick">IDEA PARA LLEVARTE · BLOQUE 4</div>
-<div class="two"><div class="st" >La IA adapta y pule; <span class="hl">los hechos los pones tú.</span></div><div class="pic "><img src="/img/cowrite.jpg" alt="manos humanas y robóticas escribiendo juntas"></div></div>
-
-<!--
-Cierre del bloque de demos.
--->
-
----
 layout: animgrad
 transition: fade
 ---
 
-<div class="mins">~9 min</div>
-<div class="kick">BLOQUE</div>
-<div class="sec-n">05</div>
-<div class="sec-t">Marca personal y plan de 30 días</div>
+<div class="mins">~5 min</div>
+<div class="kick">PARTE 2 · ETAPA 4 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Comunidad y visibilidad</div>
 <div class="sec-s">Que te encuentren, no solo buscar.</div>
+<div class="stage-rm"><Roadmap :active="4" mini /></div>
 
 <!--
-Bloque 5. Tiempo estimado: 9 min.
+Etapa 4 del roadmap. Tiempo estimado: 5 min.
 -->
 
 ---
 layout: anim
+---
+
+<div class="kick">COMUNIDAD</div>
+<div class="two"><div class="st" style="font-size:42px">En Ecuador hay comunidades gratuitas que abren <span class="hl">puertas que el aula no abre.</span></div><div class="logo-cloud"><span style="--i:0"><Logo n="aws" :size="78" /></span><span style="--i:1"><Logo n="gdg" :size="78" /></span><span style="--i:2"><Logo n="ieee" :size="78" /></span><span style="--i:3"><Logo n="github" :size="78" /></span><span style="--i:4"><Logo n="googlecloud" :size="78" /></span><span style="--i:5"><Logo n="anthropic" :size="78" /></span></div></div>
+
+<!--
+Aquí es donde más cambió mi camino: comunidades como AWS y GDG me dieron contactos, charlas y oportunidades.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">COMUNIDADES EN ECUADOR</div>
+<div class="tt">Súmate a una este mes</div>
+<div class="grid tools" style="grid-template-columns:repeat(3,1fr)">
+<div class="card tool " v-click><div class="thead"><Logo n="aws" :size="36" /><span class="tag ">Nube e IA</span></div><div class="h">AWS User Groups</div><div class="p">Meetups y el camino a AWS Community Builders</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="gdg" :size="36" /><span class="tag ">Google</span></div><div class="h">GDG Quito</div><div class="p">Meetups, DevFest y study jams</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="ieee" :size="36" /><span class="tag ">Universidad</span></div><div class="h">Ramas estudiantiles IEEE</div><div class="p">Congresos, concursos y red internacional</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="aws" :size="36" /><span class="tag ">Campus</span></div><div class="h">AWS Cloud Clubs</div><div class="p">Clubes de nube liderados por estudiantes</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="gdg" :size="36" /><span class="tag ">Campus</span></div><div class="h">GDG on Campus</div><div class="p">El club de Google dentro de tu universidad</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="plus" :size="36" /><span class="tag dev">Tú</span></div><div class="h">Tu propia comunidad</div><div class="p">¿No hay una en tu ciudad? Ábrela</div></div>
+</div>
+
+<!--
+Nombrar las que conoces de primera mano. AWS primero: es tu comunidad principal.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">BENEFICIOS QUE CASI NADIE APROVECHA</div>
+<div class="tt">Gratis, por ser estudiante o por ser parte</div>
+<div class="grid tools" style="grid-template-columns:repeat(3,1fr)">
+<div class="card tool " v-click><div class="thead"><Logo n="github" :size="36" /><span class="tag ">Estudiantes</span></div><div class="h">GitHub Student Developer Pack</div><div class="p">Herramientas pro gratis con tu correo universitario</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="aws" :size="36" /><span class="tag ">Aprende</span></div><div class="h">AWS Educate y Skill Builder</div><div class="p">Cursos y laboratorios de nube e IA</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="googlecloud" :size="36" /><span class="tag ">Aprende</span></div><div class="h">Google Cloud Skills Boost</div><div class="p">Rutas e insignias, a veces con campañas de los GDG</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="anthropic" :size="36" /><span class="tag ">Aprende</span></div><div class="h">Anthropic Academy</div><div class="p">Cursos gratuitos de fluidez en IA</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="aws" :size="36" /><span class="tag ">Programa</span></div><div class="h">AWS Community Builders</div><div class="p">Expertos, créditos y vouchers de certificación</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="ieee" :size="36" /><span class="tag ">Membresía</span></div><div class="h">IEEE estudiantil</div><div class="p">Descuentos en congresos y publicaciones</div></div>
+</div>
+
+<!--
+Verifica las condiciones vigentes de cada programa antes de la charla. Cuenta qué te dio a ti ser Community Builder.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">LO QUE LA COMUNIDAD TE DA</div>
+<div class="tt">Y que ningún curso te da</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="n">1</div><div class="h">Referidos</div><div class="p">Quien te conoce te recomienda: 11x más contratación</div></div>
+<div class="card " v-click><div class="n">2</div><div class="h">Mentores</div><div class="p">Gente que ya hizo el camino</div></div>
+<div class="card " v-click><div class="n">3</div><div class="h">Tu primera charla</div><div class="p">Hablar en público también se practica</div></div>
+<div class="card " v-click><div class="n">4</div><div class="h">Experiencia real</div><div class="p">Organizar un evento es gestionar un proyecto</div></div>
+<div class="card " v-click><div class="n">5</div><div class="h">Visibilidad</div><div class="p">Fotos, posts y contactos para tu LinkedIn</div></div>
+<div class="card " v-click><div class="n">6</div><div class="h">Avisos de vacantes</div><div class="p">Muchas se comparten primero en la comunidad</div></div>
+</div>
+<div class="src">Referidos: Gem, más de 165 millones de postulaciones</div>
+
+<!--
+El dato de 11x es de Gem.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">CREA TU COMUNIDAD</div>
+<div class="tt">Así empieza, aunque sean tres</div>
+<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr">
+<div class="card" v-click><div class="n">1</div><div class="h">Junta 3 personas</div><div class="p">Con el mismo interés</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">2</div><div class="h">Elige un tema</div><div class="p">IA, nube, móvil o datos</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">3</div><div class="h">Primer meetup</div><div class="p">10 personas y un aula prestada</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">4</div><div class="h">Pide respaldo</div><div class="p">GDG on Campus, AWS Cloud Clubs o tu rama IEEE</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">5</div><div class="h">Publícalo</div><div class="p">Fotos y aprendizajes en LinkedIn</div></div>
+</div>
+
+<!--
+Crear una comunidad es la forma más rápida de ganar liderazgo y marca personal. Cuenta tu experiencia.
+-->
+
+---
+layout: anim
+hide: true
 ---
 
 <div class="kick">MARCA PERSONAL Y NETWORKING</div>
@@ -1049,6 +1480,7 @@ El canal más eficiente, pero no el único.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">EL CONTRAPESO HONESTO</div>
@@ -1065,6 +1497,7 @@ No decir '85% se consigue por networking': no tiene fuente.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">COMPORTAMIENTO DE LOS BUSCADORES</div>
@@ -1100,6 +1533,7 @@ Cada fila es una acción concreta.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">MARCA PERSONAL</div>
@@ -1111,6 +1545,7 @@ Estructura de cada proyecto.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">NETWORKING</div>
@@ -1125,24 +1560,362 @@ Se nota cuando lo escribió una IA. El segundo menciona algo concreto de la otra
 -->
 
 ---
-layout: anim
+layout: animgrad
+transition: fade
 ---
 
-<div class="kick">TU PLAN</div>
-<div class="tt">30 días · 10 horas por semana</div>
-<div class="grid" style="grid-template-columns:repeat(4,1fr)">
-<div class="card " v-click><div class="n">Sem 1</div><div class="h">Base</div></div>
-<div class="card " v-click><div class="n">Sem 2</div><div class="h">CV y LinkedIn</div></div>
-<div class="card " v-click><div class="n">Sem 3</div><div class="h">Prueba pública</div></div>
-<div class="card " v-click><div class="n">Sem 4</div><div class="h">Red y postulaciones</div></div>
-</div>
+<div class="mins">~4 min</div>
+<div class="kick">PARTE 2 · ETAPA 5 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Busca trabajo con IA</div>
+<div class="sec-s">Herramientas reales, trabajo remoto y lo que hay que evitar.</div>
+<div class="stage-rm"><Roadmap :active="5" mini /></div>
 
 <!--
-Ver las cuatro semanas una por una.
+Etapa 5 del roadmap. Tiempo estimado: 4 min.
 -->
 
 ---
 layout: anim
+hide: true
+---
+
+<div class="kick">BUSCAR TRABAJO CON IA</div>
+<div class="one"><div class="st wide" style="font-size:46px">Las mejores herramientas <span class="hl">no disparan solicitudes.</span> Evalúan el encaje y adaptan.</div></div>
+
+<!--
+Refuerza la tesis del bloque 3: la ventaja no es el volumen.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">BUSCAR CON IA · EL FLUJO</div>
+<div class="tt">De la oferta a la postulación</div>
+<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr">
+<div class="card" v-click><div class="n">1</div><div class="h">Perfil</div><div class="p">CV base en un Proyecto de Claude</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">2</div><div class="h">Búsqueda</div><div class="p">Plugin o portales, con filtros reales</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">3</div><div class="h">Encaje</div><div class="p">¿Vale la pena postular?</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">4</div><div class="h">Adaptación</div><div class="p">CV y carta por oferta, con tus palabras</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">5</div><div class="h">Seguimiento</div><div class="p">Tracker y recordatorios</div></div>
+</div>
+
+<!--
+Cada paso tiene una herramienta; la decisión de postular siempre es tuya.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">PLUGINS DE CLAUDE · PARA TODOS</div>
+<div class="tt">Se instalan con un clic</div>
+<div class="grid tools" style="grid-template-columns:repeat(3,1fr)">
+<div class="card tool " v-click><div class="thead"><Logo n="develop21" :size="36" /><span class="tag ">Busca ofertas</span></div><div class="h">Develop21 Jobs</div><div class="p">Indeed, LinkedIn y webs de empresas. Evalúa encaje y adapta CV y carta</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="rankedin" :size="36" /><span class="tag ">Analiza perfil</span></div><div class="h">rankedin</div><div class="p">Con tu exportación de LinkedIn: puntaje, brechas y resistencia a la IA</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="foundrole" :size="36" /><span class="tag ">Busca ofertas</span></div><div class="h">FoundRole Jobs</div><div class="p">Salario de mercado, ofertas fantasma y cómo lee tu CV el ATS</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="mokaru" :size="36" /><span class="tag ">Busca y adapta</span></div><div class="h">Mokaru</div><div class="p">Busca, adapta tu CV a cada rol y sigue tus postulaciones</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="careervillage" :size="36" /><span class="tag ">Orientación</span></div><div class="h">Career Coaching</div><div class="p">CareerVillage: orientación de carrera con fuentes citadas</div></div>
+<div class="card tool bad" v-click><div class="thead"><span class="tag warn">Ojo</span></div><div class="h">Son de terceros</div><div class="p">Categoría comunidad: revisa qué datos compartes</div></div>
+</div>
+<div class="src">Directorio de plugins de Claude · septiembre 2026</div>
+
+<!--
+Para público no técnico: estos se instalan desde Claude sin programar.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">SKILLS DE LA COMUNIDAD · PARA DESARROLLADORES</div>
+<div class="tt">Gratis en GitHub, con Claude Code</div>
+<div class="grid tools" style="grid-template-columns:repeat(2,1fr)">
+<div class="card tool " v-click><div class="thead"><Logo n="github" :size="36" /><span class="tag dev">La más usada</span></div><div class="h">career-ops</div><div class="p">~69 k estrellas, MIT, README en español. Revisa Greenhouse, Ashby y Lever, evalúa ofertas y genera tu CV en PDF</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="github" :size="36" /><span class="tag dev">Perfil</span></div><div class="h">linkedin-profile-optimizer</div><div class="p">Titular, Acerca de y palabras clave. Parte de un repo con 20+ skills de carrera</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="github" :size="36" /><span class="tag dev">Estrategia</span></div><div class="h">job-search-strategist</div><div class="p">Plan de búsqueda por rol y mercado</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="github" :size="36" /><span class="tag dev">CV</span></div><div class="h">resume-tailoring-skill</div><div class="p">Adapta el CV a cada oferta</div></div>
+</div>
+<div class="src">github.com/santifer/career-ops · claudemarketplaces.com · requieren Claude Code y Node</div>
+
+<!--
+career-ops la hizo un desarrollador español. Nunca postula por ti: tú decides.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">LA ADVERTENCIA</div>
+<div class="one"><div class="st wide" style="font-size:44px">No existe un conector oficial de LinkedIn, y LinkedIn <span class="hl warm">prohíbe bots y automatizar acciones.</span></div></div>
+<div class="src">Condiciones de uso de LinkedIn. Los conectores de empleo que existen son de Indeed, ZipRecruiter y Dice.</div>
+
+<!--
+Desconfía de lo que prometa 'postular automático en LinkedIn': te pueden restringir la cuenta.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">BUSCAR CON IA · PROMPT</div>
+<div class="tt">Evalúa el encaje antes de postular</div>
+<div class="pwrap"><div class="prompt">"Te paso esta oferta y mi CV. Del 1 al 10, ¿qué tan bien encajo? Dame 3 razones a favor, 3 brechas y si vale la pena postular. Sé honesto."</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Menos de 6: no postules, aprende la brecha</div></div><div class="card" v-click><div class="p" style="margin:0">Las brechas van a tu plan de aprendizaje</div></div><div class="card" v-click><div class="p" style="margin:0">Las razones a favor van a tu carta</div></div></div>
+
+<!--
+Es la versión manual de lo que hacen los plugins.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TRABAJO REMOTO</div>
+<div class="one"><div class="st wide" style="font-size:50px">Muchas ofertas 'remotas' son <span class="hl warm">solo para EE. UU.</span> Lee la ubicación antes de postular.</div></div>
+
+<!--
+Remoto no siempre es 'desde cualquier país'. Buscar 'LATAM', 'Americas' o 'worldwide'.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TRABAJO REMOTO · DÓNDE BUSCAR</div>
+<div class="tt">Portales que sí aceptan Latinoamérica</div>
+<div class="grid tools" style="grid-template-columns:repeat(3,1fr)">
+<div class="card tool " v-click><div class="thead"><Logo n="linkedin" :size="36" /><span class="tag ">Filtro</span></div><div class="h">LinkedIn</div><div class="p">Filtro 'Remoto' + ubicación 'Latinoamérica'</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="getonbrd" :size="36" /><span class="tag ">Tech LatAm</span></div><div class="h">Get on Board</div><div class="p">Empleos de tecnología en la región</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="torre" :size="36" /><span class="tag ">LatAm</span></div><div class="h">Torre</div><div class="p">Empleos remotos para Latinoamérica</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="wellfound" :size="36" /><span class="tag ">Startups</span></div><div class="h">Wellfound</div><div class="p">Startups con equipos distribuidos</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="wwr" :size="36" /><span class="tag ">Global</span></div><div class="h">We Work Remotely · Remote OK</div><div class="p">Revisa si dice 'worldwide'</div></div>
+<div class="card tool " v-click><div class="thead"><Logo n="workana" :size="36" /><span class="tag ">Freelance</span></div><div class="h">Workana</div><div class="p">Proyectos para empezar y armar portafolio</div></div>
+</div>
+
+<!--
+Palabras clave útiles en inglés: remote LATAM, remote Americas, worldwide.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">TRABAJO REMOTO · LO QUE TE PIDEN</div>
+<div class="tt">Más allá de lo técnico</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="n">1</div><div class="h">Inglés</div><div class="p">Escrito primero; hablado en la entrevista</div></div>
+<div class="card " v-click><div class="n">2</div><div class="h">Comunicación asíncrona</div><div class="p">Escribir claro para quien lee mañana</div></div>
+<div class="card " v-click><div class="n">3</div><div class="h">Autonomía</div><div class="p">Entregas, no horas conectado</div></div>
+<div class="card " v-click><div class="n">4</div><div class="h">Zona horaria</div><div class="p">UTC-5: tu ventaja con EE. UU.</div></div>
+<div class="card " v-click><div class="n">5</div><div class="h">Portafolio público</div><div class="p">Nadie te ve en la oficina</div></div>
+<div class="card " v-click><div class="n">6</div><div class="h">Herramientas</div><div class="p">Slack, Notion, GitHub, Loom</div></div>
+</div>
+
+<!--
+Conecta con la diapositiva de Ecuador: hora y dólar.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">TRABAJO REMOTO · CÓMO TE CONTRATAN</div>
+<div class="tt">Tres formas, tres realidades</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card " v-click><div class="h">Empleo directo</div><div class="p">La empresa te contrata. Poco común desde el extranjero.</div></div>
+<div class="card " v-click><div class="h">Vía EOR</div><div class="p">Una empresa intermedia (p. ej. Deel o Remote) te contrata por ellos.</div></div>
+<div class="card " v-click><div class="h">Contratista</div><div class="p">Facturas tú. Revisa tus obligaciones con el SRI.</div></div>
+</div>
+
+<!--
+No es asesoría legal ni tributaria; es para saber qué preguntar.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TRABAJO REMOTO · SEÑALES DE ESTAFA</div>
+<div class="tt">Si ves esto, sal</div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card bad" v-click><div class="h">Te piden pagar</div><div class="p">Por capacitación, equipo o 'registro'</div></div>
+<div class="card bad" v-click><div class="h">Entrevista solo por chat</div><div class="p">Sin video y sin nombre real</div></div>
+<div class="card bad" v-click><div class="h">Piden cédula o banco</div><div class="p">Antes de una oferta por escrito</div></div>
+<div class="card bad" v-click><div class="h">Sueldo irreal</div><div class="p">Muy alto para el rol y sin experiencia</div></div>
+<div class="card bad" v-click><div class="h">Correo gratuito</div><div class="p">Gmail o Hotmail en vez del dominio de la empresa</div></div>
+<div class="card bad" v-click><div class="h">Urgencia</div><div class="p">'Responde hoy o pierdes el puesto'</div></div>
+</div>
+
+<!--
+Las estafas de empleo remoto son comunes. Mejor prevenir.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">TRABAJO REMOTO · PROMPT</div>
+<div class="tt">Revisa la oferta antes de ilusionarte</div>
+<div class="pwrap"><div class="prompt">"Revisa esta oferta remota: ¿acepta candidatos desde Ecuador? ¿En qué zona horaria trabaja el equipo? ¿Es empleo, EOR o contrato? ¿Ves señales de estafa?"</div><CopyBtn /></div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:22px"><div class="card" v-click><div class="p" style="margin:0">Pega la oferta completa</div></div><div class="card" v-click><div class="p" style="margin:0">Busca la empresa aparte</div></div><div class="card" v-click><div class="p" style="margin:0">Nunca pagues para postular</div></div></div>
+
+<!--
+Cierra el bloque práctico de remoto.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">IDEA PARA LLEVARTE · BLOQUE 6</div>
+<div class="one"><div class="st wide" style="font-size:52px">La IA busca y compara. <span class="hl">Tú decides dónde postular.</span></div></div>
+
+<!--
+Cierre del bloque 6.
+-->
+
+---
+layout: animgrad
+transition: fade
+---
+
+<div class="mins">~2 min</div>
+<div class="kick">PARTE 2 · ETAPA 6 DE 6</div>
+<div class="sec-t" style="margin-top:4px">Entrevista</div>
+<div class="sec-s">Prepárate con IA. Responde tú.</div>
+<div class="stage-rm"><Roadmap :active="6" mini /></div>
+
+<!--
+Etapa 6 del roadmap. Tiempo estimado: 2 min.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">ENTREVISTAS · JUEGO</div>
+<div class="tt">¿Legítimo o trampa?</div>
+<LegitGame />
+
+<!--
+Lee cada frase, que la sala grite 'legítimo' o 'trampa', y haz clic.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">ENTREVISTAS EN 2026</div>
+<div class="tt">Prepararte con IA: sí. Que responda por ti: no.</div>
+<div class="grid" style="grid-template-columns:repeat(2,1fr)">
+<div class="card hi" v-click><div class="h">Sí: úsala para prepararte</div><div class="p">Preguntas probables · simulación por voz · historias STAR</div></div>
+<div class="card bad" v-click><div class="h">No: que piense por ti en vivo</div><div class="p">Es fraude y cada vez más empresas lo detectan</div></div>
+</div>
+
+<!--
+Línea ética clara.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">ENTREVISTAS EN 2026 · EL CONTEXTO</div>
+<div class="tt">El fraude en entrevistas</div>
+<div class="grid" style="grid-template-columns:repeat(2,1fr)">
+<div class="card " v-click><Num v="6%" class="bn" /><div class="h">de buscadores admitió fraude</div><div class="p">Gartner (unos 3.000 encuestados)</div></div>
+<div class="card " v-click><Num v="1 de 4" class="bn" /><div class="h">perfiles falsos en 2028</div><div class="p">Gartner: es una proyección, no una medición</div></div>
+</div>
+
+<!--
+Citar como proyección.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">ENTREVISTAS EN 2026</div>
+<div class="tt">Cómo prepararte con IA</div>
+<div class="flow" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr">
+<div class="card" v-click><div class="n">1</div><div class="h">Pega la oferta</div><div class="p">Pide las 10 preguntas más probables</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">2</div><div class="h">Simula por voz</div><div class="p">Que te pregunte y repregunte</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">3</div><div class="h">Historias STAR</div><div class="p">5 o 6 reales, practicadas</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">4</div><div class="h">Investiga la empresa</div><div class="p">Productos, noticias, problemas</div></div><div class="arr"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="card" v-click><div class="n">5</div><div class="h">Ensaya sobre IA</div><div class="p">¿Cómo la usas? Con ejemplo</div></div>
+</div>
+
+<!--
+Sexto paso, de viva voz: prepara preguntas inteligentes para el entrevistador.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">DEMO 4 · SI FALLA EL INTERNET</div>
+<div class="tt">La IA te entrevista. Tú respondes en STAR.</div>
+<div class="star">
+<div class="card" v-click><div class="n">S</div><div class="h">Situación</div><div class="p">El alcance de la cuenta estaba plano.</div></div>
+<div class="card" v-click><div class="n">T</div><div class="h">Tarea</div><div class="p">Ordenar qué se publicaba y cuándo.</div></div>
+<div class="card" v-click><div class="n">A</div><div class="h">Acción</div><div class="p">Armé un calendario y medí cada pieza.</div></div>
+<div class="card hi" v-click><div class="n">R</div><div class="h">Resultado</div><div class="p">+40% de alcance en 6 meses.</div></div>
+</div>
+<p class="reveal">Si falta la R, la historia no cierra.</p>
+
+<!--
+3–4 minutos en vivo con voz. Esta diapositiva es el respaldo, con el mismo ejemplo de la charla.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">ENTREVISTAS EN 2026</div>
+<div class="one"><div class="st wide" style="font-size:44px">Si la IA piensa por ti en la entrevista, <span class="hl">el día uno en el trabajo se va a notar.</span></div></div>
+
+<!--
+Frase para la charla.
+-->
+
+---
+layout: anim
+hide: true
+---
+
+<div class="kick">IDEA PARA LLEVARTE · BLOQUE 4</div>
+<div class="two"><div class="st" >La IA adapta y pule; <span class="hl">los hechos los pones tú.</span></div><div class="pic "><img src="/img/cowrite.jpg" alt="manos humanas y robóticas escribiendo juntas"></div></div>
+
+<!--
+Cierre del bloque de demos.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">TU PLAN · CHECKLIST</div>
+<div class="tt">30 días, 10 horas por semana</div>
+<PlanChecklist />
+
+<!--
+Marca en vivo lo que ya hiciste. El avance se guarda en el navegador.
+-->
+
+---
+layout: anim
+hide: true
 ---
 
 <div class="kick">TU PLAN DE 30 DÍAS</div>
@@ -1155,6 +1928,7 @@ Una semana, un frente.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">TU PLAN DE 30 DÍAS</div>
@@ -1167,6 +1941,7 @@ Una semana, un frente.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">TU PLAN DE 30 DÍAS</div>
@@ -1179,6 +1954,7 @@ Una semana, un frente.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">TU PLAN DE 30 DÍAS</div>
@@ -1205,7 +1981,7 @@ layout: anim
 ---
 
 <div class="kick">VOLVAMOS A LA PREGUNTA DEL INICIO</div>
-<div class="one"><div class="st wide">¿Quién sigue creyendo que la IA le va a quitar el trabajo?</div><p style="color:var(--muted);font-size:20px;margin-top:30px">Levanta la mano otra vez.</p></div>
+<div class="ask"><div class="st">¿Quién sigue creyendo que la IA le va a quitar el trabajo?</div></div>
 
 <!--
 Volver a levantar la mano. ¿Cambió algo? Cerrar con la prima de 62% de PwC (2 min).
@@ -1213,6 +1989,7 @@ Volver a levantar la mano. ¿Cambió algo? Cerrar con la prima de 62% de PwC (2 
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">CIERRE</div>
@@ -1237,6 +2014,7 @@ Frase final. Pausa. Pasar a preguntas.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">PREGUNTAS DIFÍCILES · Q&A</div>
@@ -1279,6 +2057,7 @@ Fuentes primarias primero; las secundarias, verificar antes de citar.
 
 ---
 layout: anim
+hide: true
 ---
 
 <div class="kick">ANEXO</div>

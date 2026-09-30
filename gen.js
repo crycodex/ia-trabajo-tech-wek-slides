@@ -15,19 +15,29 @@ const rich = parts => parts.map((p, i) => {
   const t = typeof p === "string" ? p : p.hl;
   const prev = i > 0 ? (typeof parts[i - 1] === "string" ? parts[i - 1] : parts[i - 1].hl) : "";
   const sp = i > 0 && !/\s$/.test(prev) && !/^\s/.test(t) ? " " : "";
-  return typeof p === "string" ? sp + t : `${sp}<span class="hl">${t}</span>`;
+  return typeof p === "string" ? sp + t : `${sp}<span class="hl${p.warm ? " warm" : ""}">${t}</span>`;
 }).join("");
 const cols = n => `style="grid-template-columns:repeat(${n},1fr)"`;
 
 function section(n, title, sub, mins) {
   add(`<div class="mins">~${mins} min</div>
-<div class="kick">BLOQUE</div>
+<div class="kick">PARTE 1 · EL CONTEXTO</div>
 <div class="sec-n">${String(n).padStart(2, "0")}</div>
 <div class="sec-t">${title}</div>
 <div class="sec-s">${sub}</div>`, { cls: "grad", notes: `Bloque ${n}. Tiempo estimado: ${mins} min.` });
 }
+function stage(n, title, sub, mins) {
+  add(`<div class="mins">~${mins} min</div>
+<div class="kick">PARTE 2 · ETAPA ${n} DE 6</div>
+<div class="sec-t" style="margin-top:4px">${title}</div>
+<div class="sec-s">${sub}</div>
+<div class="stage-rm"><Roadmap :active="${n}" mini /></div>`, { cls: "grad", notes: `Etapa ${n} del roadmap. Tiempo estimado: ${mins} min.` });
+}
 function statement(k, parts, o = {}) {
   const t = rich(parts);
+  if (o.side) return add(`${kick(k)}
+<div class="two"><div class="st" ${o.fs ? `style="font-size:${o.fs}px"` : ""}>${t}</div>${o.side}</div>
+${src(o.src)}`, { notes: o.n });
   add(`${kick(k)}
 ${o.ph ? `<div class="two"><div class="st" ${o.fs ? `style="font-size:${o.fs}px"` : ""}>${t}</div>${ph(o.ph)}</div>` : `<div class="one"><div class="st wide" ${o.fs ? `style="font-size:${o.fs}px"` : ""}>${t}</div></div>`}
 ${src(o.src)}`, { notes: o.n });
@@ -82,12 +92,12 @@ ${src(o.src)}`, { notes: o.n });
 function quiz(k, q, opts, o = {}) {
   add(`${kick(k)}
 <div class="quiz-q">${q}</div>
-<div class="opts" ${cols(opts.length)}>${opts.map(t => `<div class="opt">${t}</div>`).join("")}</div>`, { cls: "grad", notes: o.n });
+<Quiz :opts='${JSON.stringify(opts)}' :answer="${o.answer ?? 0}" />`, { cls: "grad", notes: o.n });
 }
 function prompt(k, title, text, o = {}) {
   add(`${kick(k)}
-${ttl(title)}
-<div class="prompt">${text}</div>
+${/claude/i.test(k) ? `<div class="tt"><img class="spark-ic" src="/img/claude-spark.png" alt="">${title}</div>` : ttl(title)}
+<div class="pwrap"><div class="prompt">${text}</div><CopyBtn /></div>
 ${o.tips ? `<div class="grid" style="grid-template-columns:repeat(${o.tips.length},1fr);margin-top:22px">${o.tips.map(t => `<div class="card" v-click><div class="p" style="margin:0">${t}</div></div>`).join("")}</div>` : ""}`, { notes: o.n });
 }
 function demoScreen(title, note, n) {
@@ -104,6 +114,23 @@ ${steps.map((s, i) => `<div class="card" v-click><div class="n">${s.big || i + 1
 </div>
 ${src(o.src)}`, { notes: o.n });
 }
+function tools(k, title, items, o = {}) {
+  add(`${kick(k)}
+${ttl(title)}
+<div class="grid tools" ${cols(o.cols || 3)}>
+${items.map(it => `<div class="card tool ${it.bad ? "bad" : ""}" v-click><div class="thead">${it.logo ? `<Logo n="${it.logo}" :size="36" />` : ""}<span class="tag ${it.t === "dev" ? "dev" : it.t === "warn" ? "warn" : ""}">${it.tag}</span></div><div class="h">${it.h}</div><div class="p">${it.p}</div></div>`).join("\n")}
+</div>
+${src(o.src)}`, { notes: o.n });
+}
+function annotated(k, title, img, boxes, items, o = {}) {
+  add(`${kick(k)}
+${ttl(title)}
+<div class="annw">
+<Annotated ${img ? `src="${img}"` : ""} :boxes='${JSON.stringify(boxes)}' ${o.label ? `label="${o.label}"` : ""} />
+<ol class="alist">${items.map((it, i) => `<li class="${it.tone || "fix"}" v-click><b>${it.n ?? i + 1}</b><div><strong>${it.h}</strong><span>${it.p}</span></div></li>`).join("")}</ol>
+</div>
+${src(o.src)}`, { notes: o.n });
+}
 function week(t, ls, ent) {
   add(`${kick("Tu plan de 30 días")}
 ${ttl(t)}
@@ -113,49 +140,58 @@ ${ttl(t)}
 // =====================================================================
 // APERTURA
 // =====================================================================
-add(`<div class="two" style="grid-template-columns:1.4fr 1fr">
+add(`<div class="two" style="grid-template-columns:1.35fr 1fr">
 <div>
 <div class="kick">PONENCIA · EMPLEO E IA 2026</div>
 <div class="st" style="font-size:50px">La IA no te quitará el trabajo, <span class="hl">pero sí te lo puede conseguir</span></div>
-<p style="font-size:17px;color:var(--soft);margin-top:26px;max-width:560px">Datos reales, nuevas reglas de contratación y cómo usar la IA para conseguir empleo.</p>
-<p style="font-size:16px;font-weight:700;margin-top:30px">Cristhian Recalde · @cry.code</p>
+<p style="font-size:18px;color:var(--soft);margin-top:22px;max-width:540px">Datos reales y un roadmap para pasar de estudiante a tu primer empleo, con IA.</p>
+<div class="byline"><img src="/foto.jpg" alt="Cristhian Recalde"><div><b>Cristhian Recalde · @cry.code</b><span>AWS Community Builder · IA</span></div></div>
 </div>
-${ph("Imagen de portada / collage tech")}
+<ClaudeTiles img="/img/cover.jpg" />
 </div>`, { notes: "Bienvenida (1 min). Pregunta: ¿cuántos aquí están buscando trabajo o lo buscarán en el próximo año?" });
 
 add(`${kick("Antes de empezar")}
-${ttl("¿Quién les habla?")}
 <div class="who">
-<img src="/foto.jpg" alt="Cristhian Recalde">
+<img src="/foto.jpg" alt="Cristhian Recalde frente al logo de AWS">
 <div>
 <p class="who-k">Cristhian Recalde · @cry.code</p>
-<p class="who-line">Desarrollador de software web y móvil, también IsnotCristhian. Creo contenido para crecer en esta industria y para reducir la brecha digital en Ecuador.</p>
-<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+<div class="aws-hero" v-click><Logo n="aws" :size="58" /><div><small>MI COMUNIDAD PRINCIPAL</small><b>AWS Community Builder</b><span>Área: Inteligencia Artificial</span></div></div>
+<div class="grid who-grid">
 ${[
-  ["2023", "Mención de honor, TuApp · startup SwapMe"],
-  ["Quito", "comunidad de desarrolladores de Google"],
-  ["Video", "YouTube · Software & Development"],
-  ["20+", "apps publicadas · AWS Community Builder"],
-].map(([b, l]) => `<div class="card" v-click style="display:flex;align-items:center;gap:14px;padding:14px 16px"><div class="bn" style="margin:0;min-width:78px;font-size:26px">${b}</div><div class="h" style="font-weight:500;font-size:15px">${l}</div></div>`).join("")}
+  ["20+", "apps publicadas · Full Stack Flutter"],
+  ["Docente", "ITSI · maestrante en IA (UEES)"],
+  ["IONOS HUB", "cofundador · software y automatización"],
+  ["Cry Code", "contenido tech en español"],
+].map(([b, l]) => `<div class="card" v-click><div class="bn">${b}</div><div class="h">${l}</div></div>`).join("")}
 </div>
+<p class="who-also" v-click>También: comunidad GDG Quito · Mención de honor TuApp 2023 (SwapMe) · YouTube Software & Development</p>
 </div>
-</div>`, { notes: "Presentación (1 min). Bio del portafolio: IsnotCristhian, desarrollador web/móvil, contenido para crecer y reducir la brecha en Ecuador. Mención de honor TuApp 2023 con SwapMe. Comunidad de desarrolladores de Google Quito. YouTube Software & Development. Cerrar con 20+ apps y AWS Community Builder." });
+</div>`, { notes: "Presentación (1 min). Empieza por AWS Community Builder en el área de IA: es la credencial principal. Luego 20+ apps, docencia y maestría en IA, IONOS HUB y Cry Code. GDG Quito y TuApp solo como mención." });
 
 add(`${kick("Pregunta a la sala")}
-<div class="two"><div><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div><p style="color:var(--muted);margin-top:26px">Cuenta las manos. Al final volvemos a preguntar.</p></div>${ph("Público levantando la mano")}</div>`, { notes: "Cuenta las manos. Al final de la charla volvemos a preguntar (2 min)." });
+<div class="ask"><div class="st">Levanta la mano si crees que la IA te va a quitar el trabajo.</div></div>`, { notes: "Pregunta a mano alzada, sin contar. Solo mira la sala y comenta. Al final volvemos a preguntar (1 min)." });
 
 add(`${kick("Pregunta a la sala")}
 <div class="st wide" style="margin:20px 0 30px">¿Quién está buscando trabajo, o lo buscará este año?</div>
 ${ph("Ilustración: foto de sala o emoji gigante", "wide")}`, { notes: "Segunda mano: ¿quién busca trabajo o lo buscará pronto? (1 min)" });
 
-cards("El recorrido", "Del miedo al plan de acción", [
-  { n: "01", h: "El miedo vs los datos" }, { n: "02", h: "La verdad incómoda" }, { n: "03", h: "Las nuevas reglas" }, { n: "04", h: "La IA como aliada" }, { n: "05", h: "Marca personal y plan" },
-], { n: "Agenda (1 min). Un bloque = una idea que se llevan." });
+add(`${kick("El recorrido")}
+${ttl("Primero el contexto. Después, tu roadmap.")}
+<div class="agenda2">
+<div class="ctx"><small>PARTE 1 · EL CONTEXTO · 12 MIN</small>
+<div class="card" v-click><div class="n">01</div><div class="h">El miedo vs los datos</div></div>
+<div class="card" v-click><div class="n">02</div><div class="h">La verdad incómoda</div></div>
+<div class="card" v-click><div class="n">03</div><div class="h">Las nuevas reglas</div></div>
+</div>
+<div class="card hi rmlist" v-click><small>PARTE 2 · TU ROADMAP · 30 MIN</small>
+<ol><li>Habilidades</li><li>Aprende con IA</li><li>Tu perfil con Claude</li><li>Comunidad y visibilidad</li><li>Busca trabajo con IA</li><li>Entrevista</li></ol>
+</div>
+</div>`, { notes: "Agenda (1 min). Doce minutos de contexto con datos y treinta de roadmap práctico: de estudiante a tu primer empleo." });
 
 // =====================================================================
 // BLOQUE 1
 // =====================================================================
-section(1, "El miedo vs los datos", "¿La IA viene por tu trabajo? Veamos qué dicen los números.", 9);
+section(1, "El miedo vs los datos", "¿La IA viene por tu trabajo? Veamos qué dicen los números.", 4);
 split("El miedo vs los datos", "Cada revolución tecnológica dio miedo", ["Cajeros automáticos", "Excel", "Internet"], "Foto histórica: oficina antes de Excel / ATM", { n: "Contexto (1 min): el miedo no es nuevo. Cambia el trabajo, no desaparece." });
 statpair("El miedo vs los datos", "El saldo neto es positivo", [
   { big: "+170 M", h: "empleos creados", c: "acc" }, { big: "−92 M", h: "desplazados", c: "warm" }, { big: "+78 M", h: "saldo neto a 2030", c: "good" },
@@ -172,7 +208,7 @@ stat("El miedo vs los datos · Latinoamérica", "26–38%", "de los empleos en l
 <div class="wafw"><div class="waf">${cells}</div><div class="wleg"><span><i class="e"></i>Expuestos a IA generativa: 26–38 de cada 100</span><span><i class="w"></i>En riesgo de automatización total: 2–5 de cada 100</span></div></div></div>
 ${src("OIT y Banco Mundial · cada cuadro = 1 de cada 100 empleos (se muestra el límite superior)")}`, { notes: "Contraste con la diapositiva anterior: estar expuesto no es ser reemplazado." });
 }
-quiz("Adivina el dato · pregunta al público", "¿Cuánto más ganan, en promedio, los empleos que piden habilidades de IA?", ["A) 12% más", "B) 35% más", "C) 62% más"], { n: "Pedir votos levantando la mano. Dar 20 segundos." });
+quiz("Adivina el dato · pregunta al público", "¿Cuánto más ganan, en promedio, los empleos que piden habilidades de IA?", ["A) 12% más", "B) 35% más", "C) 62% más"], { answer: 2, n: "Pedir votos levantando la mano. Dar 20 segundos. Luego haz clic en la opción que eligió la mayoría." });
 stat("Respuesta: C", "+62%", "prima salarial promedio de los empleos que piden IA", { src: "PwC · Global AI Jobs Barometer 2026 (57% el año anterior)", ph: "Imagen: billete / gráfico ascendente", n: "El dato más fuerte de la charla. Saber IA paga." });
 bars("PwC · AI Jobs Barometer 2026", "Los empleos que piden IA crecen mucho más rápido", [
   { label: "Empleos que piden habilidades de IA", val: "+69%", pct: 69 }, { label: "Mercado laboral en general", val: "+9%", pct: 9, color: "var(--muted)" },
@@ -193,9 +229,9 @@ statement("Idea para llevarte · bloque 1", ["No es el fin del empleo.", { hl: "
 // =====================================================================
 // BLOQUE 2
 // =====================================================================
-section(2, "La verdad incómoda", "Dónde sí hay riesgo, y por qué no es el fin del camino.", 11);
+section(2, "La verdad incómoda", "Dónde sí hay riesgo, y por qué no es el fin del camino.", 4);
 statement("La verdad incómoda", ["El primer peldaño de la escalera ", { hl: "sí se está rompiendo" }], { ph: "Imagen: escalera con el primer escalón roto", n: "Credibilidad: reconocer el riesgo real. (1 min)" });
-stat("La verdad incómoda · Stanford", "−19%", "de empleo en jóvenes de 22 a 25 años en ocupaciones muy expuestas a IA", { warm: true, src: "Stanford Digital Economy Lab · 'Canaries in the Coal Mine' · revisión agosto 2026", ph: "Imagen: canario en la mina (metáfora)", n: "Comparado con dónde estaría sin la IA. Datos de nómina ADP, EE. UU." });
+stat("La verdad incómoda · Stanford", "−19%", "de empleo en jóvenes de 22 a 25 años en ocupaciones muy expuestas a IA", { warm: true, src: "Stanford Digital Economy Lab · 'Canaries in the Coal Mine' · revisión agosto 2026", ph: "Imagen: canario en la mina (metáfora)", n: "Comparado con dónde estaría sin la IA. Datos de nómina ADP, EE. UU. Decirlo en voz: son datos de EE. UU., descriptivos, no causales. Y la caída se concentra donde la IA automatiza, no donde aumenta el trabajo." });
 statpair("La verdad incómoda · Stanford", "Nov 2022 → Jun 2026 · jóvenes de 22 a 25 años", [
   { big: "−11%", h: "ocupaciones más expuestas a IA", c: "warm" }, { big: "+10%", h: "ocupaciones menos expuestas", c: "good" },
 ], { n: "Mismo grupo etario, distinta exposición." });
@@ -223,7 +259,7 @@ statement("Idea para llevarte · bloque 2", ["El puesto junior cambió,", { hl: 
 // =====================================================================
 // BLOQUE 3
 // =====================================================================
-section(3, "Las nuevas reglas de contratación", "La búsqueda de empleo en 2026 es IA contra IA.", 8);
+section(3, "Las nuevas reglas de contratación", "La búsqueda de empleo en 2026 es IA contra IA.", 4);
 statpair("Las nuevas reglas", "Avalancha de solicitudes", [
   { big: "48%", h: "dice que la IA aumentó el volumen de postulaciones por vacante" }, { big: "92%", h: "usa algún grado de IA en su proceso" },
 ], { src: "ZipRecruiter 2026 · más de 1.000 reclutadores (resumen HeroHunt)" });
@@ -240,7 +276,7 @@ stat("Las nuevas reglas · presencial", "72,4%", "de líderes de reclutamiento e
 cards("Dos preguntas de líderes", "Prepara tu respuesta", [
   { h: "Dan Shapero · COO de LinkedIn", p: "¿Cómo has usado la IA?", hi: true }, { h: "Julie Sweet · CEO de Accenture", p: "¿Qué aprendiste en los últimos seis meses?", hi: true },
 ], { src: "Fortune", n: "Interpelar al público en vivo: pedir que alguien responda." });
-quiz("¿Mito o realidad? · vota", "\"El ATS rechaza tu CV automáticamente si el formato no le gusta.\"", ["MITO", "REALIDAD"], { n: "Votar levantando la mano." });
+quiz("¿Mito o realidad? · vota", "\"El ATS rechaza tu CV automáticamente si el formato no le gusta.\"", ["MITO", "REALIDAD"], { answer: 0, n: "Votar levantando la mano. Haz clic en lo que votó la mayoría." });
 add(`${kick("Respuesta")}
 <div class="two" style="grid-template-columns:1fr 1fr">
 <div><div class="num warm" style="font-size:110px">MITO</div><div class="lab">El ATS guarda tu CV y permite buscarlo por palabras clave. Lo que lo hunde es la avalancha de competidores.</div></div>
@@ -252,9 +288,52 @@ ${src("Jobscan · encuesta a más de 380 reclutadores (vía ResumeVera, JobCanno
 statement("Idea para llevarte · bloque 3", ["Si la IA te ayuda a enviar 100 solicitudes, ", { hl: "también ayuda a otros 1.000." }, " La ventaja ya no es el volumen."], { fs: 42, n: "La ventaja es la señal, no el volumen." });
 
 // =====================================================================
-// BLOQUE 4
+// PUENTE · ROADMAP
 // =====================================================================
-section(4, "La IA como tu aliada", "CV, LinkedIn y entrevistas. En vivo, sin ediciones.", 16);
+add(`${kick("Parte 2 · Tu roadmap")}
+${ttl("De estudiante a tu primer empleo, en 6 etapas")}
+<div class="one"><Roadmap /></div>`, { notes: "Puente entre el contexto y la práctica. Recorre las 6 etapas en 30 segundos; cada una tiene su portada." });
+// =====================================================================
+// ETAPA 1 · HABILIDADES
+// =====================================================================
+stage(1, "Habilidades", "Qué aprender: técnicas y blandas.", 3);
+statement("Habilidades para 2026", ["La IA cambia el ", { hl: "cómo" }, " se trabaja.", "Tus habilidades deciden el ", { hl: "qué" }, " te encargan."], { fs: 46, n: "Recordar el 39% de habilidades que cambian (WEF)." });
+tools("Habilidades técnicas", "Lo que crece más rápido", [
+  { tag: "Para todos", h: "Usar IA con criterio", p: "Pedir bien, revisar siempre, citar la fuente" },
+  { tag: "Para todos", h: "Alfabetización tecnológica", p: "Hojas de cálculo, datos básicos, automatizar tareas" },
+  { tag: "Para todos", h: "Inglés funcional", p: "Leer documentación y escribir un correo claro" },
+  { tag: "Tecnología", t: "dev", h: "IA y datos", p: "APIs de modelos, RAG, agentes, evaluación" },
+  { tag: "Tecnología", t: "dev", h: "Redes y ciberseguridad", p: "Entre las de mayor crecimiento según el WEF" },
+  { tag: "Tecnología", t: "dev", h: "Automatización", p: "Flujos sin código y scripts pequeños" },
+], { src: "WEF Future of Jobs 2025 · LinkedIn Skills on the Rise 2026", n: "La fila de arriba es para cualquier carrera. La de abajo, para perfiles técnicos." });
+cards("Habilidades blandas", "Las que la IA no puede hacer por ti", [
+  { n: 1, h: "Pensamiento crítico", p: "Detectar cuándo la IA se equivoca" }, { n: 2, h: "Comunicación escrita", p: "Clave en equipos remotos y asíncronos" }, { n: 3, h: "Adaptabilidad", p: "Cambiar de herramienta sin drama" },
+  { n: 4, h: "Curiosidad", p: "Aprender algo nuevo cada mes" }, { n: 5, h: "Colaboración y liderazgo", p: "Coordinar personas, no solo prompts" }, { n: 6, h: "Criterio ético", p: "No inventar, no exagerar, citar" },
+], { cols: 3, src: "WEF Future of Jobs 2025 · LinkedIn Skills on the Rise 2026 · Microsoft Work Trend Index 2026", n: "Enlazar con Microsoft: control de calidad 50%, pensamiento crítico 46%." });
+statement("Recuerda la pregunta de la CEO de Accenture", ["¿Qué aprendiste en los ", { hl: "últimos seis meses?" }, " Ten una respuesta con un proyecto."], { fs: 46, n: "Callback a Julie Sweet del bloque 3." });
+// =====================================================================
+// ETAPA 2 · APRENDE CON IA
+// =====================================================================
+stage(2, "Aprende con IA", "Que la IA sea tu tutor, no tu atajo.", 3);
+flow("Aprender con IA · el método", "Que la IA sea tu tutor, no tu atajo", [
+  { h: "Diagnóstico", p: "Que te haga 5 preguntas de nivel" }, { h: "Plan", p: "4 semanas que terminan en un proyecto" },
+  { h: "Práctica", p: "Ejercicios cortos con corrección" }, { h: "Explícalo tú", p: "Enséñale el tema; que busque tus errores" },
+], { n: "Explicar con tus palabras es la prueba de que aprendiste." });
+prompt("Aprender con IA · prompt 1", "Un plan que termina en algo que mostrar", "\"Quiero aprender [tema] en 4 semanas, 5 horas por semana. Primero hazme 5 preguntas para saber mi nivel. Luego arma un plan semanal que termine en un proyecto que pueda poner en mi portafolio.\"", { tips: ["El proyecto final va a Destacados", "Pide recursos gratuitos", "Revisa el plan cada domingo"], n: "Conecta con la semana 3 del plan de 30 días." });
+prompt("Aprender con IA · prompt 2", "Modo tutor", "\"Explícame [concepto] con un ejemplo de mi trabajo. Después hazme 3 preguntas. No me des la respuesta hasta que lo intente, y corrígeme.\"", { tips: ["'No me des la respuesta' es la clave", "Pide el ejemplo de tu área", "Guarda las preguntas que fallaste"], n: "Mostrar en vivo si hay tiempo." });
+versus("Aprender con IA", "La diferencia está en quién piensa", { h: "Así no", big: "Que la IA haga la tarea", p: "Aprendes a copiar." }, { h: "Así sí", big: "Que la IA te haga preguntas", p: "Aprendes a pensar." }, { n: "Cierra la parte de aprendizaje." });
+tools("Dónde aprender gratis", "Sin pagar un curso", [
+  { tag: "Curso", h: "Anthropic Academy", p: "Cursos gratuitos de fluidez en IA" },
+  { tag: "Comunidad", h: "GDG, AWS User Groups, meetups", p: "Aprendes y conoces a quien te recomienda" },
+  { tag: "Fuente", h: "Documentación oficial", p: "La fuente, no el resumen de un resumen" },
+  { tag: "Práctica", h: "Un problema real", p: "El mejor curso es resolver algo de tu ciudad" },
+], { cols: 2, n: "Mencionar las comunidades de las que formas parte." });
+statement("Idea para llevarte · bloque 5", ["Aprende con la IA,", { hl: "no a través de ella." }], { fs: 52, n: "Cierre del bloque 5." });
+
+// =====================================================================
+// ETAPA 3 · TU PERFIL
+// =====================================================================
+stage(3, "Tu perfil con Claude", "CV y LinkedIn que una IA encuentra y una persona cree.", 10);
 bars("CV en la era de la IA", "Personalizar rinde el doble", [
   { label: "CV adaptado a la oferta", val: "5,75%", pct: 5.75 }, { label: "CV genérico", val: "2,68%", pct: 2.68, color: "var(--warm)" },
 ], { src: "Análisis de 1,39 millones de postulaciones (The Interview Guys) · % de conversión a entrevista", n: "Personalizar duplica las probabilidades." });
@@ -305,10 +384,58 @@ ${ttl("Mismo perfil. Tres titulares. ¿Cuál abrirías?")}
 <div class="opt" v-click><b>C</b><span>Desarrollador Flutter | Apps móviles con IA | 20+ apps publicadas</span></div>
 </div>
 <p class="reveal" v-click>C gana: tiene rol, especialidad y una prueba.</p>`, { notes: "3–4 minutos. Votación levantando la mano. El clic final revela por qué C gana. No lo adelantes." });
+annotated("Mi perfil real · lo que ya funciona", "Un perfil que se entiende en 5 segundos", "/img/linkedin-perfil.webp", [{"x": 5, "y": 3, "w": 92, "h": 39, "n": 1, "tone": "good"}, {"x": 7, "y": 23, "w": 19.5, "h": 32, "n": 2, "tone": "good"}, {"x": 7, "y": 62, "w": 39.5, "h": 6.2, "n": 3, "tone": "good"}, {"x": 65.5, "y": 61, "w": 23.5, "h": 17.5, "n": 4, "tone": "good"}], [
+  { tone: "good", h: "Banner con propuesta", p: "Dice qué haces y dónde encontrarte" },
+  { tone: "good", h: "Foto con rostro claro", p: "Cercana, bien iluminada, sin filtros" },
+  { tone: "good", h: "Nombre con marca", p: "(cry.code) hace que te encuentren" },
+  { tone: "good", h: "Empresa y universidad", p: "Contexto inmediato para el reclutador" },
+], { n: "Mostrar el perfil propio es más creíble que un ejemplo. Recorre los recuadros verdes en orden." });
+annotated("Mi perfil real · lo que mejoraría", "Cuatro arreglos de cinco minutos", "/img/linkedin-perfil.webp", [{"x": 7, "y": 68.6, "w": 56, "h": 8.8, "n": 1}, {"x": 7, "y": 77.4, "w": 41.5, "h": 4.8, "n": 2}, {"x": 7, "y": 82.6, "w": 33.5, "h": 4.8, "n": 3}, {"x": 7, "y": 89, "w": 18.2, "h": 7.4, "n": 4}], [
+  { h: "Titular", p: "“Comunity” → “Community”. Abre con el rol que buscas y suma una prueba: 20+ apps" },
+  { h: "Ubicación", p: "Ibarra está bien. Suma “remoto” como tipo de trabajo en Open to Work" },
+  { h: "Visibilidad", p: "1.362 seguidores: publica una vez por semana lo que construyes" },
+  { h: "“Tengo interés en…”", p: "Activa Open to Work visible solo para reclutadores" },
+], { n: "Autocrítica en vivo: da credibilidad. Después, arma el titular corregido en la siguiente diapositiva." });
+add(`${kick("LinkedIn · pruébalo en vivo")}
+${ttl("Arma tu titular para que una IA te encuentre")}
+<HeadlineBuilder />`, { notes: "Arma el titular de un voluntario en vivo, o corrige el tuyo. Límite de LinkedIn: 220 caracteres." });
 cards("LinkedIn en 2026", "Tu perfil en seis partes", [
   { n: 1, h: "Foto y banner", p: "Muchas más visitas y mensajes" }, { n: 2, h: "Habilidades", p: "5 o más: hasta 17x más visitas" }, { n: 3, h: "Acerca de", p: "Lo mejor en las primeras líneas" },
   { n: 4, h: "Destacados", p: "Tu portafolio dentro de LinkedIn" }, { n: 5, h: "Experiencia", p: "Con logros medibles" }, { n: 6, h: "Open to Work", p: "Visible solo para reclutadores" },
 ], { cols: 3, n: "Foto: las cifras (14x–21x) son inconsistentes entre fuentes; presentar como principio, sin número." });
+statement("Claude para tu perfil", ["Claude no escribe tu perfil por ti.", { hl: "Te entrevista, te compara y te corrige." }], { fs: 42, side: `<ClaudeTiles small />`, n: "Transición a la parte práctica con Claude. La idea: editor exigente, no ghostwriter." });
+flow("Claude para tu perfil · el flujo", "Cuatro pasos, una tarde", [
+  { h: "Crea un Proyecto", p: "Sube tu CV, 10 ofertas y la exportación de LinkedIn" }, { h: "Diagnóstico", p: "Que lea tu perfil como un reclutador" },
+  { h: "Reescribe por partes", p: "Titular, Acerca de, experiencia" }, { h: "Verifica", p: "Léelo en voz alta. Corrige cada dato" },
+], { src: "Exportación: LinkedIn › Configuración › Privacidad de datos › Obtener una copia de tus datos", n: "Proyectos de Claude: el contexto (CV, ofertas, perfil) queda guardado y no lo repites en cada chat." });
+prompt("Claude · prompt 1 · diagnóstico", "Que te lea un reclutador en 30 segundos", "\"Lee mi perfil como un reclutador de [rol] con 30 segundos. ¿Qué entiendes que hago? ¿Qué te falta para llamarme? ¿Qué sobra?\"", { tips: ["Pega el perfil o súbelo en PDF", "Pide la respuesta en viñetas", "Repite después de cada cambio"], n: "Primero diagnóstico, después reescritura." });
+prompt("Claude · prompt 2 · titular", "Cinco titulares para elegir", "\"Con mi CV, propón 5 titulares de LinkedIn de máximo 220 caracteres: rol + especialidad + una prueba. Sin adjetivos como 'apasionado' o 'proactivo'.\"", { tips: ["220 caracteres es el límite de LinkedIn", "Elige uno y ajústalo a tu voz", "La prueba es un número o un logro"], n: "Conecta con la votación de titulares de la demo 3." });
+prompt("Claude · prompt 3 · Acerca de", "Las dos primeras líneas mandan", "\"Escribe mi 'Acerca de' en primera persona, 3 párrafos cortos. Las 2 primeras líneas dicen qué hago y para quién. Usa solo hechos de mi CV. Si falta un dato, pregúntame antes de escribir.\"", { tips: ["Solo se ven 2–3 líneas antes de 'ver más'", "'Pregúntame' evita que invente", "Termina con qué buscas"], n: "La frase clave es 'si falta un dato, pregúntame'." });
+prompt("Claude · prompt 4 · palabras clave", "Habla el idioma de las ofertas", "\"Te paso 10 ofertas del rol que busco. Lista las 15 habilidades que más se repiten y marca cuáles faltan en mi perfil y cuáles tengo pero no menciono.\"", { tips: ["Así te encuentra la búsqueda semántica", "Solo agrega lo que puedes demostrar", "Las mismas palabras van en tu CV"], n: "Es el entregable de la semana 1 del plan." });
+add(`${kick("Claude para tu perfil · así se ve")}
+${ttl("Bien usado, Claude pregunta antes de escribir")}
+<div class="chat">
+<div class="bubble me" v-click><small>TÚ</small><p>Mejora mi Acerca de.</p></div>
+<div class="bubble ai" v-click><small>CLAUDE</small><p>Antes de escribir: ¿qué problema resuelves y para quién? ¿Tienes un resultado con número de tu último proyecto?</p></div>
+<div class="bubble me" v-click><small>TÚ</small><p>Apps móviles para pymes. La última bajó a la mitad los pedidos por WhatsApp.</p></div>
+<div class="bubble goodline" v-click><small>PRIMERA LÍNEA</small><p>Hago apps móviles para pymes. La última redujo a la mitad los pedidos manuales por WhatsApp.</p></div>
+</div>`, { notes: "Ejemplo ilustrativo, no un caso real. Mostrar que el dato sale de la persona." });
+cards("LinkedIn · tips que casi nadie usa", "Seis ajustes de cinco minutos", [
+  { n: 1, h: "URL personalizada", p: "linkedin.com/in/tunombre, no la de números" }, { n: 2, h: "Perfil en inglés", p: "Agrega un segundo idioma al perfil" }, { n: 3, h: "Open to Work con 'remoto'", p: "Elige también el tipo de lugar de trabajo" },
+  { n: 4, h: "Alertas de empleo", p: "Por rol + remoto, llegan cada día" }, { n: 5, h: "Recomendaciones concretas", p: "Pide 2–3 que mencionen un logro" }, { n: 6, h: "Comenta antes de publicar", p: "Un buen comentario también es visibilidad" },
+], { cols: 3, n: "Todos se hacen hoy, desde el celular." });
+annotated("Tu perfil · Acerca de", "Espacio para tu captura: Acerca de", "", [], [
+  { tone: "tip", h: "Primeras dos líneas", p: "Qué haces y para quién" },
+  { tone: "tip", h: "Un logro con número", p: "El que más te enorgullece" },
+  { tone: "tip", h: "Qué buscas ahora", p: "Rol, modalidad, remoto" },
+  { tone: "tip", h: "Palabras de tus ofertas", p: "Las que te encuentra la IA" },
+], { label: "Pega tu sección Acerca de y marca las 4 zonas", n: "Reemplaza el espacio con tu captura: gen.js › annotated('Tu perfil · Acerca de'…), pon la imagen en public/img y las coordenadas de los recuadros en %." });
+annotated("Tu perfil · Destacados y experiencia", "Espacio para tu captura: Destacados", "", [], [
+  { tone: "tip", h: "Destacados", p: "3 proyectos con enlace y resultado" },
+  { tone: "tip", h: "Experiencia", p: "Verbo + acción + número" },
+  { tone: "tip", h: "Habilidades", p: "Las 5 que más piden tus ofertas" },
+  { tone: "tip", h: "Recomendaciones", p: "Que mencionen un logro concreto" },
+], { label: "Pega tus Destacados o tu Experiencia", n: "Mismo proceso que la diapositiva anterior." });
 add(`${kick("LinkedIn en 2026 · dónde postular")}
 <div class="two"><div><Num v="6,87%" class="num" style="font-size:120px" /><div class="lab">conversión a entrevista en la web de la empresa</div></div>
 <div class="doors">
@@ -316,6 +443,110 @@ add(`${kick("LinkedIn en 2026 · dónde postular")}
 <div class="door hi" v-click><div class="bn">6,87%</div><div class="h">Web de la empresa</div><div class="p">Menos gente. Más señal.</div></div>
 </div></div>
 ${src("Huntr · 1,24 millones de postulaciones (vía Lumyhired)")}`, { notes: "Usa LinkedIn para descubrir y conectar, no solo para 'Solicitud sencilla'." });
+// =====================================================================
+// ETAPA 4 · COMUNIDAD Y VISIBILIDAD
+// =====================================================================
+stage(4, "Comunidad y visibilidad", "Que te encuentren, no solo buscar.", 5);
+statement("Comunidad", ["En Ecuador hay comunidades gratuitas que abren ", { hl: "puertas que el aula no abre." }], { fs: 42, side: `<div class="logo-cloud">${["aws", "gdg", "ieee", "github", "googlecloud", "anthropic"].map((n, i) => `<span style="--i:${i}"><Logo n="${n}" :size="78" /></span>`).join("")}</div>`, n: "Aquí es donde más cambió mi camino: comunidades como AWS y GDG me dieron contactos, charlas y oportunidades." });
+tools("Comunidades en Ecuador", "Súmate a una este mes", [
+  { logo: "aws", tag: "Nube e IA", h: "AWS User Groups", p: "Meetups y el camino a AWS Community Builders" },
+  { logo: "gdg", tag: "Google", h: "GDG Quito", p: "Meetups, DevFest y study jams" },
+  { logo: "ieee", tag: "Universidad", h: "Ramas estudiantiles IEEE", p: "Congresos, concursos y red internacional" },
+  { logo: "aws", tag: "Campus", h: "AWS Cloud Clubs", p: "Clubes de nube liderados por estudiantes" },
+  { logo: "gdg", tag: "Campus", h: "GDG on Campus", p: "El club de Google dentro de tu universidad" },
+  { logo: "plus", tag: "Tú", t: "dev", h: "Tu propia comunidad", p: "¿No hay una en tu ciudad? Ábrela" },
+], { n: "Nombrar las que conoces de primera mano. AWS primero: es tu comunidad principal." });
+tools("Beneficios que casi nadie aprovecha", "Gratis, por ser estudiante o por ser parte", [
+  { logo: "github", tag: "Estudiantes", h: "GitHub Student Developer Pack", p: "Herramientas pro gratis con tu correo universitario" },
+  { logo: "aws", tag: "Aprende", h: "AWS Educate y Skill Builder", p: "Cursos y laboratorios de nube e IA" },
+  { logo: "googlecloud", tag: "Aprende", h: "Google Cloud Skills Boost", p: "Rutas e insignias, a veces con campañas de los GDG" },
+  { logo: "anthropic", tag: "Aprende", h: "Anthropic Academy", p: "Cursos gratuitos de fluidez en IA" },
+  { logo: "aws", tag: "Programa", h: "AWS Community Builders", p: "Expertos, créditos y vouchers de certificación" },
+  { logo: "ieee", tag: "Membresía", h: "IEEE estudiantil", p: "Descuentos en congresos y publicaciones" },
+], { n: "Verifica las condiciones vigentes de cada programa antes de la charla. Cuenta qué te dio a ti ser Community Builder." });
+cards("Lo que la comunidad te da", "Y que ningún curso te da", [
+  { n: 1, h: "Referidos", p: "Quien te conoce te recomienda: 11x más contratación" }, { n: 2, h: "Mentores", p: "Gente que ya hizo el camino" }, { n: 3, h: "Tu primera charla", p: "Hablar en público también se practica" },
+  { n: 4, h: "Experiencia real", p: "Organizar un evento es gestionar un proyecto" }, { n: 5, h: "Visibilidad", p: "Fotos, posts y contactos para tu LinkedIn" }, { n: 6, h: "Avisos de vacantes", p: "Muchas se comparten primero en la comunidad" },
+], { cols: 3, src: "Referidos: Gem, más de 165 millones de postulaciones", n: "El dato de 11x es de Gem." });
+flow("Crea tu comunidad", "Así empieza, aunque sean tres", [
+  { h: "Junta 3 personas", p: "Con el mismo interés" }, { h: "Elige un tema", p: "IA, nube, móvil o datos" }, { h: "Primer meetup", p: "10 personas y un aula prestada" },
+  { h: "Pide respaldo", p: "GDG on Campus, AWS Cloud Clubs o tu rama IEEE" }, { h: "Publícalo", p: "Fotos y aprendizajes en LinkedIn" },
+], { n: "Crear una comunidad es la forma más rápida de ganar liderazgo y marca personal. Cuenta tu experiencia." });
+stat("Marca personal y networking", "11x", "más tasa de contratación para candidatos referidos frente a postular en frío", { src: "Gem · más de 165 millones de postulaciones (vía Lumyhired)", ph: "Imagen: dos personas dándose la mano", n: "El canal más eficiente, pero no el único." });
+cards("El contrapeso honesto", "Postular sí funciona. Lo que falla es postular en masa.", [
+  { big: "43–52%", h: "de contrataciones vienen de postulaciones directas" }, { big: "17–18%", h: "de contrataciones vienen de referidos" },
+], { src: "Ashby · 250.000 contrataciones", n: "No decir '85% se consigue por networking': no tiene fuente." });
+bars("Comportamiento de los buscadores", "Dónde se va el tiempo de búsqueda", [
+  { label: "Postulando en línea", val: "85%", pct: 85, color: "var(--warm)" }, { label: "Haciendo networking", val: "15%", pct: 15 },
+], { src: "Encuesta de Huntr", n: "Ahí está la oportunidad." });
+cards("Marca personal práctica", "No hace falta ser influencer", [
+  { n: 1, h: "Portafolio público", p: "GitHub, Behance o una página con 2–3 proyectos" }, { n: 2, h: "Aprender en público", p: "Una publicación por semana" }, { n: 3, h: "Proyecto con IA", p: "Uno pequeño vale más que un certificado más" },
+  { n: 4, h: "Comunidades", p: "Meetups, hackathons, eventos" }, { n: 5, h: "Mensajes con motivo", p: "Menciona algo específico de la persona" }, { n: 6, h: "Coherencia", p: "CV, LinkedIn y portafolio: la misma historia" },
+], { cols: 3, n: "Cada fila es una acción concreta." });
+split("Marca personal", "Un proyecto pequeño con IA que resuelva un problema local", ["Problema", "Solución", "Resultado"], "Captura de un portafolio o repo", { n: "Estructura de cada proyecto." });
+add(`${kick("Networking")}
+${ttl("Un motivo concreto vale más que 100 genéricos")}
+<div class="mocks">
+<div class="bubble bad" v-click><small>GENÉRICO</small><p>Hola, vi tu perfil y me encantaría conectar. Soy un desarrollador apasionado en busca de nuevas oportunidades. Quedo atento.</p></div>
+<div class="bubble good" v-click><small>CON MOTIVO</small><p>Hola Ana. Tu nota sobre contratar juniors en Quito me dejó pensando. Publiqué una app de rutas para el transporte de Ibarra. ¿Te la resumo en tres líneas?</p></div>
+</div>`, { notes: "Se nota cuando lo escribió una IA. El segundo menciona algo concreto de la otra persona. Ejemplo, no un mensaje enviado." });
+// =====================================================================
+// ETAPA 5 · BUSCA CON IA
+// =====================================================================
+stage(5, "Busca trabajo con IA", "Herramientas reales, trabajo remoto y lo que hay que evitar.", 4);
+statement("Buscar trabajo con IA", ["Las mejores herramientas ", { hl: "no disparan solicitudes." }, " Evalúan el encaje y adaptan."], { fs: 46, n: "Refuerza la tesis del bloque 3: la ventaja no es el volumen." });
+flow("Buscar con IA · el flujo", "De la oferta a la postulación", [
+  { h: "Perfil", p: "CV base en un Proyecto de Claude" }, { h: "Búsqueda", p: "Plugin o portales, con filtros reales" }, { h: "Encaje", p: "¿Vale la pena postular?" },
+  { h: "Adaptación", p: "CV y carta por oferta, con tus palabras" }, { h: "Seguimiento", p: "Tracker y recordatorios" },
+], { n: "Cada paso tiene una herramienta; la decisión de postular siempre es tuya." });
+tools("Plugins de Claude · para todos", "Se instalan con un clic", [
+  { logo: "develop21", tag: "Busca ofertas", h: "Develop21 Jobs", p: "Indeed, LinkedIn y webs de empresas. Evalúa encaje y adapta CV y carta" },
+  { logo: "rankedin", tag: "Analiza perfil", h: "rankedin", p: "Con tu exportación de LinkedIn: puntaje, brechas y resistencia a la IA" },
+  { logo: "foundrole", tag: "Busca ofertas", h: "FoundRole Jobs", p: "Salario de mercado, ofertas fantasma y cómo lee tu CV el ATS" },
+  { logo: "mokaru", tag: "Busca y adapta", h: "Mokaru", p: "Busca, adapta tu CV a cada rol y sigue tus postulaciones" },
+  { logo: "careervillage", tag: "Orientación", h: "Career Coaching", p: "CareerVillage: orientación de carrera con fuentes citadas" },
+  { tag: "Ojo", t: "warn", h: "Son de terceros", p: "Categoría comunidad: revisa qué datos compartes", bad: true },
+], { src: "Directorio de plugins de Claude · septiembre 2026", n: "Para público no técnico: estos se instalan desde Claude sin programar." });
+tools("Skills de la comunidad · para desarrolladores", "Gratis en GitHub, con Claude Code", [
+  { logo: "github", tag: "La más usada", t: "dev", h: "career-ops", p: "~69 k estrellas, MIT, README en español. Revisa Greenhouse, Ashby y Lever, evalúa ofertas y genera tu CV en PDF" },
+  { logo: "github", tag: "Perfil", t: "dev", h: "linkedin-profile-optimizer", p: "Titular, Acerca de y palabras clave. Parte de un repo con 20+ skills de carrera" },
+  { logo: "github", tag: "Estrategia", t: "dev", h: "job-search-strategist", p: "Plan de búsqueda por rol y mercado" },
+  { logo: "github", tag: "CV", t: "dev", h: "resume-tailoring-skill", p: "Adapta el CV a cada oferta" },
+], { cols: 2, src: "github.com/santifer/career-ops · claudemarketplaces.com · requieren Claude Code y Node", n: "career-ops la hizo un desarrollador español. Nunca postula por ti: tú decides." });
+statement("La advertencia", ["No existe un conector oficial de LinkedIn, y LinkedIn ", { hl: "prohíbe bots y automatizar acciones.", warm: true }], { fs: 44, src: "Condiciones de uso de LinkedIn. Los conectores de empleo que existen son de Indeed, ZipRecruiter y Dice.", n: "Desconfía de lo que prometa 'postular automático en LinkedIn': te pueden restringir la cuenta." });
+prompt("Buscar con IA · prompt", "Evalúa el encaje antes de postular", "\"Te paso esta oferta y mi CV. Del 1 al 10, ¿qué tan bien encajo? Dame 3 razones a favor, 3 brechas y si vale la pena postular. Sé honesto.\"", { tips: ["Menos de 6: no postules, aprende la brecha", "Las brechas van a tu plan de aprendizaje", "Las razones a favor van a tu carta"], n: "Es la versión manual de lo que hacen los plugins." });
+statement("Trabajo remoto", ["Muchas ofertas 'remotas' son ", { hl: "solo para EE. UU.", warm: true }, " Lee la ubicación antes de postular."], { fs: 50, n: "Remoto no siempre es 'desde cualquier país'. Buscar 'LATAM', 'Americas' o 'worldwide'." });
+tools("Trabajo remoto · dónde buscar", "Portales que sí aceptan Latinoamérica", [
+  { logo: "linkedin", tag: "Filtro", h: "LinkedIn", p: "Filtro 'Remoto' + ubicación 'Latinoamérica'" },
+  { logo: "getonbrd", tag: "Tech LatAm", h: "Get on Board", p: "Empleos de tecnología en la región" },
+  { logo: "torre", tag: "LatAm", h: "Torre", p: "Empleos remotos para Latinoamérica" },
+  { logo: "wellfound", tag: "Startups", h: "Wellfound", p: "Startups con equipos distribuidos" },
+  { logo: "wwr", tag: "Global", h: "We Work Remotely · Remote OK", p: "Revisa si dice 'worldwide'" },
+  { logo: "workana", tag: "Freelance", h: "Workana", p: "Proyectos para empezar y armar portafolio" },
+], { n: "Palabras clave útiles en inglés: remote LATAM, remote Americas, worldwide." });
+cards("Trabajo remoto · lo que te piden", "Más allá de lo técnico", [
+  { n: 1, h: "Inglés", p: "Escrito primero; hablado en la entrevista" }, { n: 2, h: "Comunicación asíncrona", p: "Escribir claro para quien lee mañana" }, { n: 3, h: "Autonomía", p: "Entregas, no horas conectado" },
+  { n: 4, h: "Zona horaria", p: "UTC-5: tu ventaja con EE. UU." }, { n: 5, h: "Portafolio público", p: "Nadie te ve en la oficina" }, { n: 6, h: "Herramientas", p: "Slack, Notion, GitHub, Loom" },
+], { cols: 3, n: "Conecta con la diapositiva de Ecuador: hora y dólar." });
+cards("Trabajo remoto · cómo te contratan", "Tres formas, tres realidades", [
+  { h: "Empleo directo", p: "La empresa te contrata. Poco común desde el extranjero." },
+  { h: "Vía EOR", p: "Una empresa intermedia (p. ej. Deel o Remote) te contrata por ellos." },
+  { h: "Contratista", p: "Facturas tú. Revisa tus obligaciones con el SRI." },
+], { n: "No es asesoría legal ni tributaria; es para saber qué preguntar." });
+cards("Trabajo remoto · señales de estafa", "Si ves esto, sal", [
+  { h: "Te piden pagar", p: "Por capacitación, equipo o 'registro'", bad: true }, { h: "Entrevista solo por chat", p: "Sin video y sin nombre real", bad: true }, { h: "Piden cédula o banco", p: "Antes de una oferta por escrito", bad: true },
+  { h: "Sueldo irreal", p: "Muy alto para el rol y sin experiencia", bad: true }, { h: "Correo gratuito", p: "Gmail o Hotmail en vez del dominio de la empresa", bad: true }, { h: "Urgencia", p: "'Responde hoy o pierdes el puesto'", bad: true },
+], { cols: 3, n: "Las estafas de empleo remoto son comunes. Mejor prevenir." });
+prompt("Trabajo remoto · prompt", "Revisa la oferta antes de ilusionarte", "\"Revisa esta oferta remota: ¿acepta candidatos desde Ecuador? ¿En qué zona horaria trabaja el equipo? ¿Es empleo, EOR o contrato? ¿Ves señales de estafa?\"", { tips: ["Pega la oferta completa", "Busca la empresa aparte", "Nunca pagues para postular"], n: "Cierra el bloque práctico de remoto." });
+statement("Idea para llevarte · bloque 6", ["La IA busca y compara.", { hl: "Tú decides dónde postular." }], { fs: 52, n: "Cierre del bloque 6." });
+
+// =====================================================================
+// ETAPA 6 · ENTREVISTA
+// =====================================================================
+stage(6, "Entrevista", "Prepárate con IA. Responde tú.", 2);
+add(`${kick("Entrevistas · juego")}
+${ttl("¿Legítimo o trampa?")}
+<LegitGame />`, { notes: "Lee cada frase, que la sala grite 'legítimo' o 'trampa', y haz clic." });
 cards("Entrevistas en 2026", "Prepararte con IA: sí. Que responda por ti: no.", [
   { h: "Sí: úsala para prepararte", p: "Preguntas probables · simulación por voz · historias STAR", hi: true }, { h: "No: que piense por ti en vivo", p: "Es fraude y cada vez más empresas lo detectan", bad: true },
 ], { n: "Línea ética clara." });
@@ -339,30 +570,11 @@ statement("Entrevistas en 2026", ["Si la IA piensa por ti en la entrevista, ", {
 statement("Idea para llevarte · bloque 4", ["La IA adapta y pule;", { hl: "los hechos los pones tú." }], { ph: "Imagen: manos humanas y robóticas escribiendo juntas", n: "Cierre del bloque de demos." });
 
 // =====================================================================
-// BLOQUE 5
+// PLAN DE 30 DÍAS
 // =====================================================================
-section(5, "Marca personal y plan de 30 días", "Que te encuentren, no solo buscar.", 9);
-stat("Marca personal y networking", "11x", "más tasa de contratación para candidatos referidos frente a postular en frío", { src: "Gem · más de 165 millones de postulaciones (vía Lumyhired)", ph: "Imagen: dos personas dándose la mano", n: "El canal más eficiente, pero no el único." });
-cards("El contrapeso honesto", "Postular sí funciona. Lo que falla es postular en masa.", [
-  { big: "43–52%", h: "de contrataciones vienen de postulaciones directas" }, { big: "17–18%", h: "de contrataciones vienen de referidos" },
-], { src: "Ashby · 250.000 contrataciones", n: "No decir '85% se consigue por networking': no tiene fuente." });
-bars("Comportamiento de los buscadores", "Dónde se va el tiempo de búsqueda", [
-  { label: "Postulando en línea", val: "85%", pct: 85, color: "var(--warm)" }, { label: "Haciendo networking", val: "15%", pct: 15 },
-], { src: "Encuesta de Huntr", n: "Ahí está la oportunidad." });
-cards("Marca personal práctica", "No hace falta ser influencer", [
-  { n: 1, h: "Portafolio público", p: "GitHub, Behance o una página con 2–3 proyectos" }, { n: 2, h: "Aprender en público", p: "Una publicación por semana" }, { n: 3, h: "Proyecto con IA", p: "Uno pequeño vale más que un certificado más" },
-  { n: 4, h: "Comunidades", p: "Meetups, hackathons, eventos" }, { n: 5, h: "Mensajes con motivo", p: "Menciona algo específico de la persona" }, { n: 6, h: "Coherencia", p: "CV, LinkedIn y portafolio: la misma historia" },
-], { cols: 3, n: "Cada fila es una acción concreta." });
-split("Marca personal", "Un proyecto pequeño con IA que resuelva un problema local", ["Problema", "Solución", "Resultado"], "Captura de un portafolio o repo", { n: "Estructura de cada proyecto." });
-add(`${kick("Networking")}
-${ttl("Un motivo concreto vale más que 100 genéricos")}
-<div class="mocks">
-<div class="bubble bad" v-click><small>GENÉRICO</small><p>Hola, vi tu perfil y me encantaría conectar. Soy un desarrollador apasionado en busca de nuevas oportunidades. Quedo atento.</p></div>
-<div class="bubble good" v-click><small>CON MOTIVO</small><p>Hola Ana. Tu nota sobre contratar juniors en Quito me dejó pensando. Publiqué una app de rutas para el transporte de Ibarra. ¿Te la resumo en tres líneas?</p></div>
-</div>`, { notes: "Se nota cuando lo escribió una IA. El segundo menciona algo concreto de la otra persona. Ejemplo, no un mensaje enviado." });
-cards("Tu plan", "30 días · 10 horas por semana", [
-  { n: "Sem 1", h: "Base" }, { n: "Sem 2", h: "CV y LinkedIn" }, { n: "Sem 3", h: "Prueba pública" }, { n: "Sem 4", h: "Red y postulaciones" },
-], { n: "Ver las cuatro semanas una por una." });
+add(`${kick("Tu plan · checklist")}
+${ttl("30 días, 10 horas por semana")}
+<PlanChecklist />`, { notes: "Marca en vivo lo que ya hiciste. El avance se guarda en el navegador." });
 week("Semana 1 · Base", ["Elige 1 o 2 roles objetivo", "Reúne 10 ofertas reales", "Con IA, extrae las habilidades que más se repiten"], "Lista de habilidades y palabras clave");
 week("Semana 2 · CV y LinkedIn", ["CV base con logros medibles", "Titular, Acerca de, habilidades y Destacados alineados"], "CV base + perfil actualizado");
 week("Semana 3 · Prueba pública", ["Un proyecto pequeño con IA", "Primera publicación contando qué aprendiste"], "1 proyecto + 1 publicación");
@@ -373,7 +585,7 @@ statement("Regla de oro", ["Menos postulaciones,", { hl: "mejor adaptadas," }, "
 // CIERRE
 // =====================================================================
 add(`${kick("Volvamos a la pregunta del inicio")}
-<div class="one"><div class="st wide">¿Quién sigue creyendo que la IA le va a quitar el trabajo?</div><p style="color:var(--muted);font-size:20px;margin-top:30px">Levanta la mano otra vez.</p></div>`, { notes: "Volver a levantar la mano. ¿Cambió algo? Cerrar con la prima de 62% de PwC (2 min)." });
+<div class="ask"><div class="st">¿Quién sigue creyendo que la IA le va a quitar el trabajo?</div></div>`, { notes: "Volver a levantar la mano. ¿Cambió algo? Cerrar con la prima de 62% de PwC (2 min)." });
 stat("Cierre", "+62%", "prima salarial para quien sabe usar IA con criterio", { src: "PwC · AI Jobs Barometer 2026", ph: "Imagen: persona con laptop sonriendo", n: "Volver al título." });
 add(`<div class="quote">"La IA no te consigue el trabajo sola. Tú, con IA, sí."</div>
 <p style="text-align:center;margin-top:30px;font-size:18px">— Cristhian Recalde</p>`, { cls: "grad", notes: "Frase final. Pausa. Pasar a preguntas." });
@@ -396,6 +608,82 @@ add(`${kick("Anexo")}
 ${ttl("Imágenes")}
 <p style="font-size:22px;max-width:760px;line-height:1.4">Ilustraciones originales de esta charla, hechas para el relato. La foto de la presentación es de Cristhian Recalde.</p>
 <p style="color:var(--soft);margin-top:18px;max-width:760px">El código QR abre linkedin.com/in/isnotcristhianr.</p>`, { notes: "Ya no se usan las fotos de stock. No hace falta atribución CC." });
+// Diapositivas ocultas para la versión de 45 min (hide: true). Borra una línea para volver a mostrarla.
+const HIDE = [
+  "IDEA PARA LLEVARTE · BLOQUE 1",
+  "IDEA PARA LLEVARTE · BLOQUE 2",
+  "IDEA PARA LLEVARTE · BLOQUE 3",
+  "IDEA PARA LLEVARTE · BLOQUE 5",
+  "IDEA PARA LLEVARTE · BLOQUE 6",
+  "DEMO 1 · SI FALLA EL INTERNET",
+  "De responsabilidad a logro",
+  "De la oferta a la postulación",
+  "Cómo prepararte con IA",
+  "v=\"11x\"",
+  "¿Quién está buscando trabajo, o lo buscará este año?",
+  "Cajeros automáticos",
+  "v=\"39%\"",
+  "v=\"26–38%\"",
+  "v=\"2–5%\"",
+  "v=\"+9%\"",
+  "v=\"2x\"",
+  "Técnicas de IA",
+  "v=\"86%\"",
+  "v=\"50%\"",
+  "v=\"−11%\"",
+  "v=\"−20%\"",
+  "EL MATIZ CLAVE",
+  "v=\"+35%\"",
+  "Son de EE. UU.",
+  "v=\"7,7%\"",
+  "v=\"36,6%\"",
+  "v=\"581.046\"",
+  "Tendencia, no cifra",
+  "Fue escéptico",
+  "v=\"48%\"",
+  ". No decide.",
+  "v=\"67%\"",
+  "Noon · HeroHunt",
+  "v=\"72,4%\"",
+  "Prepara tu respuesta",
+  "v=\"9,25%\"",
+  "v=\"49%\"",
+  "Nunca exageres",
+  "Nunca dejes que invente",
+  "Una pregunta a la vez",
+  "primero lee una máquina.",
+  "LINKEDIN EN 2026 · TITULAR",
+  "Foto y banner",
+  "CLAUDE · PROMPT 2 · TITULAR",
+  "Habla el idioma de las ofertas",
+  "PRIMERA LÍNEA",
+  "v=\"6,87%\"",
+  "Sí: úsala para prepararte",
+  "v=\"1 de 4\"",
+  "DEMO 4 · SI FALLA EL INTERNET",
+  "La IA adapta y pule;",
+  "te encargan.",
+  "Ten una respuesta con un proyecto.",
+  "APRENDER CON IA · PROMPT 2",
+  "Aprendes a copiar.",
+  "Un problema real",
+  "BUSCAR TRABAJO CON IA",
+  "BUSCAR CON IA · PROMPT",
+  "Zona horaria",
+  "Empleo directo",
+  "TRABAJO REMOTO · PROMPT",
+  "v=\"43–52%\"",
+  "v=\"85%\"",
+  "Un proyecto pequeño con IA que resuelva un problema local",
+  "Un motivo concreto vale más que 100 genéricos",
+  "Semana 1 · Base",
+  "Semana 2 · CV y LinkedIn",
+  "Semana 3 · Prueba pública",
+  "10 mensajes personalizados",
+  "prima salarial para quien sabe usar IA con criterio",
+  "Respuestas preparadas",
+  "El código QR abre linkedin.com/in/isnotcristhianr.",
+];
 // =====================================================================
 const head = `theme: default
 title: La IA no te quitará el trabajo, pero sí te lo puede conseguir
@@ -415,7 +703,8 @@ drawings:
   persist: false`;
 const md = out.map((s, i) => {
   const lay = s.cls === "grad" ? "animgrad" : "anim";
-  const fmb = `layout: ${lay}${s.tr ? `\ntransition: ${s.tr}` : ""}`;
+  const hid = HIDE.some(h => s.body.includes(h));
+  const fmb = `layout: ${lay}${s.tr ? `\ntransition: ${s.tr}` : ""}${hid ? "\nhide: true" : ""}`;
   const fm = i === 0 ? `---\n${head}\n${fmb}\n---\n` : `\n---\n${fmb}\n---\n`;
   return `${fm}\n${s.body}\n${s.notes ? `\n<!--\n${s.notes}\n-->\n` : ""}`;
 }).join("");

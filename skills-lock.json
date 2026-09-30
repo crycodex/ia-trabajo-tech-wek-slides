@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "slidev": {
+      "source": "smithery.ai",
+      "sourceUrl": "https://smithery.ai/skills/kaovilai/slidev",
+      "sourceType": "well-known",
+      "computedHash": "d61915810bd01b7a773791a6866cfbe0f999658057dfa711ca408f47fc006745",
+      "wellKnownDigest": "sha256:6f26b6a63970c44e5f19c84eae320f7d8ff7d609d6bedc4e2741ea8ef1138148"
+    }
+  }
+}
