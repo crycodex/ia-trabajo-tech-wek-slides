@@ -1,0 +1,16 @@
+{
+  "name": "ia-te-consigue-el-trabajo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node gen.js",
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-default": "latest",
+    "vue": "^3.5.0"
+  }
+}

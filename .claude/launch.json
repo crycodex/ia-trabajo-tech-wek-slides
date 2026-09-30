@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "slidev", "runtimeExecutable": "npx", "runtimeArgs": ["slidev", "--port", "3030"], "port": 3030 }
+  ]
+}
