@@ -131,6 +131,15 @@ ${ttl(title)}
 </div>
 ${src(o.src)}`, { notes: o.n });
 }
+// Meme: plantilla de Imgflip + textos encima (editables). l.click = aparece con clic.
+function meme(k, title, img, ratio, labels, o = {}) {
+  add(`${kick(k)}
+${ttl(title)}
+<div class="meme-wrap"><div class="meme" style="aspect-ratio:${ratio};height:${o.h || 390}px"><img src="${img}" alt="${o.alt || "Meme"}">
+${labels.map(l => `<div class="ml ${l.cls || ""}" ${l.click ? "v-click" : ""} style="left:${l.x}%;top:${l.y}%;width:${l.w}%;height:${l.h}%;font-size:${l.fs || 22}px">${l.t}</div>`).join("\n")}
+</div></div>
+${src("Meme · plantilla de Imgflip")}`, { notes: o.n });
+}
 function week(t, ls, ent) {
   add(`${kick("Tu plan de 30 días")}
 ${ttl(t)}
@@ -266,6 +275,10 @@ statpair("Las nuevas reglas", "Avalancha de solicitudes", [
 flow("Las nuevas reglas", "IA contra IA: así llega tu solicitud a una persona", [
   { h: "Candidatos con IA", p: "Cientos de solicitudes en minutos" }, { h: "Filtro con IA", p: "Resume, filtra y agenda" }, { h: "Reclutador humano", p: "Revisa los pocos que pasan" }, { h: "Entrevista", p: "Cada vez más presencial" },
 ], { n: "Explicar el embudo. Lo escaso ahora es la señal de autenticidad." });
+meme("Pausa", "La estrategia de siempre vs la que funciona", "/memes/drake.jpg", "1 / 1", [
+  { cls: "dark", x: 52, y: 4, w: 45, h: 42, fs: 24, t: "Enviar 100 CV iguales hechos con IA" },
+  { cls: "dark", x: 52, y: 54, w: 45, h: 42, fs: 24, click: true, t: "Enviar 10 adaptados, con alguien que te recomiende" },
+], { alt: "Meme de Drake rechazando y aprobando", n: "Pausa de 10 segundos. Lee el de arriba, espera la risa, clic para el de abajo." });
 statement("Las nuevas reglas", ["La IA de las empresas hace ", { hl: "tareas administrativas" }, ". No decide."], { fs: 46, src: "Resume Genius 2026 · filtrar, redactar ofertas y agendar", n: "Matiz: la contratación sigue siendo humana." });
 statpair("Las nuevas reglas", "Verificar se volvió el problema", [
   { big: "67%", h: "dice que las solicitudes con IA hacen el proceso más lento", cls: "bad" }, { big: "65%", h: "dice que las habilidades son más difíciles de verificar", cls: "bad" },
@@ -344,6 +357,10 @@ cards("ATS en un minuto", "Es un buscador, no un verdugo", [
   { n: 1, h: "Título exacto del puesto", p: "10,6x más invitaciones a entrevista" }, { n: 2, h: "Palabras de la oferta", p: "Las mismas, si son verdad" }, { n: 3, h: "Una columna, PDF con texto", p: "Sin tablas, íconos ni texto en imágenes" },
   { n: 4, h: "Secciones estándar", p: "Resumen, Experiencia, Educación, Habilidades" }, { n: 5, h: "Nada de “etc.”", p: "Cada habilidad con su nombre" }, { n: 6, h: "Cero errores", p: "Una palabra mal escrita no aparece en la búsqueda" },
 ], { cols: 3, src: "Jobscan: 99,7% de reclutadores filtra por palabras clave en su ATS", n: "Un minuto. El ATS guarda tu CV y el reclutador lo busca con palabras; si tu CV no tiene esas palabras, no aparece. Por eso importa el título exacto y la ortografía." });
+meme("Confesión", "Yo, revisando mi propio CV para esta charla", "/memes/this-is-fine.jpg", "580 / 282", [
+  { x: 2, y: 66, w: 46, h: 30, fs: 19, t: "“Presecial”, “Planifique” y una viñeta repetida" },
+  { cls: "bubble-fix", x: 62, y: 5, w: 31, h: 21, fs: 19, t: "Todo bien." },
+], { h: 360, alt: "Meme del perro en la habitación en llamas", n: "Autocrítica antes de mostrar el CV: rompe el hielo y da confianza." });
 annotated("Mi CV real · bajo la lupa del ATS", "Lo que ve un ATS, y lo que ve una persona", "/img/cv-pagina1.png", [{"x": 4.5, "y": 5.6, "w": 69, "h": 2.1, "n": 1}, {"x": 4.5, "y": 7.5, "w": 58, "h": 1.9, "n": 2, "tone": "good"}, {"x": 4.2, "y": 18.9, "w": 91.5, "h": 9.6, "n": 3}, {"x": 75.3, "y": 46.1, "w": 16, "h": 2.1, "n": 4}, {"x": 8.3, "y": 50, "w": 60, "h": 1.9, "n": 4}, {"x": 8.3, "y": 55.7, "w": 62, "h": 1.9, "n": 4}, {"x": 8, "y": 94.6, "w": 71, "h": 3.8, "n": 5}, {"x": 45, "y": 42.2, "w": 9.8, "h": 2, "n": 6, "tone": "good"}], [
   { h: "Titular", p: "Falta lo que me diferencia: AWS Community Builder · IA" },
   { tone: "good", h: "Portafolio y LinkedIn", p: "Enlazados y visibles arriba" },
@@ -361,6 +378,11 @@ ${ttl("¿Lo contratarías?")}
 <div class="bubble good" v-click><small>LO QUE SÍ SE LEE</small><p>Aumenté 40% el alcance de Instagram en 6 meses con un calendario de contenido. Busco el equipo donde pueda repetir ese número.</p></div>
 </div>
 ${src("Ejemplo de la charla · Resume Now: 62% de empleadores rechaza CV con IA no personalizados.")}`, { notes: "Leer el genérico en voz alta: suele provocar risas. El segundo es el mismo ejemplo del bloque. No presentarlo como un caso real con nombre." });
+meme("Pausa", "Lo que le pasa al reclutador", "/memes/novio-distraido.jpg", "3 / 2", [
+  { x: 10, y: 66, w: 36, h: 20, fs: 21, t: "Un CV con un logro y un número" },
+  { x: 50, y: 66, w: 24, h: 14, fs: 21, t: "El reclutador" },
+  { x: 74, y: 80, w: 25, h: 18, fs: 19, t: "100 CV que suenan igual" },
+], { alt: "Meme del novio distraído", n: "Diez segundos. Remata la idea del contraejemplo." });
 statpair("Lo genérico se castiga", "Reclutadores y gerentes lo detectan", [
   { big: "62%", h: "de empleadores rechaza CV hechos con IA sin personalizar", cls: "bad" }, { big: "49%", h: "de gerentes descarta los que identifica como generados por IA", cls: "bad" },
 ], { src: "Resume Now · Resume.io (vía KraftCV)", n: "Fuentes secundarias: citarlas como tal." });
@@ -559,6 +581,12 @@ statement("Idea para llevarte · bloque 6", ["La IA busca y compara.", { hl: "T�
 // ETAPA 6 · ENTREVISTA
 // =====================================================================
 stage(6, "Entrevista", "Prepárate con IA. Responde tú.", 2);
+meme("Pausa", "El plan perfecto", "/memes/plan-gru.jpg", "700 / 449", [
+  { cls: "dark tight", x: 27.5, y: 10, w: 21, h: 36, fs: 14, t: "Le pido a la IA mi CV" },
+  { cls: "dark tight", x: 78, y: 10, w: 21, h: 36, fs: 14, t: "Me inventa 3 logros increíbles" },
+  { cls: "dark tight", x: 27.5, y: 60, w: 21, h: 36, fs: 13, click: true, t: "En la entrevista me preguntan por ellos" },
+  { cls: "dark tight", x: 78, y: 60, w: 21, h: 36, fs: 13, click: true, t: "En la entrevista me preguntan por ellos" },
+], { alt: "Meme del plan de Gru", n: "Clic para los dos últimos paneles: la gracia es que el tercero y el cuarto dicen lo mismo y Gru se da cuenta." });
 add(`${kick("Entrevistas · juego")}
 ${ttl("¿Legítimo o trampa?")}
 <LegitGame />`, { notes: "Lee cada frase, que la sala grite 'legítimo' o 'trampa', y haz clic." });

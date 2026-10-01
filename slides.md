@@ -586,6 +586,22 @@ Explicar el embudo. Lo escaso ahora es la señal de autenticidad.
 
 ---
 layout: anim
+---
+
+<div class="kick">PAUSA</div>
+<div class="tt">La estrategia de siempre vs la que funciona</div>
+<div class="meme-wrap"><div class="meme" style="aspect-ratio:1 / 1;height:390px"><img src="/memes/drake.jpg" alt="Meme de Drake rechazando y aprobando">
+<div class="ml dark"  style="left:52%;top:4%;width:45%;height:42%;font-size:24px">Enviar 100 CV iguales hechos con IA</div>
+<div class="ml dark" v-click style="left:52%;top:54%;width:45%;height:42%;font-size:24px">Enviar 10 adaptados, con alguien que te recomiende</div>
+</div></div>
+<div class="src">Meme · plantilla de Imgflip</div>
+
+<!--
+Pausa de 10 segundos. Lee el de arriba, espera la risa, clic para el de abajo.
+-->
+
+---
+layout: anim
 hide: true
 ---
 
@@ -974,6 +990,22 @@ Un minuto. El ATS guarda tu CV y el reclutador lo busca con palabras; si tu CV n
 layout: anim
 ---
 
+<div class="kick">CONFESIÓN</div>
+<div class="tt">Yo, revisando mi propio CV para esta charla</div>
+<div class="meme-wrap"><div class="meme" style="aspect-ratio:580 / 282;height:360px"><img src="/memes/this-is-fine.jpg" alt="Meme del perro en la habitación en llamas">
+<div class="ml "  style="left:2%;top:66%;width:46%;height:30%;font-size:19px">“Presecial”, “Planifique” y una viñeta repetida</div>
+<div class="ml bubble-fix"  style="left:62%;top:5%;width:31%;height:21%;font-size:19px">Todo bien.</div>
+</div></div>
+<div class="src">Meme · plantilla de Imgflip</div>
+
+<!--
+Autocrítica antes de mostrar el CV: rompe el hielo y da confianza.
+-->
+
+---
+layout: anim
+---
+
 <div class="kick">MI CV REAL · BAJO LA LUPA DEL ATS</div>
 <div class="tt">Lo que ve un ATS, y lo que ve una persona</div>
 <div class="annw" style="grid-template-columns:300px 1fr">
@@ -1024,6 +1056,23 @@ layout: anim
 
 <!--
 Leer el genérico en voz alta: suele provocar risas. El segundo es el mismo ejemplo del bloque. No presentarlo como un caso real con nombre.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">PAUSA</div>
+<div class="tt">Lo que le pasa al reclutador</div>
+<div class="meme-wrap"><div class="meme" style="aspect-ratio:3 / 2;height:390px"><img src="/memes/novio-distraido.jpg" alt="Meme del novio distraído">
+<div class="ml "  style="left:10%;top:66%;width:36%;height:20%;font-size:21px">Un CV con un logro y un número</div>
+<div class="ml "  style="left:50%;top:66%;width:24%;height:14%;font-size:21px">El reclutador</div>
+<div class="ml "  style="left:74%;top:80%;width:25%;height:18%;font-size:19px">100 CV que suenan igual</div>
+</div></div>
+<div class="src">Meme · plantilla de Imgflip</div>
+
+<!--
+Diez segundos. Remata la idea del contraejemplo.
 -->
 
 ---
@@ -1845,6 +1894,24 @@ transition: fade
 
 <!--
 Etapa 6 del roadmap. Tiempo estimado: 2 min.
+-->
+
+---
+layout: anim
+---
+
+<div class="kick">PAUSA</div>
+<div class="tt">El plan perfecto</div>
+<div class="meme-wrap"><div class="meme" style="aspect-ratio:700 / 449;height:390px"><img src="/memes/plan-gru.jpg" alt="Meme del plan de Gru">
+<div class="ml dark tight"  style="left:27.5%;top:10%;width:21%;height:36%;font-size:14px">Le pido a la IA mi CV</div>
+<div class="ml dark tight"  style="left:78%;top:10%;width:21%;height:36%;font-size:14px">Me inventa 3 logros increíbles</div>
+<div class="ml dark tight" v-click style="left:27.5%;top:60%;width:21%;height:36%;font-size:13px">En la entrevista me preguntan por ellos</div>
+<div class="ml dark tight" v-click style="left:78%;top:60%;width:21%;height:36%;font-size:13px">En la entrevista me preguntan por ellos</div>
+</div></div>
+<div class="src">Meme · plantilla de Imgflip</div>
+
+<!--
+Clic para los dos últimos paneles: la gracia es que el tercero y el cuarto dicen lo mismo y Gru se da cuenta.
 -->
 
 ---
