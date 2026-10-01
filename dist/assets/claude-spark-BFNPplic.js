@@ -1,0 +1,1 @@
+var e=`/img/claude-spark.png`;export{e as t};

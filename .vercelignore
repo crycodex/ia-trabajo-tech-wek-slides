@@ -1,0 +1,7 @@
+node_modules
+dist
+_pptx_v1
+.claude
+.agents
+assets
+*.log
